@@ -1,0 +1,351 @@
+@charset "utf-8";
+
+/* Declare web fonts ::LGFont, LGIcon */
+@font-face {
+  font-family: "LG_Display";
+  font-weight: 200;
+  src: url("font/LG_Smart_UI-Light.eot");
+  src: url("font/LG_Smart_UI-Light.eot?#iefix") format("embedded-opentype"),
+    url("font/LG_Smart_UI-Light.woff") format("woff"),
+    url("font/LG_Smart_UI-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LG_Display";
+  font-weight: 400;
+  src: url("font/LG_Smart_UI-SemiBold.eot");
+  src: url("font/LG_Smart_UI-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("font/LG_Smart_UI-SemiBold.woff") format("woff"),
+    url("font/LG_Smart_UI-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LG_Display";
+  font-weight: 600;
+  src: url("font/LG_Smart_UI-Bold.eot");
+  src: url("font/LG_Smart_UI-Bold.eot?#iefix") format("embedded-opentype"),
+    url("font/LG_Smart_UI-Bold.woff") format("woff"),
+    url("font/LG_Smart_UI-Bold.ttf") format("truetype");
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: none;
+  box-sizing: border-box;
+  word-break: break-all;
+  font-family: "LG_Display", Helvetica, Apple-Gothic, Droid Sans, sans-serif,
+    Dotum, Tahoma, "Malgun Gothic";
+  color: inherit;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+form,
+fieldset,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  vertical-align: top;
+}
+span {
+  vertical-align: top;
+}
+a {
+  vertical-align: top;
+  color: #555555;
+  text-decoration: none;
+}
+a:hover {
+}
+table {
+  width: 100%;
+}
+table,
+tr,
+td,
+th {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  padding: 0px;
+  margin: 0;
+}
+select {
+  font-size: 13px;
+  padding: 1px;
+  height: 20px;
+  color: #353535;
+}
+fieldset,
+dl,
+dd,
+dt,
+img {
+  border: 0;
+  vertical-align: top;
+}
+address,
+em {
+  font-style: normal;
+}
+hr,
+legend,
+caption {
+  display: none;
+}
+button,
+label {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+button {
+  border: none;
+  padding: 0;
+  margin: 0; /*font-weight: bold;*/
+}
+i {
+  vertical-align: middle;
+}
+b {
+  font-weight: bold;
+}
+strong {
+  font-weight: bold;
+}
+caption {
+  display: none;
+}
+:focus,
+input[type="text"]:focus,
+textarea:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input:focus,
+button:focus,
+select:focus,
+a:focus {
+  outline: none !important;
+  border-color: #00a99d !important;
+}
+.has_error :focus,
+.has_error input[type="text"]:focus,
+.has_error textarea:focus,
+.has_error input[type="password"]:focus,
+.has_error input[type="number"]:focus,
+.has_error input:focus,
+.has_error button:focus,
+.has_error select:focus,
+.has_error a:focus {
+  outline: none !important;
+  border-color: #e63d3d !important;
+}
+td:focus {
+  border-color: #e7ebf6 !important;
+}
+
+/*input*/
+input,
+input[type="text"],
+input[type="password"] {
+  background: #ffffff;
+  width: 187px;
+  height: 33px;
+  padding: 0 10px;
+  font-size: 14px;
+  line-height: 31px;
+  color: #707789;
+  vertical-align: middle;
+  border: 1px solid #bfc8e0;
+  border-radius: 4px;
+  font-family: "LG_Display", Helvetica, Apple-Gothic, Droid Sans, sans-serif,
+    Dotum, Tahoma, "Malgun Gothic";
+}
+textarea {
+  background: #ffffff;
+  width: 100%;
+  height: 100px;
+  padding: 4px 0 1px 10px;
+  color: #4c5364;
+  font-size: 14px;
+  vertical-align: middle;
+  border: 1px solid #bfc8e0;
+  border-radius: 4px;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+textarea:hover {
+  border: 1px solid #89b4d3;
+}
+:disabled,
+input[type="text"]:read-only,
+input[type="text"]:disabled,
+input[type="password"]:disabled {
+  background: #eaedf5;
+  cursor: default;
+}
+.disable,
+.readyOnly,
+.readOnly {
+  background: #eaedf5 !important;
+  cursor: default;
+}
+select {
+  border: 1px solid #bfc8e0;
+  border-radius: 4px;
+  height: 33px !important;
+  padding: 2px 25px 1px 4px;
+  font-size: 14px;
+  color: #4c5364;
+  vertical-align: middle;
+  line-height: 28px;
+  background: url(../images/common/arrow_down.png) #ffffff right 10px top 50%
+    no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+select::-ms-expand {
+  display: none;
+}
+
+input[type="file"] {
+  vertical-align: middle;
+  height: 22px;
+  width: 80%;
+  margin-right: 6px;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  width: 13px;
+  height: 13px;
+  line-height: 13px;
+}
+label {
+  cursor: pointer;
+}
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+input[type="checkbox"] + label {
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+input[type="checkbox"] + label:before {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 0;
+  top: 50%;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  background: #ffffff;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transition-duration: 0.2s;
+  box-sizing: border-box;
+}
+input[type="checkbox"] + label:after {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 4px;
+  top: 50%;
+  width: 8px;
+  height: 4px;
+  margin-top: -2px;
+  border-left: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transform: translateY(-50%) rotate(-45deg);
+  transition-duration: 0.2s;
+}
+input[type="checkbox"]:checked + label:before {
+  border-color: #94a3cc;
+  background: #94a3cc;
+}
+input[type="checkbox"]:checked + label:after {
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+input[type="checkbox"]:disabled + label:before {
+  background: #cccccc;
+}
+input[type="checkbox"] + label span {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 15px;
+  color: #4c5364;
+  vertical-align: middle;
+}
+.hide {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  line-height: 1px;
+  left: -9999px;
+  top: -9999px;
+}
+.fll {
+  float: left;
+}
+.text_over {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+input:-moz-placeholder,
+::-moz-placeholder {
+  color: rgba(112, 119, 137, 0.7) !important;
+  opacity: 1;
+}
+input:-ms-input-placeholder,
+::-ms-input-placeholder {
+  color: rgba(112, 119, 137, 0.7) !important;
+}
+input[type="text"]:-ms-input-placeholder,
+input[type="password"]:-ms-input-placeholder {
+  color: rgba(112, 119, 137, 0.7);
+}
+input:-webkit-input-placeholder,
+::-webkit-input-placeholder {
+  color: rgba(112, 119, 137, 0.7) !important;
+}
+input::placeholder,
+::placeholder {
+  color: rgba(112, 119, 137, 0.7) !important;
+}

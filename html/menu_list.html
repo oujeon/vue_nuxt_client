@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>충전관제시스템-list </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<link type="text/css" rel="stylesheet" href="com/css/reset.css" />
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<style type="text/css">
+	.menu_tbl_wrap{padding:20px;}
+	.menu_tbl_wrap table{width:100%;}
+	.menu_tbl_wrap thead th:first-child {border-top:1px solid #ccc; border-left:1px solid #ccc;}
+	.menu_tbl_wrap thead th {border-top:1px solid #ccc; text-align:center; color:#000; font-weight:bold;}
+	.menu_tbl_wrap tbody th:first-child {border-left:1px solid #ccc;}
+	.menu_tbl_wrap tbody tr:hover td, tbody tr:hover th {background:#ededed;}
+	.menu_tbl_wrap th, td {border-bottom:1px solid #ccc; border-right:1px solid #ccc; padding:5px 10px;}
+</style>
+<script type="text/javascript">
+	//<![CDATA[
+		$(document).ready(function(){
+			var idx = 0;
+			$(".menu_tbl_wrap tbody tr").each(function(){
+				idx++;
+				$(this).find("th").text(idx);
+			});
+		});
+	//]]>
+	</script>
+</head>
+
+<body>
+<div class="menu_tbl_wrap">
+	<table>
+	<caption></caption>
+		<colgroup>
+		<col width="" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>1depth</th>
+				<th>2depth</th>
+				<th>화면명</th>
+				<th>화면유형</th>
+				<th>완료</th>
+				<th>수정</th>
+				<th>바로가기</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>1</th>
+				<td>로그인</td>
+				<td></td>
+				<td>로그인</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/login.html" target="_blank">login.html</a></td>
+			</tr>
+			<tr>
+				<th>2</th>
+				<td>대시보드</td>
+				<td></td>
+				<td>대시보드</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/dashboard.html" target="_blank">dashboard.html</a></td>
+			</tr>
+			<tr>
+				<th>3</th>
+				<td>충전현황</td>
+				<td>리스트뷰</td>
+				<td>리스트뷰</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/chargeStatus.html" target="_blank">chargeStatus.html</a></td>
+			</tr>
+			<tr>
+				<th>4</th>
+				<td></td>
+				<td>지도뷰</td>
+				<td>지도뷰</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/chargeStatus.html" target="_blank">chargeStatus.html</a></td>
+			</tr>
+			<tr>
+				<th>5</th>
+				<td>이력</td>
+				<td>충전이력</td>
+				<td>충전이력</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/chargeHistory.html" target="_blank">chargeHistory.html</a></td>
+			</tr>
+			<tr>
+				<th>6</th>
+				<td></td>
+				<td>결제이력</td>
+				<td>결제이력</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/paymentHistory.html" target="_blank">paymentHistory.html</a></td>
+			</tr>
+			<tr>
+				<th>7</th>
+				<td></td>
+				<td>장애이력</td>
+				<td>장애이력</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/errorHistory.html" target="_blank">errorHistory.html</a></td>
+			</tr>
+			<tr>
+				<th>8</th>
+				<td></td>
+				<td>원격제어이력</td>
+				<td>원격제어이력</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/remoteControlHistory.html" target="_blank">remoteControlHistory.html</a></td>
+			</tr>
+			<tr>
+				<th>9</th>
+				<td></td>
+				<td>고장점검이력</td>
+				<td>고장점검이력</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/repairCheckHistory.html" target="_blank">repairCheckHistory.html</a></td>
+			</tr>
+			<tr>
+				<th>10</th>
+				<td>리포트</td>
+				<td>요약리포트</td>
+				<td>요약리포트</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/summaryReport.html" target="_blank">summaryReport.html</a></td>
+			</tr>
+			<tr>
+				<th>11</th>
+				<td></td>
+				<td>충전소통계</td>
+				<td>충전리포트</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/chargeReport.html" target="_blank">chargeReport.html</a></td>
+			</tr>
+			<tr>
+				<th>11</th>
+				<td></td>
+				<td></td>
+				<td>장애리포트</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/errorReport.html" target="_blank">errorReport.html</a></td>
+			</tr>
+			<tr>
+				<th>11</th>
+				<td></td>
+				<td></td>
+				<td>매출리포트</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/salesReport.html" target="_blank">salesReport.html</a></td>
+			</tr>
+			<tr>
+				<th>12</th>
+				<td></td>
+				<td>비교통계</td>
+				<td>충전리포트</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/chargeReport2.html" target="_blank">chargeReport2.html</a></td>
+			</tr>
+			<tr>
+				<th>11</th>
+				<td></td>
+				<td></td>
+				<td>장애리포트</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/errorReport2.html" target="_blank">errorReport2.html</a></td>
+			</tr>
+			<tr>
+				<th>11</th>
+				<td></td>
+				<td></td>
+				<td>매출리포트</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/salesReport2.html" target="_blank">salesReport2.html</a></td>
+			</tr>
+			<tr>
+				<th>13</th>
+				<td>충전인프라</td>
+				<td>충전가격관리</td>
+				<td>공통단가관리</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/commonCostManagement.html" target="_blank">commonCostManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>14</th>
+				<td></td>
+				<td></td>
+				<td>충전소별단가관리</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/chargeCostManagement.html" target="_blank">chargeCostManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>15</th>
+				<td></td>
+				<td></td>
+				<td>한전매입가관리</td>
+				<td>리스트</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/kepcoPurchaseCost.html" target="_blank">kepcoPurchaseCost.html</a></td>
+			</tr>
+			<tr>
+				<th>15</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>쓰기</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/kepcoPurchaseCostWrite.html" target="_blank">kepcoPurchaseCostWrite.html</a></td>
+			</tr>
+			<tr>
+				<th>15</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>수정</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/kepcoPurchaseCostModify.html" target="_blank">kepcoPurchaseCostModify.html</a></td>
+			</tr>
+			<tr>
+				<th>15</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>읽기</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/kepcoPurchaseCostView.html" target="_blank">kepcoPurchaseCostView.html</a></td>
+			</tr>
+			<tr>
+				<th>15</th>
+				<td></td>
+				<td></td>
+				<td>선택요금관리</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/choiceFeeMenagement.html" target="_blank">choiceFeeMenagement.html</a></td>
+			</tr>
+			<tr>
+				<th>15</th>
+				<td></td>
+				<td></td>
+				<td>카드수수료관리</td>
+				<td>리스트</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/cardCommissionManagement.html" target="_blank">cardCommissionManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>15</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>쓰기</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/cardCommissionManagementWrite.html" target="_blank">cardCommissionManagementWrite.html</a></td>
+			</tr>
+			<tr>
+				<th>15</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>수정</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/cardCommissionManagementModify.html" target="_blank">cardCommissionManagementModify.html</a></td>
+			</tr>
+			<tr>
+				<th>15</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>읽기</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/cardCommissionManagementView.html" target="_blank">cardCommissionManagementView.html</a></td>
+			</tr>
+			<tr>
+				<th>15</th>
+				<td></td>
+				<td></td>
+				<td>고정비용관리</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/fixingCostManagement.html" target="_blank">fixingCostManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>16</th>
+				<td></td>
+				<td>인프라관리</td>
+				<td>충전기관리</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/chargerManagement.html" target="_blank">chargerManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>17</th>
+				<td></td>
+				<td></td>
+				<td>충전소관리</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/chargeStationManagement.html" target="_blank">chargeStationManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>19</th>
+				<td></td>
+				<td></td>
+				<td>제조사관리</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/manufacturerManagement.html" target="_blank">manufacturerManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>20</th>
+				<td></td>
+				<td></td>
+				<td>모델관리</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/modelManagement.html" target="_blank">modelManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>20</th>
+				<td></td>
+				<td></td>
+				<td>장애코드관리</td>
+				<td>쓰기</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/errorCodeManagement.html" target="_blank">errorCodeManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>20</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>읽기</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/errorCodeManagementView.html" target="_blank">errorCodeManagementView.html</a></td>
+			</tr>
+			<tr>
+				<th>20</th>
+				<td></td>
+				<td></td>
+				<td>고장/점검항목관리</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/malfunctionCheckItemManagement.html" target="_blank">malfunctionCheckItemManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>21</th>
+				<td>운영관리</td>
+				<td>부대시설관리</td>
+				<td>부대시설관리</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/facilitiesManagement.html" target="_blank">facilitiesManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>22</th>
+				<td></td>
+				<td>공지사항</td>
+				<td>공지사항</td>
+				<td>리스트</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/notice.html" target="_blank">notice.html</a></td>
+			</tr>
+			<tr>
+				<th>23</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>쓰기</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/noticeDetailInfo.html" target="_blank">noticeDetailInfo.html</a></td>
+			</tr>
+			<tr>
+				<th>24</th>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>보기</td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/noticeView.html" target="_blank">noticeView.html</a></td>
+			</tr>
+			<tr>
+				<th>22</th>
+				<td></td>
+				<td>메시지관리</td>
+				<td></td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/메시지관리.html" target="_blank">메시지관리.html</a></td>
+			</tr>
+			<tr>
+				<th>25</th>
+				<td>거래처관리</td>
+				<td>거래조건관리</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a href="html/거래조건관리.html" target="_blank">거래조건관리.html</a></td>
+			</tr>
+			<tr>
+				<th>25</th>
+				<td></td>
+				<td>거래처카드관리</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a href="html/거래처카드관리.html" target="_blank">거래처카드관리.html</a></td>
+			</tr>
+			<tr>
+				<th>25</th>
+				<td></td>
+				<td>거래처그룹관리</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a href="html/거래처그룹관리.html" target="_blank">거래처그룹관리.html</a></td>
+			</tr>
+			<tr>
+				<th>25</th>
+				<td></td>
+				<td>대표거래처관리</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a href="html/대표거래처관리.html" target="_blank">대표거래처관리.html</a></td>
+			</tr>
+			<tr>
+				<th>25</th>
+				<td></td>
+				<td>거래처충전이력</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a href="html/거래처충전이력.html" target="_blank">거래처충전이력.html</a></td>
+			</tr>
+			<tr>
+				<th>25</th>
+				<td>설정</td>
+				<td>운영자계정설정</td>
+				<td>운영자계정설정</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/operationAccountConfig.html" target="_blank">operationAccountConfig.html</a></td>
+			</tr>
+			<tr>
+				<th>26</th>
+				<td></td>
+				<td>메뉴권한설정</td>
+				<td>메뉴권한설정</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/menuAuthorityConfig.html" target="_blank">menuAuthorityConfig.html</a></td>
+			</tr>
+			<tr>
+				<th>27</th>
+				<td></td>
+				<td>시스템설정</td>
+				<td>시스템설정</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/systemConfig.html" target="_blank">systemConfig.html</a></td>
+			</tr>
+			<tr>
+				<th>28</th>
+				<td></td>
+				<td>나의 계정관리</td>
+				<td>나의 계정관리</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/myAccountManagement.html" target="_blank">myAccountManagement.html</a></td>
+			</tr>
+			<tr>
+				<th>29</th>
+				<td></td>
+				<td>도움말</td>
+				<td>도움말</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/helpDocument.html" target="_blank">helpDocument.html</a></td>
+			</tr>
+			<tr>
+				<th>29</th>
+				<td></td>
+				<td></td>
+				<td>FAQ</td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/faq.html" target="_blank">faq.html</a></td>
+			</tr>
+			<tr>
+				<th>29</th>
+				<td>ERROR</td>
+				<td>404error</td>
+				<td></td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/error404.html" target="_blank">error404.html</a></td>
+			</tr>
+			<tr>
+				<th>29</th>
+				<td>ERROR</td>
+				<td>시스템 점검</td>
+				<td></td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/systemCheck.html" target="_blank">systemCheck.html</a></td>
+			</tr>
+			<tr>
+				<th>29</th>
+				<td>test</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>완료</td>
+				<td></td>
+				<td><a href="html/test.html" target="_blank">test.html</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

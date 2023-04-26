@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GS 칼텍스 - 404error</title>
+    <link rel="stylesheet" href="../com/css/reset.css" />
+    <link rel="stylesheet" href="../com/css/layout.css" />
+    <link rel="stylesheet" href="../com/css/contents.css" />
+</head>
+<body>
+<!-- wrapper -->
+<div id="wrapper" class="error">
+    <!-- wrapper_body -->
+    <div id="wrapper_body">
+        <!-- error_area -->
+        <div class="error_area error404">
+            <span class="logo"><img src="../com/images/common/gnb_logo_hover.png" alt="GS 칼텍스"></span>
+            <div class="error_box">
+                <dl>
+                    <dt>요청하신 페이지를 찾을 수 없습니다.</dt>
+                    <dd>현재 페이지가 존재하지 않거나, 일시적으로 사용이 중단되었습니다.</dd>
+                </dl>
+                <div class="btn_wrap">
+                    <button class="btn btn_size_85"><span>대시보드</span></button>
+                    <button class="btn btn_size_85 btn_c_gray"><span>이전 페이지</span></button>
+                </div>
+            </div>
+        </div>
+        <!--// error_area -->
+    </div>
+    <!--// wrapper_body -->
+</div>
+<!--// wrapper -->
+
+<!-- 팝업 영역 -->
+<!-- 비밀번호 변경 -->
+<div class="popup_wrap password_pop"><!-- is_active -->
+    <div class="dim"></div>
+    <div class="popup_cont">
+        <div class="popup_head">
+            <h2 class="h2_popTit">비밀번호 변경</h2>
+            <button type="button" class="close_popup"><span class="hide">닫기</span></button>
+        </div>
+        <div class="popup_body">
+            <p class="pw_comment">회원님의 개인정보 보호를 위해 주기적(최소30일)으로 비밀번호를 변경해주세요.</p>
+            <div class="tbl_wrap inner">
+                <table class="tbl_row_typ1">
+                    <colgroup>
+                    <col style="width:115px;">
+                    <col style="width:*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row"><span class="is_required">현재 비밀번호</span></th>
+                            <td>
+                                <span class="check_error w100p has_error e_typ2"><!-- 필수입력 에러 발생 시  has_error 추가-->
+                                    <input type="password" name="" id="" placeholder="현재 비밀번호" class="w100p" />
+                                    <p class="required_txt">비밀번호 정보를 확인해주세요</p>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span class="is_required">새 비밀번호</span></th>
+                            <td>
+                                <span class="check_error w100p has_error e_typ2"><!-- 필수입력 에러 발생 시  has_error 와 e_typ1 ~ e_typ2 추가 -->
+                                    <input type="password" name="" id="" placeholder="8~13자 영문자, 숫자, 특수문자 혼합" class="w100p" />
+                                    <p class="required_txt e_typ1">8~13자 영문자, 숫자, 특수문자 혼합</p>
+                                    <p class="required_txt e_typ2">최근에 사용한 비밀번호는 사용할 수 없습니다.</p>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span class="is_required">새 비밀번호확인</span></th>
+                            <td>
+                                <span class="check_error w100p"><!-- 필수입력 에러 발생 시  has_error  추가 -->
+                                    <input type="password" name="" id="" placeholder="새 비밀번호확인" class="w100p" />
+                                    <p class="required_txt">비밀번호 불일치</p>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="btn_wrap">
+                <button type="button" id="close_filter" class="btn btn_round btn_size_85"><span>취소</span></button>
+                <button type="button" id="close_filter" class="btn btn_c_gray btn_round btn_size_85"><span>저장</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--// 비밀번호 변경 -->
+<!--// 팝업 영역 -->
+</body>
+</html>

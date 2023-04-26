@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GS 칼텍스 - 개인정보처리방침</title>
+    <link rel="stylesheet" href="../com/css/reset.css" />
+    <link rel="stylesheet" href="../com/css/layout.css" />
+    <link rel="stylesheet" href="../com/css/contents.css" />
+    <script src="../com/js/perfect-scrollbar.js"></script>
+</head>
+<body>
+<!-- wrapper -->
+<div id="wrapper" class="sub">
+    <!-- wrapper_body -->
+    <div id="wrapper_body">
+        <!-- header -->
+        <header id="header">
+            <!-- head_left -->
+            <div class="head_left">
+                <button class="top_logo"><span class="hide">GS칼텍스</span></button>
+                <nav class="gnb">
+                    <ul class="gnb_depth1">
+                        <li><button>대시보드</button></li><!-- 1뎁스 해당메뉴 페이지 일경우 li에 addClass : is_active -->
+                        <li><button>충전현황</button>
+                            <ul class="gnb_depth2">
+                                <li><button>리스트뷰</button></li>
+                                <li><button>지도뷰</button></li>
+                            </ul>
+                        </li>
+                        <li><button>이력</button>
+                            <ul class="gnb_depth2">
+                                <li><button>충전이력</button></li>
+                                <li><button>결제이력</button></li>
+                                <li><button>장애이력</button></li>
+                                <li><button>원격제어이력</button></li>
+                                <li><button>고장점검이력</button></li>
+                            </ul>
+                        </li>
+                        <li><button>리포트</button>
+                            <ul class="gnb_depth2">
+                                <li><button>요약리포트</button></li>
+                                <li><button>충전소통계</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>충전리포트</button></li>
+                                        <li><button>장애리포트</button></li>
+                                        <li><button>매출리포트</button></li>
+                                    </ul>
+                                </li>
+                                <li><button>비교통계</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>충전리포트</button></li>
+                                        <li><button>장애리포트</button></li>
+                                        <li><button>매출리포트</button></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- 20191210 수정 -->
+                        <li><button>충전인프라</button>
+                            <ul class="gnb_depth2">
+                                <li><button>충전가격관리</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>공통단가관리</button></li>
+                                        <li><button>충전소별단가관리</button></li>
+                                        <li><button>한전매입가관리</button></li>
+                                        <li><button>선택요금관리</button></li>
+                                        <li><button>카드수수료관리</button></li>
+                                        <li><button>고정비용관리</button></li>
+                                    </ul>
+                                </li>
+                                <li><button>인프라관리</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>충전기관리</button></li>
+                                        <li><button>충전소관리</button></li>
+                                        <li><button>제조사관리</button></li>
+                                        <li><button>모델관리</button></li>
+                                        <li><button>장애코드관리</button></li>
+                                        <li><button>고장/점검항목관리</button></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><button>운영관리</button>
+                            <ul class="gnb_depth2">
+                                <li><button>부대시설관리</button></li>
+                                <li><button>공지사항</button></li>
+                            </ul>
+                        </li>
+                        <!--// 20191210 수정 -->
+                        <li><button>설정</button>
+                            <ul class="gnb_depth2">
+                                <li><button>운영자계정설정</button></li>
+                                <li><button>메뉴권한설정</button></li>
+                                <li><button>시스템설정</button></li>
+                                <li><button>나의계정관리</button></li>
+                                <li><button>도움말</button></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!--// head_left -->
+            <!-- head_right -->
+            <div class="head_right">
+                <div class="login_typ_wrap">
+                    <button class="btn_user_info"><span>Admin</span></button>
+                    <!-- user_info_wrap admin 영역-->
+                    <div class="user_info_wrap"><!-- 활성화 시 addClass : is_active -->
+                        <div class="info_board">
+                            <div class="info_head">
+                                <h2 class="h2_tit">admin<span class="sub_tit">IT관리자</span></h2>
+                                <div class="head_btn_set">
+                                    <button class="btn"><span>개인정보 수정</span></button>
+                                    <button class="btn btn_c_gray"><span>로그아웃</span></button>
+                                </div>
+                            </div>
+                            <div class="info_body">
+                                <ul class="info_list">
+                                    <li>홍길동 admin01@email.com</li>
+                                    <li>GS 칼텍스 IT정보부</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// user_info_wrap -->
+                </div>
+                <div class="top_sel"><!-- 활성화 시 addClass : is_active -->
+                    <button class="btn_top_sel"><span>충전소 전체</span></button>
+                    <div class="top_sel_wrap">
+                        <ul>
+                            <li><button title="충전소전체">충전소전체</button></li>
+                            <li><button title="(주)한미석유구로그린주유소(123456)">(주)한미석유구로그린주유소(123456)</button></li>
+                            <li><button title="(주)영원에너지 풍기주유소(123456)">(주)영원에너지 풍기주유소(123456)</button></li>
+                            <li><button title="대성산업(주) 청량리주유소(123456)">대성산업(주) 청량리주유소(123456)</button></li>
+                            <li><button title="경일석유직영삼방주유소(123456)">경일석유직영삼방주유소(123456)</button></li>
+                            <li><button title="논현신도시제이주유소(123456)">논현신도시제이주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="alert_view has_alert"><!-- 알림이 있을경우 has_alert 추가 -->
+                    <button class="btn_alert icon"><span class="hide">알림</span></button>
+                    <!-- alert_popup_all_wrap 알림팝업 전체 영역-->
+                    <div class="alert_popup_all_wrap"><!-- 활성화 시 addClass : is_active -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_1"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">고장 - 등록</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">고장 - 커넥터<br/>커넥터 파손, 교체 필요</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_2"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">고장 - 완료</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">고장/점검 (고장 - 커넥터) 완료 처리됨</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_3"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">가용성변경</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">가용성변경(Inoperative))으로 상태 변경됨</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_4"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">가용성변경</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">가용성변경(Operative)으로 상태 변경됨</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ2"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">장애 (Warning)</span><span class="pop_time">어제 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">장애코드37 (Service Discovery error)<br/>콤보 차량에서 충전 정지요청 : 서비스 디스커버리 단계 이상(콤보)</div>
+                                    <div class="body_result">콤보 시퀀스 이상으로 커플러 제거 후 충전을 재시작하세요. 계속 장애 발생 시 제조사에 문의해주세요</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ3_1"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">점유</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">점유시간경과 00:22:56</div>
+                                    <div class="body_result">출차를 안내해주세요</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ3_2"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">점유해제</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">점유 해제 (총 점유시간 08:22:56)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ4"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">통신장애</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">장애코드1 (s-box connection error)<br/>통신 모뎀 연결 오류</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ5"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">상태미확인</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">충전기 상태가 확인되지 않음<br/>(충전기 상태 갱신 후 30분 초과)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        
+                        
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ6"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">미확인 알림이 6개 있습니다.</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_txt">장애(Critical) 1개, 장애(Warning) 2개, 점유 3개</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                    </div>
+                    <!--// alert_popup_all_wrap -->
+                    <!-- alert_board_wrap 알림창 영역-->
+                    <div class="alert_board_wrap"><!-- 활성화 시 addClass : is_active -->
+                        <div class="alert_board">
+                            <div class="board_head">
+                                <h2 class="h2_tit">알림</h2>
+                                <button class="go_set"><span class="hide">알림설정하기</span></button>
+                            </div>
+                            <div class="board_body">
+                                <ul class="alert_history_list">
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>오늘</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ1_1"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">2분전</div>
+                                                <div class="alert_typ">고장 - 등록</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 - 커넥터<br>커넥터 파손, 교체 필요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">5분전</div>
+                                                <div class="alert_typ">고장 - 완료</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 (고장 - 커넥터) 완료 처리됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_3"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Inoperative))으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_4"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Operative)으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>어제</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">장애 - Warning</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">장애코드37 (Service Discovery error)<br />콤보 차량에서 충전 정지요청 : 서비스 디스커버리 단계 이상(콤보)</div>
+                                                <div class="alert_result">콤보 시퀀스 이상으로 커플러 제거 후 충전을 재시작하세요. 계속 장애 발생 시 제조사에 문의해주세요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ3_1"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">점유</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">점유시간경과 00:22:56</div>
+                                                <div class="alert_result">출차를 안내해주세요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ3_2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">점유해제</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">점유 해제 ( 총점유시간 08:22:56)</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>2019-05-10</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ4"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">통신장애</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">장애코드1 (s-box connection error) <br />통신 모뎀 연결 오류</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ5">
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">상태미확인</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">충전기 상태가 확인되지 않음<br>(충전기 상태 갱신 후 30분 초과)</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>2019-05-09</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ1_1"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">2분전</div>
+                                                <div class="alert_typ">고장 - 등록</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 - 커넥터<br>커넥터 파손, 교체 필요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">5분전</div>
+                                                <div class="alert_typ">고장 - 완료</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 (고장 - 커넥터) 완료 처리됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_3"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Inoperative)으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_4"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Operative)으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                </ul>
+                            </div>
+                            <!-- alert_set_wrap 알림창 설정 -->
+                            <div class="alert_set_wrap"><!-- 활성화 시 addClass : is_active -->
+                                <div class="alert_set">
+                                    <div class="alert_set_head">
+                                        <button class="go_back"><span class="hide">알림 타임라인 페이지로 복귀</span></button>
+                                        <h2 class="h2_tit">알림설정</h2>
+                                        <button class="close_alert_set"><span class="hide">설정창 닫기</span></button>
+                                    </div>
+                                    <div class="alert_set_body">
+                                        <div class="switch_box">
+                                            <div class="switch_set">
+                                                <div class="switch_tit">알림</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch1" checked><label for="switch1"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="switch_box">
+                                            <div class="switch_set">
+                                                <div class="switch_tit">알림팝업</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch2" checked><label for="switch2"></label>
+                                                </div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">알림음</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch3" checked><label for="switch3"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="h3_tit">알림 카테고리</h3>
+                                        <div class="switch_box">
+                                            <div class="switch_set">
+                                                <div class="switch_tit">고장</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch4" checked><label for="switch4"></label>
+                                                </div>
+                                                <div class="switch_comment">고장이 등록되거나 완료된 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">가용성변경</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch5" checked><label for="switch5"></label>
+                                                </div>
+                                                <div class="switch_comment">가용성변경으로 충전기 상태가 변경되는 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">장애</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch6" checked><label for="switch6"></label>
+                                                </div>
+                                                <div class="switch_comment">Warning / Critical Level의 장애코드 발생 시<br >장애 원인과 조치 내용을 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">통신장애</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch7" checked><label for="switch7"></label>
+                                                </div>
+                                                <div class="switch_comment">충전기와 서버 간 통신이 끊어져<br >충전기 사용이 제한된 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">상태미확인</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch8" checked><label for="switch8"></label>
+                                                </div>
+                                                <div class="switch_comment">충전기 상태 갱신은 1분 이상 수분 이내에 갱신됩니다.<br >갱신 이후 30분이 지난 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">점유(주차)</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch9" checked><label for="switch9"></label>
+                                                </div>
+                                                <div class="switch_comment">미충전 상태가 10분 이상 경과하여 충전기를 점유한 경우와 점유가 해제된 경우 알려드립니다.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// alert_set_wrap -->
+                        </div>
+                    </div>
+                    <!--// alert_board_wrap -->
+                </div>
+                <div class="time_info">5월 17일 월요일 13:34:32</div>
+            </div>
+            <!--// head_right -->
+        </header>
+        <!--// header -->
+        <!-- container -->
+        <div id="container">
+            <!-- charge_state_area -->
+            <div class="charge_state_area">
+                <h1 class="h1_tit"><!-- 각 메뉴에 맞는곳에 is_active 활성화 -->
+                    <button class="h1_tab">개인정보처리방침</button>
+                </h1>
+                <!-- charge_area -->
+                <div class="charge_area">
+                    <div class="charge_info">
+                        <!-- 20191227 수정 -->
+                        <span class="sum_area">
+                            <div class="tooltip_wrap poRelative mr5 typ2">
+                                <button type="button" class="ico_tooltip"></button>
+                                <div class="tooltip_cont poB size1">
+                                    <p class="tooltip_txt">커넥터 수는 한 번에 충전 가능한 커넥터 개수를 기준으로 계산됩니다.</p>
+                                    <ul class="tooltip_list">
+                                        <li>동시 충전이 가능한 충전기의 경우, '해당 커넉터 개수' 모두 반영</li>
+                                        <li>동시 충전이 불가능한 충전기의 경우, '1개'로 반영</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <span class="tit">전체 커넥터수</span><span class="count">50</span>
+                        </span>
+                        <!--// 20191227 수정 -->
+                        <ul>
+                            <li class="charge_typ1"><span class="tit">충전대기</span><span class="count">16</span></li>
+                            <li class="charge_typ2"><span class="tit">충전예약</span><span class="count">2</span></li>
+                            <li class="charge_typ3"><span class="tit">충전중</span><span class="count">22</span></li>
+                            <li class="charge_typ4"><span class="tit">충전완료</span><span class="count">2</span></li>
+                            <li class="charge_typ5"><span class="tit">점검중</span><span class="count">7</span></li>
+                            <li class="charge_typ6"><span class="tit">통신장애</span><span class="count">3</span></li>
+                        </ul>
+                    </div>
+                    <!-- 20191210 수정 -->
+                    <div class="sync_area">
+                        <button type="button" class="btn_sync"><span class="hide">00:27 후에 동기화</span></button>
+                        <div class="sync_time">
+                            <span class="time_txt">27:50</span>
+                            <button type="button" class="btn_time"><span>연장</span></button>
+                        </div>
+                    </div>
+                    <!--// 20191210 수정 -->
+                </div>
+                <!--// charge_area -->
+            </div>
+            <!--// charge_state_area -->
+            <!-- contents -->
+            <div class="contents">
+                <!-- cont_sum -->
+                <div class="round_view_area cont_sum cont_all">
+                    <!-- search_view_area -->
+                    <div class="search_view_area">
+                        <div class="terms_wrap">
+                            <div class="h2_terms_wrap">
+                                <h2 class="h2_terms">개인정보처리방침</h2>
+                                <p class="h2_terms_sub">GS칼텍스의 개인정보처리방침입니다.</p>
+                            </div>
+                            <div class="terms_cont_wrap">
+                                <div class="terms_head privacy_policy">
+                                    <ul>
+                                        <li><a href="#privacyPolicy1">1. 총칙</a><a href="#privacyPolicy2">2. 개인정보의 수집 목적 및 수집하는 개인정보 항목</a><a href="#privacyPolicy3">3. 개인정보 수집방법</a></li>
+                                        <li><a href="#privacyPolicy4">4. 개인정보의 처리 및 보유 기간</a><a href="#privacyPolicy5">5. 개인정보 제3자 제공에 관한 사항</a><a href="#privacyPolicy6">6. 개인정보처리 위탁에 관한 사항</a></li>
+                                        <li><a href="#privacyPolicy7">7. 인터넷 접속정보(쿠키) 운영방법</a><a href="#privacyPolicy8">8. 개인정보 파기 절차 및 방법</a><a href="#privacyPolicy9">9. 개인정보 안전성 확보 조치</a></li>
+                                        <li><a href="#privacyPolicy10">10. 개인정보보호 책임자 연락처</a></li>
+                                    </ul>
+                                </div>
+                                <div class="terms_body">
+                                    <ol>
+                                        <li id="privacyPolicy1">
+                                            <dl>
+                                                <dt>1. 총칙</dt>
+                                                <dd>
+                                                    <p>GS칼텍스㈜(이하 “회사”라 함)는 GS칼텍스 EV충전관제 시스템 운영시 개인정보보호법 등 관련 법령에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다. 본 방침은 2020년 10월 1일부터 시행됩니다. 개인정보처리방침은 다음과 같은 내용을 담고 있습니다.</p>
+                                                </dd>
+                                            </dl>
+                                        </li>
+                                        <li id="privacyPolicy2">
+                                            <dl>
+                                                <dt>2. 개인정보의 수집 목적 및 수집하는 개인정보 항목</dt>
+                                                <dd>
+                                                    <p>회사는 서비스 운영에 필요한 최소한의 개인정보를 수집하고 있습니다. 수집한 개인정보는 목적 이외의 용도로는 처리하고 있지 않으며, 이용 목적 변경 시에는 사전 동의를 구할 예정입니다.</p>
+                                                    <ul>
+                                                        <li>-	수집 목적: 운영자 관리</li>
+                                                        <li>-	개인정보 수집항목: ID, 비밀번호, 성명, 이메일, 부서명, 전화번호</li>
+                                                    </ul>
+                                                </dd>
+                                            </dl>
+                                        </li>
+                                        <li id="privacyPolicy3">
+                                            <dl>
+                                                <dt>3. 개인정보 수집방법</dt>
+                                                <dd>
+                                                    <p>회사는 다음과 같은 방법으로 개인정보를 수집합니다.</p>
+                                                    <ul>
+                                                        <li>- EV충전관제 권한 부여를 위한 가입 동의 문서</li>
+                                                        <li>- 로그 분석 프로그램을 통한 생성정보 수집</li>
+                                                        <li>- ‘쿠키(cookie)’에 의한 정보 수집</li>
+                                                    </ul>
+                                                </dd>
+                                            </dl>
+                                        </li>
+                                        <li id="privacyPolicy4">
+                                            <dl>
+                                                <dt>4. 개인정보의 처리 및 보유 기간</dt>
+                                                <dd>
+                                                    <ol>
+                                                        <li>① 정보주체의 개인정보의 수집목적 또는 제공받은 목적이 달성되면 해당 개인정보가 열람 또는 이용될 수 없도록 지체없이 파기합니다.</li>
+                                                        <li>② 단, 회사는 상법 등 기타 관련 법령의 규정에 의하여 보유가 필요한 경우, 해당 법령 상의 일정기간 동안 보존합니다.
+                                                            <ul>
+                                                                <li>● 로그 기록
+                                                                    <ul>
+                                                                        <li>- 보존하는 개인정보 항목 : 본 방침의 '8. 인터넷 접속정보 (쿠키) 운영방법 및 거부방법'에서 고지한 수집항목</li>
+                                                                        <li>- 보존근거 : 통신비밀보호법(통신사실확인자료)</li>
+                                                                        <li>- 보존기간 : 3개월</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li>● 기타 회원의 동의를 받은 경우: 동의받은 기간</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ol>
+                                                </dd>
+                                            </dl>
+                                        </li>
+                                        <li id="privacyPolicy5">
+                                            <dl>
+                                                <dt>5. 개인정보 제3자 제공에 관한 사항</dt>
+                                                <dd>
+                                                    <p>회사는 원칙적으로 정보주체의 개인정보를 수집•이용 목적으로 명시한 범위 내에서 처리하며, 다음의 경우를 제외하고는 정보주체의 사전 동의 없이는 본래의 목적 범위를 초과하여 처리하거나 제3자에게 제공하지 않습니다.</p>
+                                                    <ul>
+                                                        <li>-	정보주체로부터 별도의 동의를 받는 경우</li>
+                                                        <li>-	다른 법률에 특별한 규정이 있는 경우</li>
+                                                        <li>-	정보주체 또는 그 법정대리인이 의사표시를 할 수 없는 상태에 있거나 주소불명 등으로 사전 동의를 받을 수 없는 경우로서 명백히 정보주체 또는 제3자의 급박한 생명, 신체, 재산의 이익을 위하여 필요하다고 인정되는 경우</li>
+                                                        <li>-	통계작성 및 학술연구 등의 목적을 위하여 필요한 경우로서 특정 개인을 알아볼 수 없는 형태로 개인정보를 제공하는 경우</li>
+                                                    </ul>
+                                                </dd>
+                                            </dl>
+                                        </li>
+                                        <li id="privacyPolicy6">
+                                            <dl>
+                                                <dt>6. 개인정보처리 위탁에 관한 사항</dt>
+                                                <dd>
+                                                    <p>우리 시스템은 원활한 개인정보 업무처리를 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.</p>
+                                                    <ul>
+                                                        <li>-	위탁 받는자: LG전자</li>
+                                                        <li>-	위탁업무내용: 시스템 운영 및 유지보수</li>
+                                                    </ul>
+                                                </dd>
+                                            </dl>
+                                        </li>
+                                        <li id="privacyPolicy7">
+                                            <dl>
+                                                <dt>7. 인터넷 접속정보(쿠키) 운영방법</dt>
+                                                <dd>
+                                                    <p>정보주체 개개인에게 개인화되고 맞춤화된 서비스를 제공하기 위해서 회사는 이용자의 정보를 저장하고 수시로 불러오는 '쿠키(cookie)'를 사용합니다. 쿠키는 웹사이트를 운영하는데 이용되는 서버가 이용자의 브라우저에게 보내는 소량의 정보이며 이용자 컴퓨터의 하드디스크에 저장됩니다.</p>
+                                                    <ol>
+                                                        <li>① 쿠키에서 처리하는 개인정보 항목: 웹 사이트 접속 시간, 접속 IP, 접속 기록(브라우저 정보, 접속 URL 정보)</li>
+                                                        <li>② 쿠키 사용 목적: 이용자가 회사 홈페이지에 접속하면 접속 빈도나 방문 시간 등을 분석하고 이용자의 자취 추적 등을 파악하기 위하여 사용합니다.</li>
+                                                    </ol>
+                                                </dd>
+                                            </dl>
+                                        </li>
+                                        <li id="privacyPolicy8">
+                                            <dl>
+                                                <dt>8. 개인정보 파기 절차 및 방법</dt>
+                                                <dd>
+                                                    <p>회사는 원칙적으로 개인정보 처리목적이 달성된 개인정보는 지체 없이 파기합니다. 다만, 다른 법령에 따라 보존하여야 하는 경우에는 그러하지 않을 수 있습니다. 파기의 절차, 기한 및 방법은 다음과 같습니다.</p>
+                                                    <ul>
+                                                        <li>-	파기절차
+                                                            <p>이용자가 입력한 정보는 목적 달성 후 별도의 DB에 옮겨져 내부 방침 및 기타 관련 법령에 따라 일정기간 저장된 후 혹은 즉시 파기됩니다. 이 때, DB로 옮겨진 개인정보는 법률에 의한 경우가 아니고서는 다른 목적으로 이용되지 않습니다.</p>
+                                                        </li>
+                                                        <li>-	파기기한
+                                                            <p>이용자의 개인정보는 개인정보의 보유기간이 경과된 경우에는 보유기간의 종료일로부터 5일 이내에, 개인정보의 처리 목적 달성, 해당 서비스의 폐지, 사업의 종료 등 그 개인정보가 불필요하게 되었을 때에는 개인정보의 처리가 불필요한 것으로 인정되는 날로부터 5일 이내에 그 개인정보를 파기합니다.</p>
+                                                        </li>
+                                                        <li>-	파기방법
+                                                            <p>전자적 형태의 정보는 기록을 재생할 수 없는 기술적 방법을 사용합니다. 종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다.</p>
+                                                        </li>
+                                                    </ul>
+                                                </dd>
+                                            </dl>
+                                        </li>
+                                        <li id="privacyPolicy9">
+                                            <dl>
+                                                <dt>9. 개인정보 안전성 확보 조치</dt>
+                                                <dd>
+                                                    <p>개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.</p>
+                                                    <ul>
+                                                        <li>-	정기적인 자체 감사 실시
+                                                            <p>개인정보 취급 관련 안전성 확보를 위해 정기적(연 1회)으로 자체 감사를 실시하고 있습니다.</p>
+                                                        </li>
+                                                        <li>-	개인정보 취급 직원의 최소화 및 교육
+                                                            <p>개인정보를 취급하는 직원을 지정하고 담당자에 한정시켜 최소화 하여 개인정보를 관리하는 대책을 시행하고 있습니다.</p>
+                                                        </li>
+                                                        <li>-	내부관리계획의 수립 및 시행
+                                                            <p>개인정보의 안전한 처리를 위하여 내부관리계획을 수립하고 시행하고 있습니다.</p>
+                                                        </li>
+                                                        <li>-	해킹 등에 대비한 기술적 대책
+                                                            <p>우리 시스템은 해킹이나 컴퓨터 바이러스 등에 의한 개인정보 유출 및 훼손을 막기 위하여 외부로부터 접근이 통제된 구역에 시스템을 설치하고 기술적/물리적으로 감시 및 차단하고 있습니다.</p>
+                                                        </li>
+                                                        <li>-	개인정보의 암호화
+                                                            <p>이용자의 비밀번호는 암호화 되어 저장 및 관리되고 있어 본인만이 알 수 있습니다.</p>
+                                                        </li>
+                                                        <li>-	접속기록의 보관 및 위변조 방지
+                                                            <p>개인정보처리시스템에 접속한 기록을 최소 1년 이상 보관, 관리하고 있으며, 접속 기록이 위변조 및 도난, 분실되지 않도록 보안기능을 사용하고 있습니다.</p>
+                                                        </li>
+                                                        <li>-	개인정보에 대한 접근 제한
+                                                            <p>개인정보를 처리하는 데이터베이스시스템에 대한 접근 권한의 부여,변경,말소를 통하여 개인정보에 대한 접근통제를 위하여 필요한 조치를 하고 있으며 외부로부터의 무단 접근을 통제하고 있습니다.</p>
+                                                        </li>
+                                                        <li>-	비인가자에 대한 출입 통제
+                                                            <p>개인정보를 보관하고 있는 물리적 보관 장소를 별도로 두고 이에 대해 출입통제 절차를 수립, 운영하고 있습니다.</p>
+                                                        </li>
+                                                    </ul>
+                                                </dd>
+                                            </dl>
+                                        </li>
+                                        <li id="privacyPolicy10">
+                                            <dl>
+                                                <dt>10. 개인정보보호 책임자 연락처</dt>
+                                                <dd>
+                                                    <p>회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보보호 책임자를 지정하고 있습니다.</p>
+                                                    <div class="tbl_wrap">
+                                                        <table class="tbl_col_typ5">
+                                                            <colgroup>
+                                                                <col style="width:25%;">
+                                                                <col style="width:25%;">
+                                                                <col style="width:25%;">
+                                                                <col style="width:25%;">
+                                                            </colgroup>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>구분</th>
+                                                                    <th>부서명</th>
+                                                                    <th>성명</th>
+                                                                    <th>연락처</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th>개인정보보호 책임자</th>
+                                                                    <td>OOOO 사업팀</td>
+                                                                    <td>OOO 부문장</td>
+                                                                    <td>02-2005-1234</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>개인정보 관리책임자</th>
+                                                                    <td>OOOO 운영팀</td>
+                                                                    <td>OOO 팀장</td>
+                                                                    <td>02-2005-1235</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>개인정보보호 담당자</th>
+                                                                    <td>OOOO 운영팀</td>
+                                                                    <td>OOO 책임</td>
+                                                                    <td>02-2005-1236</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!--// search_view_area -->
+                </div>
+                <!--// cont_sum -->
+            </div>
+            <!--// contents -->
+        </div>
+        <!--// container -->
+        <!-- footer -->
+        <footer id="footer">
+            <ul class="foot_info">
+                <li>계정 문의 : 02-1588-1588</li>
+                <li>충전 문의 : 02-1577-1577</li>
+                <li>제조사 문의 : 02-1566-1566</li>
+            </ul>
+        </footer>
+        <!--// footer -->
+    </div>
+    <!--// wrapper_body -->
+</div>
+<!--// wrapper -->
+
+
+<!-- 팝업 영역 -->
+
+<!--// 팝업 영역 -->
+
+
+<script src="../com/js/common.js"></script>
+</body>
+</html>

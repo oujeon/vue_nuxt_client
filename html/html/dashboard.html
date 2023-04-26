@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GS 칼텍스 - dashboard</title>
+    
+    <link rel="stylesheet" href="../com/css/reset.css" />
+    <link rel="stylesheet" href="../com/css/layout.css" />
+    <link rel="stylesheet" href="../com/css/c3.css" />
+    <link rel="stylesheet" href="../com/css/map.css" />
+    <link rel="stylesheet" href="../com/css/contents.css" />
+    <script src="../com/js/perfect-scrollbar.js"></script>
+    
+</head>
+<body>
+<!-- wrapper -->
+<div id="wrapper" class="dashboard">
+    <!-- wrapper_body -->
+    <div id="wrapper_body">
+        <!-- header -->
+        <header id="header">
+            <!-- head_left -->
+            <div class="head_left">
+                <button class="top_logo"><span class="hide">GS칼텍스</span></button>
+                <nav class="gnb">
+                    <ul class="gnb_depth1">
+                        <li><button>대시보드</button></li><!-- 1뎁스 해당메뉴 페이지 일경우 li에 addClass : is_active -->
+                        <li><button>충전현황</button>
+                            <ul class="gnb_depth2">
+                                <li><button>리스트뷰</button></li>
+                                <li><button>지도뷰</button></li>
+                            </ul>
+                        </li>
+                        <li><button>이력</button>
+                            <ul class="gnb_depth2">
+                                <li><button>충전이력</button></li>
+                                <li><button>결제이력</button></li>
+                                <li><button>장애이력</button></li>
+                                <li><button>원격제어이력</button></li>
+                                <li><button>고장점검이력</button></li>
+                            </ul>
+                        </li>
+                        <li><button>리포트</button>
+                            <ul class="gnb_depth2">
+                                <li><button>요약리포트</button></li>
+                                <li><button>충전소통계</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>충전리포트</button></li>
+                                        <li><button>장애리포트</button></li>
+                                        <li><button>매출리포트</button></li>
+                                    </ul>
+                                </li>
+                                <li><button>비교통계</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>충전리포트</button></li>
+                                        <li><button>장애리포트</button></li>
+                                        <li><button>매출리포트</button></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- 20191210 수정 -->
+                        <li class="is_active"><button>충전인프라</button>
+                            <ul class="gnb_depth2">
+                                <li><button>충전가격관리</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>공통단가관리</button></li>
+                                        <li><button>충전소별단가관리</button></li>
+                                        <li><button>한전매입가관리</button></li>
+                                        <li><button>선택요금관리</button></li>
+                                        <li><button>카드수수료관리</button></li>
+                                        <li><button>고정비용관리</button></li>
+                                    </ul>
+                                </li>
+                                <li><button>인프라관리</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>충전기관리</button></li>
+                                        <li><button>충전소관리</button></li>
+                                        <li><button>제조사관리</button></li>
+                                        <li><button>모델관리</button></li>
+                                        <li><button>장애코드관리</button></li>
+                                        <li><button>고장/점검항목관리</button></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><button>운영관리</button>
+                            <ul class="gnb_depth2">
+                                <li><button>부대시설관리</button></li>
+                                <li><button>공지사항</button></li>
+                            </ul>
+                        </li>
+                        <!--// 20191210 수정 -->
+                        <li><button>설정</button>
+                            <ul class="gnb_depth2">
+                                <li><button>운영자계정설정</button></li>
+                                <li><button>메뉴권한설정</button></li>
+                                <li><button>시스템설정</button></li>
+                                <li><button>나의계정관리</button></li>
+                                <li><button>도움말</button></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!--// head_left -->
+            <!-- head_right -->
+            <div class="head_right">
+                <div class="login_typ_wrap">
+                    <button class="btn_user_info"><span>Admin</span></button>
+                    <!-- user_info_wrap admin 영역-->
+                    <div class="user_info_wrap"><!-- 활성화 시 addClass : is_active -->
+                        <div class="info_board">
+                            <div class="info_head">
+                                <h2 class="h2_tit">admin<span class="sub_tit">IT관리자</span></h2>
+                                <div class="head_btn_set">
+                                    <button class="btn"><span>개인정보 수정</span></button>
+                                    <button class="btn btn_c_gray"><span>로그아웃</span></button>
+                                </div>
+                            </div>
+                            <div class="info_body">
+                                <ul class="info_list">
+                                    <li>홍길동 admin01@email.com</li>
+                                    <li>GS 칼텍스 IT정보부</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// user_info_wrap -->
+                </div>
+                <div class="top_sel"><!-- 활성화 시 addClass : is_active -->
+                    <button class="btn_top_sel"><span>충전소 전체</span></button>
+                    <div class="top_sel_wrap">
+                        <ul>
+                            <li><button title="충전소전체">충전소전체</button></li>
+                            <li><button title="(주)한미석유구로그린주유소(123456)">(주)한미석유구로그린주유소(123456)</button></li>
+                            <li><button title="(주)영원에너지 풍기주유소(123456)">(주)영원에너지 풍기주유소(123456)</button></li>
+                            <li><button title="대성산업(주) 청량리주유소(123456)">대성산업(주) 청량리주유소(123456)</button></li>
+                            <li><button title="경일석유직영삼방주유소(123456)">경일석유직영삼방주유소(123456)</button></li>
+                            <li><button title="논현신도시제이주유소(123456)">논현신도시제이주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="alert_view has_alert"><!-- 알림이 있을경우 has_alert 추가 -->
+                    <button class="btn_alert icon"><span class="hide">알림</span></button>
+                    <!-- alert_popup_all_wrap 알림팝업 전체 영역-->
+                    <div class="alert_popup_all_wrap"><!-- 활성화 시 addClass : is_active -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_1"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">고장 - 등록</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">고장 - 커넥터<br/>커넥터 파손, 교체 필요</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_2"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">고장 - 완료</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">고장/점검 (고장 - 커넥터) 완료 처리됨</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_3"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">가용성변경</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">가용성변경(Inoperative))으로 상태 변경됨</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_4"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">가용성변경</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">가용성변경(Operative)으로 상태 변경됨</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ2"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">장애 (Warning)</span><span class="pop_time">어제 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">장애코드37 (Service Discovery error)<br/>콤보 차량에서 충전 정지요청 : 서비스 디스커버리 단계 이상(콤보)</div>
+                                    <div class="body_result">콤보 시퀀스 이상으로 커플러 제거 후 충전을 재시작하세요. 계속 장애 발생 시 제조사에 문의해주세요</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ3_1"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">점유</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">점유시간경과 00:22:56</div>
+                                    <div class="body_result">출차를 안내해주세요</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ3_2"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">점유해제</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">점유 해제 (총 점유시간 08:22:56)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ4"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">통신장애</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">장애코드1 (s-box connection error)<br/>통신 모뎀 연결 오류</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ5"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">상태미확인</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">충전기 상태가 확인되지 않음<br/>(충전기 상태 갱신 후 30분 초과)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        
+                        
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ6"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">미확인 알림이 6개 있습니다.</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_txt">장애(Critical) 1개, 장애(Warning) 2개, 점유 3개</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                    </div>
+                    <!--// alert_popup_all_wrap -->
+                    <!-- alert_board_wrap 알림창 영역-->
+                    <div class="alert_board_wrap"><!-- 활성화 시 addClass : is_active -->
+                        <div class="alert_board">
+                            <div class="board_head">
+                                <h2 class="h2_tit">알림</h2>
+                                <button class="go_set"><span class="hide">알림설정하기</span></button>
+                            </div>
+                            <div class="board_body">
+                                <ul class="alert_history_list">
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>오늘</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ1_1"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">2분전</div>
+                                                <div class="alert_typ">고장 - 등록</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 - 커넥터<br>커넥터 파손, 교체 필요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">5분전</div>
+                                                <div class="alert_typ">고장 - 완료</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 (고장 - 커넥터) 완료 처리됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_3"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Inoperative))으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_4"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Operative)으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>어제</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">장애 - Warning</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">장애코드37 (Service Discovery error)<br />콤보 차량에서 충전 정지요청 : 서비스 디스커버리 단계 이상(콤보)</div>
+                                                <div class="alert_result">콤보 시퀀스 이상으로 커플러 제거 후 충전을 재시작하세요. 계속 장애 발생 시 제조사에 문의해주세요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ3_1"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">점유</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">점유시간경과 00:22:56</div>
+                                                <div class="alert_result">출차를 안내해주세요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ3_2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">점유해제</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">점유 해제 ( 총점유시간 08:22:56)</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>2019-05-10</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ4"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">통신장애</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">장애코드1 (s-box connection error) <br />통신 모뎀 연결 오류</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ5">
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">상태미확인</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">충전기 상태가 확인되지 않음<br>(충전기 상태 갱신 후 30분 초과)</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>2019-05-09</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ1_1"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">2분전</div>
+                                                <div class="alert_typ">고장 - 등록</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 - 커넥터<br>커넥터 파손, 교체 필요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">5분전</div>
+                                                <div class="alert_typ">고장 - 완료</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 (고장 - 커넥터) 완료 처리됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_3"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Inoperative)으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_4"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Operative)으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                </ul>
+                            </div>
+                            <!-- alert_set_wrap 알림창 설정 -->
+                            <div class="alert_set_wrap"><!-- 활성화 시 addClass : is_active -->
+                                <div class="alert_set">
+                                    <div class="alert_set_head">
+                                        <button class="go_back"><span class="hide">알림 타임라인 페이지로 복귀</span></button>
+                                        <h2 class="h2_tit">알림설정</h2>
+                                        <button class="close_alert_set"><span class="hide">설정창 닫기</span></button>
+                                    </div>
+                                    <div class="alert_set_body">
+                                        <div class="switch_box">
+                                            <div class="switch_set">
+                                                <div class="switch_tit">알림</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch1" checked><label for="switch1"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="switch_box">
+                                            <div class="switch_set">
+                                                <div class="switch_tit">알림팝업</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch2" checked><label for="switch2"></label>
+                                                </div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">알림음</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch3" checked><label for="switch3"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="h3_tit">알림 카테고리</h3>
+                                        <div class="switch_box">
+                                            <div class="switch_set">
+                                                <div class="switch_tit">고장</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch4" checked><label for="switch4"></label>
+                                                </div>
+                                                <div class="switch_comment">고장이 등록되거나 완료된 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">가용성변경</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch5" checked><label for="switch5"></label>
+                                                </div>
+                                                <div class="switch_comment">가용성변경으로 충전기 상태가 변경되는 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">장애</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch6" checked><label for="switch6"></label>
+                                                </div>
+                                                <div class="switch_comment">Warning / Critical Level의 장애코드 발생 시<br >장애 원인과 조치 내용을 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">통신장애</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch7" checked><label for="switch7"></label>
+                                                </div>
+                                                <div class="switch_comment">충전기와 서버 간 통신이 끊어져<br >충전기 사용이 제한된 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">상태미확인</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch8" checked><label for="switch8"></label>
+                                                </div>
+                                                <div class="switch_comment">충전기 상태 갱신은 1분 이상 수분 이내에 갱신됩니다.<br >갱신 이후 30분이 지난 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">점유(주차)</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch9" checked><label for="switch9"></label>
+                                                </div>
+                                                <div class="switch_comment">미충전 상태가 10분 이상 경과하여 충전기를 점유한 경우와 점유가 해제된 경우 알려드립니다.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// alert_set_wrap -->
+                        </div>
+                    </div>
+                    <!--// alert_board_wrap -->
+                </div>
+                <div class="time_info">5월 17일 월요일 13:34:32</div>
+            </div>
+            <!--// head_right -->
+        </header>
+        <!--// header -->
+        <!-- container -->
+        <div id="container">
+            <!-- charge_state_area -->
+            <div class="charge_state_area">
+                <h1 class="h1_tit">대시보드</h1>
+                <!-- charge_area -->
+                <div class="charge_area">
+                    <div class="charge_info">
+                        <!-- 20191227 수정 -->
+                        <span class="sum_area">
+                            <div class="tooltip_wrap poRelative mr5">
+                                <button class="ico_tooltip"></button>
+                                <div class="tooltip_cont poB size1">
+                                    <p class="tooltip_txt">커넥터 수는 한 번에 충전 가능한 커넥터 개수를 기준으로 계산됩니다.</p>
+                                    <ul class="tooltip_list">
+                                        <li>동시 충전이 가능한 충전기의 경우, '해당 커넉터 개수' 모두 반영</li>
+                                        <li>동시 충전이 불가능한 충전기의 경우, '1개'로 반영</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <span class="tit">전체 커넥터수</span><span class="count">50</span>
+                        </span>
+                        <!--// 20191227 수정 -->
+                        <ul>
+                            <li class="charge_typ1"><span class="tit">충전대기</span><span class="count">16</span></li>
+                            <li class="charge_typ2"><span class="tit">충전예약</span><span class="count">2</span></li>
+                            <li class="charge_typ3"><span class="tit">충전중</span><span class="count">22</span></li>
+                            <li class="charge_typ4"><span class="tit">충전완료</span><span class="count">2</span></li>
+                            <li class="charge_typ5"><span class="tit">점검중</span><span class="count">7</span></li>
+                            <li class="charge_typ6"><span class="tit">통신장애</span><span class="count">3</span></li>
+                        </ul>
+                    </div>
+                    <!-- 20191210 수정 -->
+                    <div class="sync_area">
+                        <button class="btn_sync"><span class="hide">00:27 후에 동기화</span></button>
+                        <div class="sync_time">
+                            <span class="time_txt">27:50</span>
+                            <button class="btn_time"><span>연장</span></button>
+                        </div>
+                    </div>
+                    <!--// 20191210 수정 -->
+                </div>
+                <!--// charge_area -->
+            </div>
+            <!--// charge_state_area -->
+            <!-- contents -->
+            <div class="contents">
+                <div class="dashboard_row">
+                    <!-- 이용현황 및 결제현황 -->
+                    <div class="round_view_area dashboard_view1">
+                        <h2 class="h2_tit">이용현황 및 결제현황</h2>
+                        <button class="direct_go"><span class="hide">이용현황 및 결제현황 바로가기</span></button>
+                        <!-- chart_wrap -->
+                        <div class="chart_wrap">
+                            <!-- chart_left_info -->
+                            <div class="chart_left_info">
+                                <ul>
+                                    <li>
+                                        <span class="info_tit">오늘 충전횟수</span>
+                                        <span class="info_count"><span>472</span>회</span>
+                                        <span class="info_rate">전주 동시간대 대비 <span class="rate_per up">2.2%</span></span>
+                                    </li>
+                                    <li>
+                                        <span class="info_tit">오늘 결제금액</span>
+                                        <span class="info_count"><span>167,533</span>원</span>
+                                        <span class="info_rate">전주 동시간대 대비 <span class="rate_per up">12.2%</span></span>
+                                    </li>
+                                    <li>
+                                        <span class="info_tit">오늘 평균 충전량</span>
+                                        <span class="info_count"><span>745.00</span>kWh</span>
+                                        <span class="info_rate">전주 동시간대 대비 <span class="rate_per down">-2.2%</span></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--// chart_left_info -->
+                            <!-- 20191217 추가 -->
+                            <!-- chart_legend_wrap -->
+                            <div class="chart_legend_wrap">
+                                <span class="legend_unit"><span class="unit_color" style="background:#d2d2d2"></span><span class="unit_tit">전주 충전횟수</span></span>
+                                <span class="legend_unit"><span class="unit_color" style="background:#3db3ac"></span><span class="unit_tit">충전횟수</span></span>
+                                <span class="legend_unit"><span class="unit_color" style="background:#ff7663"></span><span class="unit_tit">결제금액</span></span>
+                            </div>
+                            <!--// chart_legend_wrap -->
+                            <!-- chart_label_wrap -->
+                            <div class="chart_label_wrap">
+                                <span class="label_unit" style="left:220px;top:90px;">회</span>
+                                <span class="label_unit" style="right:28px;top:90px;">천원</span>
+                            </div>
+                            <!--// chart_label_wrap -->
+                            <!--// 20191217 추가 -->
+                            <!-- chart_area -->
+                            <div class="chart_area">
+                                <div id="chart" class="c3" style="max-height: 300px; position: relative;"><svg width="475" height="300" style="overflow: hidden;"><defs><clipPath id="c3-1590124807249-clip"><rect width="384" height="206"></rect></clipPath><clipPath id="c3-1590124807249-clip-xaxis"><rect x="-51" y="-20" width="477" height="60"></rect></clipPath><clipPath id="c3-1590124807249-clip-yaxis"><rect x="-49" y="-54" width="70" height="280"></rect></clipPath><clipPath id="c3-1590124807249-clip-grid"><rect width="384" height="206"></rect></clipPath><clipPath id="c3-1590124807249-clip-subchart"><rect width="384" height="0"></rect></clipPath></defs><g transform="translate(50.5,54.5)"><text class="c3-text c3-empty" text-anchor="middle" dominant-baseline="middle" x="192" y="103" style="opacity: 0;"></text><g clip-path="url(https://evci.duckdns.org/#c3-1590124807249-clip)" class="c3-regions" style="visibility: visible;"></g><g clip-path="url(https://evci.duckdns.org/#c3-1590124807249-clip-grid)" class="c3-grid" style="visibility: visible;"><g class="c3-ygrids"><line class="c3-ygrid" x1="0" x2="384" y1="206" y2="206"></line><line class="c3-ygrid" x1="0" x2="384" y1="188.91666666666666" y2="188.91666666666666"></line><line class="c3-ygrid" x1="0" x2="384" y1="171.83333333333334" y2="171.83333333333334"></line><line class="c3-ygrid" x1="0" x2="384" y1="154.75" y2="154.75"></line><line class="c3-ygrid" x1="0" x2="384" y1="137.66666666666669" y2="137.66666666666669"></line><line class="c3-ygrid" x1="0" x2="384" y1="120.58333333333334" y2="120.58333333333334"></line><line class="c3-ygrid" x1="0" x2="384" y1="103.50000000000003" y2="103.50000000000003"></line><line class="c3-ygrid" x1="0" x2="384" y1="86.41666666666667" y2="86.41666666666667"></line><line class="c3-ygrid" x1="0" x2="384" y1="69.33333333333337" y2="69.33333333333337"></line><line class="c3-ygrid" x1="0" x2="384" y1="52.25000000000002" y2="52.25000000000002"></line><line class="c3-ygrid" x1="0" x2="384" y1="35.166666666666686" y2="35.166666666666686"></line><line class="c3-ygrid" x1="0" x2="384" y1="18.083333333333343" y2="18.083333333333343"></line><line class="c3-ygrid" x1="0" x2="384" y1="1" y2="1"></line></g><g class="c3-xgrid-focus"><line class="c3-xgrid-focus" x1="-10" x2="-10" y1="0" y2="206" style="visibility: hidden;"></line></g></g><g clip-path="url(https://evci.duckdns.org/#c3-1590124807249-clip)" class="c3-chart"><g class="c3-stanford-elements"><g class="c3-stanford-lines" style="shape-rendering: geometricprecision;"></g><g class="c3-stanford-texts"></g><g class="c3-stanford-regions"></g></g><g class="c3-event-rects" style="fill-opacity: 0;"><rect class="c3-event-rect" x="0" y="0" width="384" height="206" style=""></rect></g><g class="c3-chart-bars"><g class="c3-chart-bar c3-target c3-target-previousCharging" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-previousCharging c3-bars c3-bars-previousCharging" style="cursor: pointer;"><path class="c3-shape c3-shape-0 c3-bar c3-bar-0" d="M 3.2,188.91666666666666 L3.2,188.91666666666666 L8,188.91666666666666 L8,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-1 c3-bar c3-bar-1" d="M 19.2,188.91666666666666 L19.2,188.91666666666666 L24,188.91666666666666 L24,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-2 c3-bar c3-bar-2" d="M 35.2,188.91666666666666 L35.2,188.91666666666666 L40,188.91666666666666 L40,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-3 c3-bar c3-bar-3" d="M 51.2,188.91666666666666 L51.2,188.91666666666666 L56,188.91666666666666 L56,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-4 c3-bar c3-bar-4" d="M 67.2,188.91666666666666 L67.2,188.91666666666666 L72,188.91666666666666 L72,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-5 c3-bar c3-bar-5" d="M 83.2,188.91666666666666 L83.2,188.91666666666666 L88,188.91666666666666 L88,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-6 c3-bar c3-bar-6" d="M 99.2,188.91666666666666 L99.2,188.91666666666666 L104,188.91666666666666 L104,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-7 c3-bar c3-bar-7" d="M 115.2,188.91666666666666 L115.2,188.91666666666666 L120,188.91666666666666 L120,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-8 c3-bar c3-bar-8" d="M 131.2,188.91666666666666 L131.2,188.91666666666666 L136,188.91666666666666 L136,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-9 c3-bar c3-bar-9" d="M 147.2,188.91666666666666 L147.2,188.91666666666666 L152,188.91666666666666 L152,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-10 c3-bar c3-bar-10" d="M 163.2,188.91666666666666 L163.2,188.91666666666666 L168,188.91666666666666 L168,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-11 c3-bar c3-bar-11" d="M 179.2,188.91666666666666 L179.2,188.91666666666666 L184,188.91666666666666 L184,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-12 c3-bar c3-bar-12" d="M 195.2,188.91666666666666 L195.2,188.91666666666666 L200,188.91666666666666 L200,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-13 c3-bar c3-bar-13" d="M 211.2,188.91666666666666 L211.2,188.91666666666666 L216,188.91666666666666 L216,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-14 c3-bar c3-bar-14" d="M 227.2,188.91666666666666 L227.2,188.91666666666666 L232,188.91666666666666 L232,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-15 c3-bar c3-bar-15" d="M 243.2,188.91666666666666 L243.2,188.91666666666666 L248,188.91666666666666 L248,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-16 c3-bar c3-bar-16" d="M 259.2,188.91666666666666 L259.2,188.91666666666666 L264,188.91666666666666 L264,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-17 c3-bar c3-bar-17" d="M 275.2,188.91666666666666 L275.2,188.91666666666666 L280,188.91666666666666 L280,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-18 c3-bar c3-bar-18" d="M 291.2,188.91666666666666 L291.2,188.91666666666666 L296,188.91666666666666 L296,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-19 c3-bar c3-bar-19" d="M 307.2,188.91666666666666 L307.2,188.91666666666666 L312,188.91666666666666 L312,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-20 c3-bar c3-bar-20" d="M 323.2,188.91666666666666 L323.2,188.91666666666666 L328,188.91666666666666 L328,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-21 c3-bar c3-bar-21" d="M 339.2,188.91666666666666 L339.2,188.91666666666666 L344,188.91666666666666 L344,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-22 c3-bar c3-bar-22" d="M 355.2,188.91666666666666 L355.2,188.91666666666666 L360,188.91666666666666 L360,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class="c3-shape c3-shape-23 c3-bar c3-bar-23" d="M 371.2,188.91666666666666 L371.2,188.91666666666666 L376,188.91666666666666 L376,188.91666666666666 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path></g></g><g class="c3-chart-bar c3-target c3-target-charging" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-charging c3-bars c3-bars-charging" style="cursor: pointer;"><path class="c3-shape c3-shape-0 c3-bar c3-bar-0" d="M 8,188.91666666666666 L8,188.91666666666666 L12.8,188.91666666666666 L12.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-1 c3-bar c3-bar-1" d="M 24,188.91666666666666 L24,188.91666666666666 L28.8,188.91666666666666 L28.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-2 c3-bar c3-bar-2" d="M 40,188.91666666666666 L40,188.91666666666666 L44.8,188.91666666666666 L44.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-3 c3-bar c3-bar-3" d="M 56,188.91666666666666 L56,188.91666666666666 L60.8,188.91666666666666 L60.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-4 c3-bar c3-bar-4" d="M 72,188.91666666666666 L72,188.91666666666666 L76.8,188.91666666666666 L76.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-5 c3-bar c3-bar-5" d="M 88,188.91666666666666 L88,188.91666666666666 L92.8,188.91666666666666 L92.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-6 c3-bar c3-bar-6" d="M 104,188.91666666666666 L104,18.083333333333343 L108.8,18.083333333333343 L108.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-7 c3-bar c3-bar-7" d="M 120,188.91666666666666 L120,18.083333333333343 L124.8,18.083333333333343 L124.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-8 c3-bar c3-bar-8" d="M 136,188.91666666666666 L136,188.91666666666666 L140.8,188.91666666666666 L140.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-9 c3-bar c3-bar-9" d="M 152,188.91666666666666 L152,188.91666666666666 L156.8,188.91666666666666 L156.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-10 c3-bar c3-bar-10" d="M 168,188.91666666666666 L168,188.91666666666666 L172.8,188.91666666666666 L172.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-11 c3-bar c3-bar-11" d="M 184,188.91666666666666 L184,188.91666666666666 L188.8,188.91666666666666 L188.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-12 c3-bar c3-bar-12" d="M 200,188.91666666666666 L200,188.91666666666666 L204.8,188.91666666666666 L204.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-13 c3-bar c3-bar-13" d="M 216,188.91666666666666 L216,188.91666666666666 L220.8,188.91666666666666 L220.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-14 c3-bar c3-bar-14" d="M 232,188.91666666666666 L232,188.91666666666666 L236.8,188.91666666666666 L236.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-15 c3-bar c3-bar-15" d="M 248,188.91666666666666 L248,188.91666666666666 L252.8,188.91666666666666 L252.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-16 c3-bar c3-bar-16" d="M 264,188.91666666666666 L264,188.91666666666666 L268.8,188.91666666666666 L268.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-17 c3-bar c3-bar-17" d="M 280,188.91666666666666 L280,188.91666666666666 L284.8,188.91666666666666 L284.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-18 c3-bar c3-bar-18" d="M 296,188.91666666666666 L296,188.91666666666666 L300.8,188.91666666666666 L300.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-19 c3-bar c3-bar-19" d="M 312,188.91666666666666 L312,188.91666666666666 L316.8,188.91666666666666 L316.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-20 c3-bar c3-bar-20" d="M 328,188.91666666666666 L328,188.91666666666666 L332.8,188.91666666666666 L332.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-21 c3-bar c3-bar-21" d="M 344,188.91666666666666 L344,188.91666666666666 L348.8,188.91666666666666 L348.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-22 c3-bar c3-bar-22" d="M 360,188.91666666666666 L360,188.91666666666666 L364.8,188.91666666666666 L364.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path><path class="c3-shape c3-shape-23 c3-bar c3-bar-23" d="M 376,188.91666666666666 L376,188.91666666666666 L380.8,188.91666666666666 L380.8,188.91666666666666 z" style="stroke: rgb(141, 212, 182); fill: rgb(141, 212, 182); opacity: 1;"></path></g></g><g class="c3-chart-bar c3-target c3-target-sales" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-sales c3-bars c3-bars-sales" style="cursor: pointer;"></g></g></g><g class="c3-chart-lines"><g class="c3-chart-line c3-target c3-target-previousCharging" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-previousCharging c3-lines c3-lines-previousCharging"></g><g class=" c3-shapes c3-shapes-previousCharging c3-areas c3-areas-previousCharging"></g><g class=" c3-selected-circles c3-selected-circles-previousCharging"></g><g class=" c3-shapes c3-shapes-previousCharging c3-circles c3-circles-previousCharging" style="cursor: pointer;"></g></g><g class="c3-chart-line c3-target c3-target-charging" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-charging c3-lines c3-lines-charging"></g><g class=" c3-shapes c3-shapes-charging c3-areas c3-areas-charging"></g><g class=" c3-selected-circles c3-selected-circles-charging"></g><g class=" c3-shapes c3-shapes-charging c3-circles c3-circles-charging" style="cursor: pointer;"></g></g><g class="c3-chart-line c3-target c3-target-sales" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-sales c3-lines c3-lines-sales"><path class=" c3-shape c3-shape c3-line c3-line-sales" d="M8,188.91666666666666L24,188.91666666666666L40,188.91666666666666L56,188.91666666666666L72,188.91666666666666L88,188.91666666666666L104,18.083333333333343L120,18.083333333333343L136,188.91666666666666L152,188.91666666666666L168,188.91666666666666L184,188.91666666666666L200,188.91666666666666L216,188.91666666666666L232,188.91666666666666L248,188.91666666666666L264,188.91666666666666L280,188.91666666666666L296,188.91666666666666L312,188.91666666666666L328,188.91666666666666L344,188.91666666666666L360,188.91666666666666L376,188.91666666666666" style="stroke: rgb(233, 104, 161); opacity: 1;"></path></g><g class=" c3-shapes c3-shapes-sales c3-areas c3-areas-sales"><path class=" c3-shape c3-shape c3-area c3-area-sales" d="M 8 188.91666666666666" style="fill: rgb(233, 104, 161); opacity: 0.2;"></path></g><g class=" c3-selected-circles c3-selected-circles-sales"></g><g class=" c3-shapes c3-shapes-sales c3-circles c3-circles-sales" style="cursor: pointer;"><circle shape-rendering="" class="c3-shape c3-shape-0 c3-circle c3-circle-0" cx="8" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class="c3-shape c3-shape-1 c3-circle c3-circle-1" cx="24" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-2 c3-circle c3-circle-2" cx="40" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-3 c3-circle c3-circle-3" cx="56" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-4 c3-circle c3-circle-4" cx="72" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-5 c3-circle c3-circle-5" cx="88" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-6 c3-circle c3-circle-6" cx="104" cy="18.083333333333343" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-7 c3-circle c3-circle-7" cx="120" cy="18.083333333333343" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-8 c3-circle c3-circle-8" cx="136" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-9 c3-circle c3-circle-9" cx="152" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-10 c3-circle c3-circle-10" cx="168" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-11 c3-circle c3-circle-11" cx="184" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-12 c3-circle c3-circle-12" cx="200" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-13 c3-circle c3-circle-13" cx="216" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-14 c3-circle c3-circle-14" cx="232" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-15 c3-circle c3-circle-15" cx="248" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-16 c3-circle c3-circle-16" cx="264" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-17 c3-circle c3-circle-17" cx="280" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-18 c3-circle c3-circle-18" cx="296" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class=" c3-shape c3-shape-19 c3-circle c3-circle-19" cx="312" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class="c3-shape c3-shape-20 c3-circle c3-circle-20" cx="328" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class="c3-shape c3-shape-21 c3-circle c3-circle-21" cx="344" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class="c3-shape c3-shape-22 c3-circle c3-circle-22" cx="360" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle><circle shape-rendering="" class="c3-shape c3-shape-23 c3-circle c3-circle-23" cx="376" cy="188.91666666666666" r="2.5" style="color: rgb(233, 104, 161); opacity: 0;"></circle></g></g></g><g class="c3-chart-arcs" transform="translate(192,98)"><text class="c3-chart-arcs-title" style="text-anchor: middle; opacity: 0;"></text></g><g class="c3-chart-texts"><g class="c3-chart-text c3-target c3-target-previousCharging  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-previousCharging"></g></g><g class="c3-chart-text c3-target c3-target-charging  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-charging"></g></g><g class="c3-chart-text c3-target c3-target-sales  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-sales"></g></g></g></g><g clip-path="url(https://evci.duckdns.org/#c3-1590124807249-clip-grid)" class="c3-grid c3-grid-lines"><g class="c3-xgrid-lines"></g><g class="c3-ygrid-lines"></g></g><g class="c3-axis c3-axis-x" clip-path="url(https://evci.duckdns.org/#c3-1590124807249-clip-xaxis)" transform="translate(0,206)" style="visibility: visible; opacity: 1;"><text class="c3-axis-x-label" transform="" style="text-anchor: end;" x="384" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(8, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">00:00</tspan></text></g><g class="tick" transform="translate(24, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">01:00</tspan></text></g><g class="tick" transform="translate(40, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">02:00</tspan></text></g><g class="tick" transform="translate(56, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">03:00</tspan></text></g><g class="tick" transform="translate(72, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">04:00</tspan></text></g><g class="tick" transform="translate(88, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">05:00</tspan></text></g><g class="tick" transform="translate(104, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">06:00</tspan></text></g><g class="tick" transform="translate(120, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">07:00</tspan></text></g><g class="tick" transform="translate(136, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">08:00</tspan></text></g><g class="tick" transform="translate(152, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">09:00</tspan></text></g><g class="tick" transform="translate(168, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">10:00</tspan></text></g><g class="tick" transform="translate(184, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">11:00</tspan></text></g><g class="tick" transform="translate(200, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">12:00</tspan></text></g><g class="tick" transform="translate(216, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">13:00</tspan></text></g><g class="tick" transform="translate(232, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">14:00</tspan></text></g><g class="tick" transform="translate(248, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">15:00</tspan></text></g><g class="tick" transform="translate(264, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">16:00</tspan></text></g><g class="tick" transform="translate(280, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">17:00</tspan></text></g><g class="tick" transform="translate(296, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">18:00</tspan></text></g><g class="tick" transform="translate(312, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">19:00</tspan></text></g><g class="tick" transform="translate(328, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">20:00</tspan></text></g><g class="tick" transform="translate(344, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">21:00</tspan></text></g><g class="tick" transform="translate(360, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">22:00</tspan></text></g><g class="tick" transform="translate(376, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: none;"><tspan x="0" dy=".71em" dx="0">23:00</tspan></text></g><path class="domain" d="M0,6V0H384V6"></path></g><g class="c3-axis c3-axis-y" clip-path="url(https://evci.duckdns.org/#c3-1590124807249-clip-yaxis)" transform="translate(0,0)" style="visibility: visible; opacity: 1;"><text class="c3-axis-y-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="1.2em"></text><g class="tick" transform="translate(0,206)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><g class="tick" transform="translate(0,189)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,172)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><g class="tick" transform="translate(0,155)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><g class="tick" transform="translate(0,138)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><g class="tick" transform="translate(0,121)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><g class="tick" transform="translate(0,104)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><g class="tick" transform="translate(0,87)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><g class="tick" transform="translate(0,70)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><g class="tick" transform="translate(0,53)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><g class="tick" transform="translate(0,36)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><g class="tick" transform="translate(0,19)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">1</tspan></text></g><g class="tick" transform="translate(0,1)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><path class="domain" d="M-6,1H0V206H-6"></path></g><g class="c3-axis c3-axis-y2" transform="translate(384,0)" style="visibility: visible; opacity: 1;"><text class="c3-axis-y2-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(0,189)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,158)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">500</tspan></text></g><g class="tick" transform="translate(0,127)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">1</tspan></text></g><g class="tick" transform="translate(0,97)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">1.5</tspan></text></g><g class="tick" transform="translate(0,66)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">2</tspan></text></g><g class="tick" transform="translate(0,35)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">2.5</tspan></text></g><g class="tick" transform="translate(0,4)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">3</tspan></text></g><path class="domain" d="M6,1H0V206H6"></path></g></g><g transform="translate(0,300)" style="visibility: hidden;"></g><text class="c3-title" x="237.5" y="0"></text></svg><div class="c3-tooltip-container" style="position: absolute; pointer-events: none; display: none; top: 218.5px; left: 78px;"><div class="chart_tooltip_wrap">   <div class="date">2020-05-22 0:00~1:00</div>   <ul>       <li>           <span class="tool_circle" style="background:#E968A1;"></span>               <span class="tit">결제금액</span>               <span class="txt"><span>0</span>원</span>       </li>       <li>           <span class="tool_circle" style="background:#8DD4B6;"></span>           <span class="tit">충전횟수</span>           <span class="txt"><span>0</span>회</span>        </li>   </ul></div></div></div>
+                            </div>
+                            <!--// chart_area -->
+                        </div>
+                        <!--// chart_wrap -->
+                    </div>
+                    <!--// 이용현황 및 결제현황 -->
+                    <!-- 예상충전마진 현황 -->
+                    <div class="round_view_area dashboard_view2">
+                        <h2 class="h2_tit">예상충전마진 현황</h2>
+                        <button class="direct_go"><span class="hide">예상충전마진 현황 바로가기</span></button>
+                        <!-- chart_wrap -->
+                        <div class="chart_wrap">
+                            <!-- chart_left_info -->
+                            <div class="chart_left_info">
+                                <ul>
+                                    <li>
+                                        <span class="info_tit">오늘 예상충전마진</span>
+                                        <span class="info_count"><span>342,019</span>원</span>
+                                        <span class="info_rate">전주 동시간대 대비 <span class="rate_per up">2.2%</span></span>
+                                    </li>
+                                    <li>
+                                        <span class="info_tit">이번 주 예상충전마진</span>
+                                        <span class="info_count"><span>2,342,019</span>원</span>
+                                        <span class="info_rate">전주 동시간대 대비 <span class="rate_per up">12.2%</span></span>
+                                    </li>
+                                    <li>
+                                        <span class="info_tit">이번 달 예상충전 마진</span>
+                                        <span class="info_count"><span>10,154,342,019</span>원</span>
+                                        <span class="info_rate">전월 동시간대 대비 <span class="rate_per down">-2.2%</span></span>
+                                    </li>
+                                </ul>
+                                <p class="chart_left_info_comment">※충전마진 = 충전매출액 - 매입단가</p>
+                            </div>
+                            <!--// chart_left_info -->
+                            <!-- 20191217 추가 -->
+                            <!-- chart_legend_wrap -->
+                            <div class="chart_legend_wrap">
+                                <span class="legend_unit"><span class="unit_color" style="background:#d2d2d2"></span><span class="unit_tit">전주 충전마진</span></span>
+                                <span class="legend_unit"><span class="unit_color" style="background:#3db3ac"></span><span class="unit_tit">충전마진</span></span>
+                                <span class="legend_unit"><span class="unit_color" style="background:#ffb750"></span><span class="unit_tit">충전매출</span></span>
+                            </div>
+                            <!--// chart_legend_wrap -->
+                            <!-- chart_label_wrap -->
+                            <div class="chart_label_wrap">
+                                <span class="label_unit" style="left:220px;top:90px;">천원</span>
+                            </div>
+                            <!--// chart_label_wrap -->
+                            <!--// 20191217 추가 -->
+                            <!-- chart_area -->
+                            <div class="chart_area">
+                                <div id="expectChargeMarginStatus" class="c3" style="max-height: 295px; position: relative;"><svg width="475" height="295" style="overflow: hidden;"><defs><linearGradient id="gradient" x1="0%"  y1="100%">  
+                                    <stop offset="0%" style="stop-color: #66ccff"></stop>  
+                                    <stop offset="80%" style="stop-color: #0000FF"></stop>  
+                                  </linearGradient>  <clipPath id="c3-1590124845551-clip"><rect width="419" height="201"></rect></clipPath><clipPath id="c3-1590124845551-clip-xaxis"><rect x="-56" y="-20" width="506" height="60"></rect></clipPath><clipPath id="c3-1590124845551-clip-yaxis"><rect x="-54" y="-54" width="75" height="275"></rect></clipPath><clipPath id="c3-1590124845551-clip-grid"><rect width="419" height="201"></rect></clipPath><clipPath id="c3-1590124845551-clip-subchart"><rect width="419" height="0"></rect></clipPath></defs><g transform="translate(55.5,54.5)"><text class="c3-text c3-empty" text-anchor="middle" dominant-baseline="middle" x="209.5" y="100.5" style="opacity: 0;"></text><g clip-path="url(https://evci.duckdns.org/#c3-1590124845551-clip)" class="c3-regions" style="visibility: visible;"></g><g clip-path="url(https://evci.duckdns.org/#c3-1590124845551-clip-grid)" class="c3-grid" style="visibility: visible;"><g class="c3-ygrids"><line class="c3-ygrid" x1="0" x2="419" y1="194.96376128659594" y2="194.96376128659594"></line><line class="c3-ygrid" x1="0" x2="419" y1="169.6290902826336" y2="169.6290902826336"></line><line class="c3-ygrid" x1="0" x2="419" y1="144.29441927867126" y2="144.29441927867126"></line><line class="c3-ygrid" x1="0" x2="419" y1="118.95974827470893" y2="118.95974827470893"></line><line class="c3-ygrid" x1="0" x2="419" y1="93.62507727074657" y2="93.62507727074657"></line><line class="c3-ygrid" x1="0" x2="419" y1="68.29040626678425" y2="68.29040626678425"></line><line class="c3-ygrid" x1="0" x2="419" y1="42.955735262821904" y2="42.955735262821904"></line><line class="c3-ygrid" x1="0" x2="419" y1="17.62106425885954" y2="17.62106425885954"></line></g><g class="c3-xgrid-focus"><line class="c3-xgrid-focus" x1="-10" x2="-10" y1="0" y2="201" style="visibility: hidden;"></line></g></g><g clip-path="url(https://evci.duckdns.org/#c3-1590124845551-clip)" class="c3-chart"><g class="c3-stanford-elements"><g class="c3-stanford-lines" style="shape-rendering: geometricprecision;"></g><g class="c3-stanford-texts"></g><g class="c3-stanford-regions"></g></g><g class="c3-event-rects" style="fill-opacity: 0;"><rect class="c3-event-rect" x="0" y="0" width="419" height="201"></rect></g><g class="c3-chart-bars"><g class="c3-chart-bar c3-target c3-target-lastMargin" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-lastMargin c3-bars c3-bars-lastMargin" style="cursor: pointer;"><path class=" c3-shape c3-shape-0 c3-bar c3-bar-0" d="M 7.5,169.6290902826336 L7.5,169.6290902826336 L22.5,169.6290902826336 L22.5,169.6290902826336 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class=" c3-shape c3-shape-1 c3-bar c3-bar-1" d="M 67.5,169.6290902826336 L67.5,169.6290902826336 L82.5,169.6290902826336 L82.5,169.6290902826336 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class=" c3-shape c3-shape-2 c3-bar c3-bar-2" d="M 127.5,169.6290902826336 L127.5,169.6290902826336 L142.5,169.6290902826336 L142.5,169.6290902826336 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class=" c3-shape c3-shape-3 c3-bar c3-bar-3" d="M 187.5,169.6290902826336 L187.5,169.6290902826336 L202.5,169.6290902826336 L202.5,169.6290902826336 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class=" c3-shape c3-shape-4 c3-bar c3-bar-4" d="M 247.5,169.6290902826336 L247.5,169.6290902826336 L262.5,169.6290902826336 L262.5,169.6290902826336 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class=" c3-shape c3-shape-5 c3-bar c3-bar-5" d="M 307.5,169.6290902826336 L307.5,169.6290902826336 L322.5,169.6290902826336 L322.5,169.6290902826336 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path><path class=" c3-shape c3-shape-6 c3-bar c3-bar-6" d="M 367.5,169.6290902826336 L367.5,169.6290902826336 L382.5,169.6290902826336 L382.5,169.6290902826336 z" style="stroke: rgb(210, 210, 210); fill: rgb(210, 210, 210); opacity: 1;"></path></g></g><g class="c3-chart-bar c3-target c3-target-thisMargin" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-thisMargin c3-bars c3-bars-thisMargin" style="cursor: pointer;"><path class=" c3-shape c3-shape-0 c3-bar c3-bar-0" d="M 22.5,169.6290902826336 L22.5,169.6290902826336 L37.5,169.6290902826336 L37.5,169.6290902826336 z" style="stroke: rgb(60, 180, 171); fill: rgb(60, 180, 171); opacity: 1;"></path><path class=" c3-shape c3-shape-1 c3-bar c3-bar-1" d="M 82.5,169.6290902826336 L82.5,169.6290902826336 L97.5,169.6290902826336 L97.5,169.6290902826336 z" style="stroke: rgb(60, 180, 171); fill: rgb(60, 180, 171); opacity: 1;"></path><path class=" c3-shape c3-shape-2 c3-bar c3-bar-2" d="M 142.5,169.6290902826336 L142.5,169.6290902826336 L157.5,169.6290902826336 L157.5,169.6290902826336 z" style="stroke: rgb(60, 180, 171); fill: rgb(60, 180, 171); opacity: 1;"></path><path class=" c3-shape c3-shape-3 c3-bar c3-bar-3" d="M 202.5,169.6290902826336 L202.5,184.33333333333334 L217.5,184.33333333333334 L217.5,169.6290902826336 z" style="stroke: rgb(60, 180, 171); fill: rgb(60, 180, 171); opacity: 1;"></path><path class=" c3-shape c3-shape-4 c3-bar c3-bar-4" d="M 262.5,169.6290902826336 L262.5,141.67988123106235 L277.5,141.67988123106235 L277.5,169.6290902826336 z" style="stroke: rgb(60, 180, 171); fill: rgb(60, 180, 171); opacity: 1;"></path><path class=" c3-shape c3-shape-5 c3-bar c3-bar-5" d="M 322.5,169.6290902826336 L322.5,169.6290902826336 L337.5,169.6290902826336 L337.5,169.6290902826336 z" style="stroke: rgb(60, 180, 171); fill: rgb(60, 180, 171); opacity: 1;"></path><path class=" c3-shape c3-shape-6 c3-bar c3-bar-6" d="M 382.5,169.6290902826336 L382.5,169.6290902826336 L397.5,169.6290902826336 L397.5,169.6290902826336 z" style="stroke: rgb(60, 180, 171); fill: rgb(60, 180, 171); opacity: 1;"></path></g></g><g class="c3-chart-bar c3-target c3-target-thisSales" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-thisSales c3-bars c3-bars-thisSales" style="cursor: pointer;"><path class=" c3-shape c3-shape-0 c3-bar c3-bar-0" d="M 37.5,169.6290902826336 L37.5,169.6290902826336 L52.5,169.6290902826336 L52.5,169.6290902826336 z" style="stroke: rgb(238, 197, 55); fill: rgb(238, 197, 55); opacity: 1;"></path><path class=" c3-shape c3-shape-1 c3-bar c3-bar-1" d="M 97.5,169.6290902826336 L97.5,169.6290902826336 L112.5,169.6290902826336 L112.5,169.6290902826336 z" style="stroke: rgb(238, 197, 55); fill: rgb(238, 197, 55); opacity: 1;"></path><path class=" c3-shape c3-shape-2 c3-bar c3-bar-2" d="M 157.5,169.6290902826336 L157.5,169.6290902826336 L172.5,169.6290902826336 L172.5,169.6290902826336 z" style="stroke: rgb(238, 197, 55); fill: rgb(238, 197, 55); opacity: 1;"></path><path class=" c3-shape c3-shape-3 c3-bar c3-bar-3" d="M 217.5,169.6290902826336 L217.5,17.666666666666675 L232.5,17.666666666666675 L232.5,169.6290902826336 z" style="stroke: rgb(238, 197, 55); fill: rgb(238, 197, 55); opacity: 1;"></path><path class=" c3-shape c3-shape-4 c3-bar c3-bar-4" d="M 277.5,169.6290902826336 L277.5,141.67988123106235 L292.5,141.67988123106235 L292.5,169.6290902826336 z" style="stroke: rgb(238, 197, 55); fill: rgb(238, 197, 55); opacity: 1;"></path><path class=" c3-shape c3-shape-5 c3-bar c3-bar-5" d="M 337.5,169.6290902826336 L337.5,169.6290902826336 L352.5,169.6290902826336 L352.5,169.6290902826336 z" style="stroke: rgb(238, 197, 55); fill: rgb(238, 197, 55); opacity: 1;"></path><path class=" c3-shape c3-shape-6 c3-bar c3-bar-6" d="M 397.5,169.6290902826336 L397.5,169.6290902826336 L412.5,169.6290902826336 L412.5,169.6290902826336 z" style="stroke: rgb(238, 197, 55); fill: rgb(238, 197, 55); opacity: 1;"></path></g></g></g><g class="c3-chart-lines"><g class="c3-chart-line c3-target c3-target-lastMargin" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-lastMargin c3-lines c3-lines-lastMargin"></g><g class=" c3-shapes c3-shapes-lastMargin c3-areas c3-areas-lastMargin"></g><g class=" c3-selected-circles c3-selected-circles-lastMargin"></g><g class=" c3-shapes c3-shapes-lastMargin c3-circles c3-circles-lastMargin" style="cursor: pointer;"></g></g><g class="c3-chart-line c3-target c3-target-thisMargin" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-thisMargin c3-lines c3-lines-thisMargin"></g><g class=" c3-shapes c3-shapes-thisMargin c3-areas c3-areas-thisMargin"></g><g class=" c3-selected-circles c3-selected-circles-thisMargin"></g><g class=" c3-shapes c3-shapes-thisMargin c3-circles c3-circles-thisMargin" style="cursor: pointer;"></g></g><g class="c3-chart-line c3-target c3-target-thisSales" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-thisSales c3-lines c3-lines-thisSales"></g><g class=" c3-shapes c3-shapes-thisSales c3-areas c3-areas-thisSales"></g><g class=" c3-selected-circles c3-selected-circles-thisSales"></g><g class=" c3-shapes c3-shapes-thisSales c3-circles c3-circles-thisSales" style="cursor: pointer;"></g></g></g><g class="c3-chart-arcs" transform="translate(209.5,95.5)"><text class="c3-chart-arcs-title" style="text-anchor: middle; opacity: 0;"></text></g><g class="c3-chart-texts"><g class="c3-chart-text c3-target c3-target-lastMargin  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-lastMargin"></g></g><g class="c3-chart-text c3-target c3-target-thisMargin  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-thisMargin"></g></g><g class="c3-chart-text c3-target c3-target-thisSales  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-thisSales"></g></g></g></g><g clip-path="url(https://evci.duckdns.org/#c3-1590124845551-clip-grid)" class="c3-grid c3-grid-lines"><g class="c3-xgrid-lines"></g><g class="c3-ygrid-lines"></g></g><g class="c3-axis c3-axis-x" clip-path="url(https://evci.duckdns.org/#c3-1590124845551-clip-xaxis)" transform="translate(0,201)" style="visibility: visible; opacity: 1;"><text class="c3-axis-x-label" transform="" style="text-anchor: end;" x="419" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(30, 0)" style="opacity: 1;"><line x1="30" x2="30" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">05월 18일</tspan></text></g><g class="tick" transform="translate(90, 0)" style="opacity: 1;"><line x1="30" x2="30" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">05월 19일</tspan></text></g><g class="tick" transform="translate(150, 0)" style="opacity: 1;"><line x1="30" x2="30" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">05월 20일</tspan></text></g><g class="tick" transform="translate(210, 0)" style="opacity: 1;"><line x1="30" x2="30" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">05월 21일</tspan></text></g><g class="tick" transform="translate(270, 0)" style="opacity: 1;"><line x1="30" x2="30" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">05월 22일</tspan></text></g><g class="tick" transform="translate(330, 0)" style="opacity: 1;"><line x1="30" x2="30" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">05월 23일</tspan></text></g><g class="tick" transform="translate(390, 0)" style="opacity: 1;"><line x1="30" x2="30" y2="0"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">05월 24일</tspan></text></g><path class="domain" d="M0,6V0H419V6"></path></g><g class="c3-axis c3-axis-y" clip-path="url(https://evci.duckdns.org/#c3-1590124845551-clip-yaxis)" transform="translate(0,0)" style="visibility: visible; opacity: 1;"><text class="c3-axis-y-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="1.2em"></text><g class="tick" transform="translate(0,195)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3"></tspan></text></g><g class="tick" transform="translate(0,170)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,145)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">5</tspan></text></g><g class="tick" transform="translate(0,119)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">10</tspan></text></g><g class="tick" transform="translate(0,94)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">15</tspan></text></g><g class="tick" transform="translate(0,69)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">20</tspan></text></g><g class="tick" transform="translate(0,43)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">25</tspan></text></g><g class="tick" transform="translate(0,18)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">30</tspan></text></g><path class="domain" d="M-6,1H0V201H-6"></path></g><g class="c3-axis c3-axis-y2" transform="translate(419,0)" style="visibility: hidden; opacity: 1;"><text class="c3-axis-y2-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(0,201)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,181)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.1</tspan></text></g><g class="tick" transform="translate(0,161)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.2</tspan></text></g><g class="tick" transform="translate(0,141)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.3</tspan></text></g><g class="tick" transform="translate(0,121)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.4</tspan></text></g><g class="tick" transform="translate(0,101)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.5</tspan></text></g><g class="tick" transform="translate(0,81)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.6</tspan></text></g><g class="tick" transform="translate(0,62)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.7</tspan></text></g><g class="tick" transform="translate(0,41)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.8</tspan></text></g><g class="tick" transform="translate(0,21)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.9</tspan></text></g><g class="tick" transform="translate(0,1)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">1</tspan></text></g><path class="domain" d="M6,1H0V201H6"></path></g></g><g transform="translate(0,295)" style="visibility: hidden;"></g><text class="c3-title" x="237.5" y="0"></text></svg><div class="c3-tooltip-container" style="position: absolute; pointer-events: none; display: none;"></div></div>
+                            </div>
+                            <!--// chart_area -->
+                            <!-- 툴팁 -->
+                            <div style="position:absolute;left:0;top:0;">
+                                <!-- 실제 툴팁 -->
+                                <div class="chart_tooltip_wrap">
+                                    <div class="date">2013-05-11</div>
+                                    <ul>
+                                        <li><span class="tool_circle" style="background:#ffb750;"></span><span class="tit">충전매출</span><span class="txt"><span>422,700</span>원</span></li>
+                                        <li><span class="tool_circle" style="background:#3db3ac;"></span><span class="tit">충전마진</span><span class="txt"><span>422,700</span>원</span></li>
+                                    </ul>
+                                </div>
+                                <!--// 실제 툴팁 -->
+                            </div>
+                            <!--// 툴팁 -->
+                        </div>
+                        <!--// chart_wrap -->
+                    </div>
+                    <!--// 예상충전마진 현황 -->
+                    <div class="dashboard_row_sum">
+                        <!-- 공지사항 -->
+                        <div class="round_view_area dashboard_view3">
+                            <h2 class="h2_tit">공지사항</h2>
+                            <button class="direct_go"><span class="hide">공지사항 바로가기</span></button>
+                            <div class="notice_view">
+                                <ul>
+                                    <li><button><span class="date">2019.05.13</span><span class="txt">무제한 충전 프로모션 이용 시 부정사용 관련 안내</span></button></li>
+                                    <li><button><span class="date">2019.05.13</span><span class="txt">무제한 충전 프로모션 이용 시 부정사용 관련 안내</span></button></li>
+                                    <li><button><span class="date">2019.05.13</span><span class="txt">무제한 충전 프로모션 이용 시 부정사용 관련 안내무제한 충전 프로모션 이용 시 부정사용 관련 안내</span></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--// 공지사항 -->
+                        <!-- 장애통계 -->
+                        <div class="round_view_area dashboard_view4">
+                            <h2 class="h2_tit">장애통계</h2>
+                            <button class="direct_go"><span class="hide">장애통계 바로가기</span></button>
+                            <!-- chart_wrap -->
+                            <div class="chart_wrap">
+                                <!-- chart_left_info -->
+                                <div class="chart_left_info">
+                                    <span class="info_tit">오늘 장애</span>
+                                    <span class="info_count"><span>12</span>회</span>
+                                    <span class="info_rate">전주 동시간대 대비 <span class="rate_per up">58%</span></span><!-- rate_per클래스에 상황에 따라 다음클래스를 추가해줌  up down -->
+                                </div>
+                                <!--// chart_left_info -->
+                                <!-- 20191217 추가 -->
+                                <!-- chart_legend_wrap -->
+                                <!-- <div class="chart_legend_wrap">
+                                    <span class="legend_unit"><span class="unit_color" style="background:#d2d2d2"></span><span class="unit_tit">Code</span></span>
+                                </div> -->
+                                <!--// chart_legend_wrap -->
+                                <!-- chart_label_wrap -->
+                                <div class="chart_label_wrap">
+                                    <span class="label_unit" style="left:150px;top:50px;">회</span>
+                                </div>
+                                <!--// chart_label_wrap -->
+                                <!--// 20191217 추가 -->
+                                <!-- chart_area -->
+                                <div class="chart_area">
+                                    <div id="errorStatistics" class="c3" style="max-height: 120px; position: relative;"><svg width="230" height="120" style="overflow: hidden;"><defs><clipPath id="c3-1590383931485-clip"><rect width="159" height="86"></rect></clipPath><clipPath id="c3-1590383931485-clip-xaxis"><rect x="-71" y="-20" width="261" height="50"></rect></clipPath><clipPath id="c3-1590383931485-clip-yaxis"><rect x="-69" y="-4" width="90" height="110"></rect></clipPath><clipPath id="c3-1590383931485-clip-grid"><rect width="159" height="86"></rect></clipPath><clipPath id="c3-1590383931485-clip-subchart"><rect width="159" height="0"></rect></clipPath></defs><g transform="translate(70.5,4.5)"><text class="c3-text c3-empty" text-anchor="middle" dominant-baseline="middle" x="79.5" y="43" style="opacity: 0;"></text><g clip-path="url(http://localhost:3000/#c3-1590383931485-clip)" class="c3-regions" style="visibility: visible;"></g><g clip-path="url(http://localhost:3000/#c3-1590383931485-clip-grid)" class="c3-grid" style="visibility: visible;"><g class="c3-ygrids"><line class="c3-ygrid" x1="0" x2="159" y1="86" y2="86"></line><line class="c3-ygrid" x1="0" x2="159" y1="78.91666666666666" y2="78.91666666666666"></line><line class="c3-ygrid" x1="0" x2="159" y1="71.83333333333334" y2="71.83333333333334"></line><line class="c3-ygrid" x1="0" x2="159" y1="64.75" y2="64.75"></line><line class="c3-ygrid" x1="0" x2="159" y1="57.66666666666668" y2="57.66666666666668"></line><line class="c3-ygrid" x1="0" x2="159" y1="50.58333333333332" y2="50.58333333333332"></line><line class="c3-ygrid" x1="0" x2="159" y1="43.5" y2="43.5"></line><line class="c3-ygrid" x1="0" x2="159" y1="36.416666666666664" y2="36.416666666666664"></line><line class="c3-ygrid" x1="0" x2="159" y1="29.33333333333334" y2="29.33333333333334"></line><line class="c3-ygrid" x1="0" x2="159" y1="22.25" y2="22.25"></line><line class="c3-ygrid" x1="0" x2="159" y1="15.166666666666664" y2="15.166666666666664"></line><line class="c3-ygrid" x1="0" x2="159" y1="8.083333333333336" y2="8.083333333333336"></line><line class="c3-ygrid" x1="0" x2="159" y1="1" y2="1"></line></g><g class="c3-xgrid-focus"><line class="c3-xgrid-focus" x1="-10" x2="-10" y1="0" y2="86" style="visibility: hidden;"></line></g></g><g clip-path="url(http://localhost:3000/#c3-1590383931485-clip)" class="c3-chart"><g class="c3-stanford-elements"><g class="c3-stanford-lines" style="shape-rendering: geometricprecision;"></g><g class="c3-stanford-texts"></g><g class="c3-stanford-regions"></g></g><g class="c3-event-rects" style="fill-opacity: 0;"><rect class="c3-event-rect" x="0" y="0" width="159" height="86"></rect></g><g class="c3-chart-bars"><g class="c3-chart-bar c3-target c3-target-numberOfError" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-numberOfError c3-bars c3-bars-numberOfError" style="cursor: pointer;"></g></g></g><g class="c3-chart-lines"><g class="c3-chart-line c3-target c3-target-numberOfError" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-numberOfError c3-lines c3-lines-numberOfError"></g><g class=" c3-shapes c3-shapes-numberOfError c3-areas c3-areas-numberOfError"></g><g class=" c3-selected-circles c3-selected-circles-numberOfError"></g><g class=" c3-shapes c3-shapes-numberOfError c3-circles c3-circles-numberOfError" style="cursor: pointer;"></g></g></g><g class="c3-chart-arcs" transform="translate(79.5,38)"><text class="c3-chart-arcs-title" style="text-anchor: middle; opacity: 0;"></text></g><g class="c3-chart-texts"><g class="c3-chart-text c3-target c3-target-numberOfError  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-numberOfError"></g></g></g></g><g clip-path="url(http://localhost:3000/#c3-1590383931485-clip-grid)" class="c3-grid c3-grid-lines"><g class="c3-xgrid-lines"></g><g class="c3-ygrid-lines"></g></g><g class="c3-axis c3-axis-x" clip-path="url(http://localhost:3000/#c3-1590383931485-clip-xaxis)" transform="translate(0,86)" style="visibility: visible; opacity: 1;"><text class="c3-axis-x-label" transform="" style="text-anchor: end;" x="159" dx="-0.5em" dy="-0.5em"></text><path class="domain" d="M0,6V0H159V6"></path></g><g class="c3-axis c3-axis-y" clip-path="url(http://localhost:3000/#c3-1590383931485-clip-yaxis)" transform="translate(0,0)" style="visibility: visible; opacity: 1;"><text class="c3-axis-y-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="1.2em"></text><g class="tick" transform="translate(0,86)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">-1</tspan></text></g><g class="tick" transform="translate(0,79)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,72)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">1</tspan></text></g><g class="tick" transform="translate(0,65)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">2</tspan></text></g><g class="tick" transform="translate(0,58)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">3</tspan></text></g><g class="tick" transform="translate(0,51)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">4</tspan></text></g><g class="tick" transform="translate(0,44)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">5</tspan></text></g><g class="tick" transform="translate(0,37)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">6</tspan></text></g><g class="tick" transform="translate(0,30)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">7</tspan></text></g><g class="tick" transform="translate(0,23)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">8</tspan></text></g><g class="tick" transform="translate(0,16)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">9</tspan></text></g><g class="tick" transform="translate(0,9)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">10</tspan></text></g><g class="tick" transform="translate(0,1)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">11</tspan></text></g><path class="domain" d="M-6,1H0V86H-6"></path></g><g class="c3-axis c3-axis-y2" transform="translate(159,0)" style="visibility: hidden; opacity: 1;"><text class="c3-axis-y2-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(0,86)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,78)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.1</tspan></text></g><g class="tick" transform="translate(0,69)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.2</tspan></text></g><g class="tick" transform="translate(0,61)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.3</tspan></text></g><g class="tick" transform="translate(0,52)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.4</tspan></text></g><g class="tick" transform="translate(0,44)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.5</tspan></text></g><g class="tick" transform="translate(0,35)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.6</tspan></text></g><g class="tick" transform="translate(0,27)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.7</tspan></text></g><g class="tick" transform="translate(0,18)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.8</tspan></text></g><g class="tick" transform="translate(0,10)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.9</tspan></text></g><g class="tick" transform="translate(0,1)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">1</tspan></text></g><path class="domain" d="M6,1H0V86H6"></path></g></g><g transform="translate(0,120)" style="visibility: hidden;"></g><text class="c3-title" x="115" y="0"></text></svg><div class="c3-tooltip-container" style="position: absolute; pointer-events: none; display: none;"></div></div>
+                                </div>
+                                <!--// chart_area -->
+                            </div>
+                            <!--// chart_wrap -->
+                        </div>
+                        <!--// 장애통계 -->
+                    </div>
+                </div>
+                <div class="dashboard_row">
+                    <!-- 에너지현황 -->
+                    <div class="round_view_area dashboard_view5">
+                        <h2 class="h2_tit">에너지현황</h2>
+                        <!-- <button class="direct_go"><span class="hide">에너지현황 바로가기</span></button> -->
+                        <!-- chart_wrap -->
+                        <div class="chart_wrap">
+                            <!-- chart_left_info -->
+                            <div class="chart_left_info">
+                                <ul>
+                                    <li>
+                                        <span class="info_tit">오늘 충전기전력량</span>
+                                        <span class="info_count"><span>786</span>kWh</span>
+                                        <span class="info_rate">전주 동시간대 대비 <span class="rate_per">0.0%</span></span>
+                                    </li>
+                                    <li>
+                                        <span class="info_tit">오늘 PV발전량</span>
+                                        <span class="info_count"><span>42</span>kWh</span>
+                                        <span class="info_rate">전주 동시간대 대비 <span class="rate_per up">2.2%</span></span>
+                                    </li>
+                                    <li>
+                                        <span class="info_tit">오늘 전력계통</span>
+                                        <span class="info_count"><span>1,162</span>kWh</span>
+                                        <span class="info_rate">전주 동시간대 대비 <span class="rate_per down">-2.2%</span></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--// chart_left_info -->
+                            <!-- chart_area -->
+                            <div class="chart_area">
+                                <div id="energyStatus" class="c3" style="position: relative;">
+                                    <div class="box gauge--3">
+                                        <div class="mask">
+                                            <div class="semi-circle"></div>
+                                            <div class="semi-circle--mask" style="transform: rotate(54deg) translate3d(0, 0, 0);;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="needle_wrap">
+                                    <span class="needle_body">
+                                        <img src="../com/images/common/chart_needle.png" alt="" style=" transform: rotate(54deg);" class="pic_needle"><!--style=" transform: rotate(0deg);"  0deg ~ 180deg ///////////////////////////////   1.8*((value - 최소값)/(최대값 - 최소값))*100 -->
+                                    </span>
+                                </div>
+                                <!-- 20200625 수정 -->
+                                <div class="peak_wrap">
+                                    <span class="peak_body">
+                                       
+                                        <span class="peak_line" style="transform:rotate(150deg);"><!--style=" transform: rotate(0deg);"  0deg ~ 180deg ///////////////////////////////   1.8*((피크값 - 최소값)/(최대값 - 최소값))*100 -->
+                                        </span>
+                                    </span>
+                                    <span class="peak_text">
+                                        <span class="peak_tit">피크</span>
+                                        
+                                        <span class="peak_val"><span>4230</span> kW</span>
+                                    </span>
+                                </div>
+                                <!--// 20200625 수정 -->
+                                <div class="chart_tit">실시간 전력 현황</div>
+                                <!-- 20191227 수정 -->
+                                <div class="chart_val">
+                                    <span>3,383</span>kW
+                                    <div class="tooltip_wrap poRelative ml5">
+                                        <button class="ico_tooltip"></button>
+                                        <div class="tooltip_cont poB size1">
+                                            <p class="tooltip_txt">실시간 충전기 전력값은 충전 상태인 충전기의 최근 Power Value를<br />합산해서 계산됩니다. 피크 값은 각 충전소의 피크 제어 설정값이 표시되며,<br />설정값이 없는 경우 충전소 내 충전기 합으로 계산됩니다.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--// 20191227 수정 -->
+                            </div>
+                            <!--// chart_area -->
+                        </div>
+                        <!--// chart_wrap -->
+                    </div>
+                    <!--// 에너지현황 -->
+                    <!-- 충전이력 -->
+                    <div class="round_view_area dashboard_view6">
+                        <h2 class="h2_tit">충전현황</h2>
+                        <button class="direct_go"><span class="hide">충전현황 바로가기</span></button>
+                        <!-- 20191213 수정 -->
+                        <dl class="filter_check">
+                            <dt>상태</dt>
+                            <dd>
+                                <dd>
+                                    <div class="ant-checkbox-group-all"><!-- 안트디자인 기본값에서 class추가됨 -->
+                                        <label class="ant-checkbox-wrapper">
+                                            <span class="ant-checkbox">
+                                                <input type="checkbox" class="ant-checkbox-input" value="">
+                                                <span class="ant-checkbox-inner"></span>
+                                            </span>
+                                            <span>전체선택</span>
+                                        </label>
+                                    </div>
+                                    <div class="ant-checkbox-group">
+                                        <label class="ant-checkbox-group-item ant-checkbox-wrapper">
+                                            <span class="ant-checkbox">
+                                                <input type="checkbox" class="ant-checkbox-input" value="충전대기" checked="">
+                                                <span class="ant-checkbox-inner"></span>
+                                            </span>
+                                            <span>충전대기</span>
+                                        </label>
+                                        <label class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked">
+                                            <span class="ant-checkbox ant-checkbox-checked">
+                                                <input type="checkbox" class="ant-checkbox-input" value="충전예약" checked="true">
+                                                <span class="ant-checkbox-inner"></span>
+                                            </span>
+                                            <span>충전예약</span>
+                                        </label>
+                                        <label class="ant-checkbox-group-item ant-checkbox-wrapper">
+                                            <span class="ant-checkbox">
+                                                <input type="checkbox" class="ant-checkbox-input" value="충전중" checked="">
+                                                <span class="ant-checkbox-inner"></span>
+                                            </span>
+                                            <span>충전중</span>
+                                        </label>
+                                        <label class="ant-checkbox-group-item ant-checkbox-wrapper">
+                                            <span class="ant-checkbox">
+                                                <input type="checkbox" class="ant-checkbox-input" value="충전완료" checked="">
+                                                <span class="ant-checkbox-inner"></span>
+                                            </span>
+                                            <span>충전완료</span>
+                                        </label>
+                                        <label class="ant-checkbox-group-item ant-checkbox-wrapper">
+                                            <span class="ant-checkbox">
+                                                <input type="checkbox" class="ant-checkbox-input" value="고장/점검" checked="">
+                                                <span class="ant-checkbox-inner"></span>
+                                            </span>
+                                            <span>점검중</span>
+                                        </label>
+                                        <label class="ant-checkbox-group-item ant-checkbox-wrapper">
+                                            <span class="ant-checkbox">
+                                                <input type="checkbox" class="ant-checkbox-input" value="통신장애" checked="">
+                                                <span class="ant-checkbox-inner"></span>
+                                            </span>
+                                            <span>통신장애</span>
+                                        </label>
+                                    </div>
+                                </dd>
+                            </dd>
+                        </dl>
+                        <div class="sort_tbl_wrap">
+                            <div>
+                                <!-- <input type="checkbox" id="scales" name="scales"><label for="scales">전체선택</label><input type="checkbox" id="scales" name="scales"><label for="scales">충전대기</label><input type="checkbox" id="scales" name="scales"><label for="scales">충전예약</label><input type="checkbox" id="scales" name="scales"><label for="scales">충전중</label><input type="checkbox" id="scales" name="scales"><label for="scales">충전완료</label><input type="checkbox" id="scales" name="scales"><label for="scales">고장/점검</label><input type="checkbox" id="scales" name="scales"><label for="scales">통신장애</label> -->
+                                <div class="tbl_wrap">
+                                    <div class="ant-table-wrapper">
+                                        <div class="ant-spin-nested-loading">
+                                            <div class="ant-spin-container">
+                                                <div class="ant-table ant-table-default ">
+                                                    <div class="ant-table-content">
+                                                        <div class="ant-table-scroll">
+                                                            <div class="ant-table-header " style="margin-bottom: -17px; padding-bottom: 0px;">
+                                                                <table class="">
+                                                                <colgroup>
+                                                                    <col width="8%">
+                                                                    <col width="11%">
+                                                                    <col width="11%">
+                                                                    <col width="11%">
+                                                                    <col width="18%">
+                                                                    <col width="auto">
+                                                                    <col width="15%">
+                                                                </colgroup>
+                                                                <thead class="ant-table-thead">
+                                                                <tr>
+                                                                    <th class="ant-table-align-center" style="text-align: center;">
+                                                                        <span class="ant-table-header-column">
+                                                                        <div>
+                                                                            <span class="ant-table-column-title">Site Code</span><span class="ant-table-column-sorter"></span>
+                                                                        </div>
+                                                                        </span>
+                                                                    </th>
+                                                                    <th class="ant-table-align-center" style="text-align: center;">
+                                                                        <span class="ant-table-header-column">
+                                                                        <div>
+                                                                            <span class="ant-table-column-title">충전소명</span><span class="ant-table-column-sorter"></span>
+                                                                        </div>
+                                                                        </span>
+                                                                    </th>
+                                                                    <th class="ant-table-align-center" style="text-align: left;">
+                                                                        <span class="ant-table-header-column">
+                                                                        <div>
+                                                                            <span class="ant-table-column-title">지역</span><span class="ant-table-column-sorter"></span>
+                                                                        </div>
+                                                                        </span>
+                                                                    </th>
+                                                                    <th class="ant-table-align-center" style="text-align: left;">
+                                                                        <span class="ant-table-header-column">
+                                                                        <div>
+                                                                            <span class="ant-table-column-title">충전기명</span><span class="ant-table-column-sorter"></span>
+                                                                        </div>
+                                                                        </span>
+                                                                    </th>
+                                                                    
+                                                                    <th class="ant-table-align-center" style="text-align: left;">
+                                                                        <span class="ant-table-header-column">
+                                                                        <div>
+                                                                            <span class="ant-table-column-title">상태</span><span class="ant-table-column-sorter"></span>
+                                                                        </div>
+                                                                        </span>
+                                                                    </th>
+                                                                    <th class="ant-table-align-center" style="text-align: left;">
+                                                                        <span class="ant-table-header-column">
+                                                                        <div>
+                                                                            <span class="ant-table-column-title">커넥터타입</span><span class="ant-table-column-sorter"></span>
+                                                                        </div>
+                                                                        </span>
+                                                                    </th>
+                                                                    <th class="ant-table-align-center" style="text-align: center;">
+                                                                        <span class="ant-table-header-column">
+                                                                        <div>
+                                                                            <span class="ant-table-column-title">상태변경일시</span><span class="ant-table-column-sorter"></span>
+                                                                        </div>
+                                                                        </span>
+                                                                    </th>
+                                                                </tr>
+                                                                </thead>
+                                                                
+                                                                <tbody class="ant-table-tbody">
+                                                                <tr class="ant-table-row ant-table-row-level-0" data-row-key="0">
+                                                                    <td class="" style="text-align: center;">A001</td>
+                                                                    <td class="text_over" style="text-align: center;" title="스마트남서울">스마트남서울</td>
+                                                                    <td class="text_over" style="text-align: left;" title="서울시 동대문구">서울시 동대문구</td>
+                                                                    <td class="text_over" style="text-align: left;" title="ChargerA">ChargerA</td>
+                                                                    <td class="" style="text-align: left;"><span class="charge_status typ1 is_parking"><span title="충전대기충전대기충전대기" class="txt">충전대기충전대기충전대기</span><span class="ico_comment_wrap"><span class="ico_parking"></span><span class="ico_warning is_active"></span><span class="ico_break"></span></span></span><!--typ1~6 충전대기, 충전중, 충전완료, 고장/점검, 통신장애, 상태미확인 is_error 장애아이콘, 점유 is_parking --></td>
+                                                                    <td class="" style="text-align: left;">
+                                                                        <span class="c_typ typ1"><span class="txt">DC콤보</span></span>
+                                                                        <span class="c_typ typ2"><span class="txt">DC차데모</span></span>
+                                                                        <span class="c_typ typ3"><span class="txt">AC3상</span></span>
+                                                                        <span class="c_typ typ4"><span class="txt">완속</span></span>
+                                                                    </td>
+                                                                    <td class="" style="text-align: center;">2019-05-17 11:34</td>
+                                                                </tr>
+                                                                <tr class="ant-table-row ant-table-row-level-0" data-row-key="0">
+                                                                    <td class="" style="text-align: center;">A001</td>
+                                                                    <td class="text_over" style="text-align: center;" title="스마트남서울">스마트남서울</td>
+                                                                    <td class="text_over" style="text-align: left;" title="서울시 동대문구">서울시 동대문구</td>
+                                                                    <td class="text_over" style="text-align: left;" title="ChargerA">ChargerA</td>
+                                                                    <td class="" style="text-align: left;"><span class="charge_status typ1 is_parking"><span title="충전대기충전대기충전대기" class="txt">충전대기</span><span class="ico_comment_wrap"><span class="ico_parking"></span><span class="ico_warning is_active"></span><span class="ico_break"></span></span></span><!--typ1~6 충전대기, 충전중, 충전완료, 고장/점검, 통신장애, 상태미확인 is_error 장애아이콘, 점유 is_parking --></td>
+                                                                    <td class="" style="text-align: left;">
+                                                                        <span class="c_typ typ1"><span class="txt">DC콤보</span></span>
+                                                                        <span class="c_typ typ2"><span class="txt">DC차데모</span></span>
+                                                                        <span class="c_typ typ3"><span class="txt">AC3상</span></span>
+                                                                        <span class="c_typ typ4"><span class="txt">완속</span></span>
+                                                                    </td>
+                                                                    <td class="" style="text-align: center;">2019-05-17 11:34</td>
+                                                                </tr>
+                                                                <tr class="ant-table-row ant-table-row-level-0" data-row-key="0">
+                                                                    <td class="" style="text-align: center;">A001</td>
+                                                                    <td class="text_over" style="text-align: center;">스마트남서울스마트남서울</td>
+                                                                    <td class="text_over" style="text-align: left;">서울시 동대문구</td>
+                                                                    <td class="text_over" style="text-align: left;">ChargerA</td>
+                                                                    <td class="" style="text-align: left;"><span class="charge_status typ1 is_parking"><span title="충전대기충전대기충전대기" class="txt">충전대기</span><span class="ico_comment_wrap"><span class="ico_parking"></span><span class="ico_warning is_active"></span><span class="ico_break"></span></span></span><!--typ1~6 충전대기, 충전중, 충전완료, 고장/점검, 통신장애, 상태미확인 is_error 장애아이콘, 점유 is_parking --></td>
+                                                                    <td class="" style="text-align: left;">
+                                                                        <span class="c_typ typ1"><span class="txt">DC콤보</span></span>
+                                                                        <span class="c_typ typ2"><span class="txt">DC차데모</span></span>
+                                                                        <span class="c_typ typ3"><span class="txt">AC3상</span></span>
+                                                                        <span class="c_typ typ4"><span class="txt">완속</span></span>
+                                                                    </td>
+                                                                    <td class="" style="text-align: center;">2019-05-17 11:34</td>
+                                                                </tr>
+                                                                <tr class="ant-table-row ant-table-row-level-0" data-row-key="0">
+                                                                    <td class="" style="text-align: center;">A001</td>
+                                                                    <td class="text_over" style="text-align: center;">스마트남서울</td>
+                                                                    <td class="text_over" style="text-align: left;">서울시 동대문구</td>
+                                                                    <td class="text_over" style="text-align: left;">ChargerAChargerA</td>
+                                                                    <td class="" style="text-align: left;"><span class="charge_status typ1 is_error"><span title="충전대기충전대기충전대기" class="txt">충전대기</span><span class="ico_comment_wrap"><span class="ico_parking"></span><span class="ico_warning is_active"></span><span class="ico_break"></span></span></span><!--typ1~6 충전대기, 충전중, 충전완료, 고장/점검, 통신장애, 상태미확인 is_error 장애아이콘, 점유 is_parking --></td>
+                                                                    <td class="" style="text-align: left;">
+                                                                        <span class="c_typ typ1"><span class="txt">DC콤보</span></span>
+                                                                        <span class="c_typ typ2"><span class="txt">DC차데모</span></span>
+                                                                        <span class="c_typ typ3"><span class="txt">AC3상</span></span>
+                                                                        <span class="c_typ typ4"><span class="txt">완속</span></span>
+                                                                    </td>
+                                                                    <td class="" style="text-align: center;">2019-05-17 11:34</td>
+                                                                </tr>
+                                                                <tr class="ant-table-row ant-table-row-level-0" data-row-key="0">
+                                                                    <td class="" style="text-align: center;">A001</td>
+                                                                    <td class="text_over" style="text-align: center;">스마트남서울</td>
+                                                                    <td class="text_over" style="text-align: left;">서울시 동대문구</td>
+                                                                    <td class="text_over" style="text-align: left;">ChargerA</td>
+                                                                    <td class="" style="text-align: left;"><span class="charge_status typ1 is_error is_parking"><span title="충전대기충전대기충전대기" class="txt">충전대기충전대기충전대기충전대기충전대기</span><span class="ico_comment_wrap"><span class="ico_parking"></span><span class="ico_warning is_active"></span><span class="ico_break"></span></span></span><!--typ1~6 충전대기, 충전중, 충전완료, 고장/점검, 통신장애, 상태미확인 is_error 장애아이콘, 점유 is_parking --></td>
+                                                                    <td class="" style="text-align: left;">
+                                                                        <span class="c_typ typ1"><span class="txt">DC콤보</span></span>
+                                                                        <span class="c_typ typ2"><span class="txt">DC차데모</span></span>
+                                                                        <span class="c_typ typ3"><span class="txt">AC3상</span></span>
+                                                                        <span class="c_typ typ4"><span class="txt">완속</span></span>
+                                                                    </td>
+                                                                    <td class="" style="text-align: center;">2019-05-17 11:34</td>
+                                                                </tr>
+                                                                <tr class="ant-table-row ant-table-row-level-0" data-row-key="0">
+                                                                    <td class="" style="text-align: center;">A001</td>
+                                                                    <td class="text_over" style="text-align: center;">스마트남서울</td>
+                                                                    <td class="text_over" style="text-align: left;">서울시 동대문구</td>
+                                                                    <td class="text_over" style="text-align: left;">ChargerA</td>
+                                                                    <td class="" style="text-align: left;"><span class="charge_status typ1 is_parking"><span title="충전대기충전대기충전대기" class="txt">충전대기</span><span class="ico_comment_wrap"><span class="ico_parking"></span><span class="ico_warning is_active"></span><span class="ico_break"></span></span></span><!--typ1~6 충전대기, 충전중, 충전완료, 고장/점검, 통신장애, 상태미확인 is_error 장애아이콘, 점유 is_parking --></td>
+                                                                    <td class="" style="text-align: left;">
+                                                                        <span class="c_typ typ1"><span class="txt">DC콤보</span></span>
+                                                                        <span class="c_typ typ2"><span class="txt">DC차데모</span></span>
+                                                                        <span class="c_typ typ3"><span class="txt">AC3상</span></span>
+                                                                        <span class="c_typ typ4"><span class="txt">완속</span></span>
+                                                                    </td>
+                                                                    <td class="" style="text-align: center;">2019-05-17 11:34</td>
+                                                                </tr>
+                                                                <tr class="ant-table-row ant-table-row-level-0" data-row-key="0">
+                                                                    <td class="" style="text-align: center;">A001</td>
+                                                                    <td class="text_over" style="text-align: center;">스마트남서울</td>
+                                                                    <td class="text_over" style="text-align: left;">서울시 동대문구</td>
+                                                                    <td class="text_over" style="text-align: left;">ChargerA</td>
+                                                                    <td class="" style="text-align: left;"><span class="charge_status typ1 is_parking"><span title="충전대기충전대기충전대기" class="txt">충전대기</span><span class="ico_comment_wrap"><span class="ico_parking"></span><span class="ico_warning is_active"></span><span class="ico_break"></span></span></span><!--typ1~6 충전대기, 충전중, 충전완료, 고장/점검, 통신장애, 상태미확인 is_error 장애아이콘, 점유 is_parking --></td>
+                                                                    <td class="" style="text-align: left;">
+                                                                        <span class="c_typ typ1"><span class="txt">DC콤보</span></span>
+                                                                        <span class="c_typ typ2"><span class="txt">DC차데모</span></span>
+                                                                        <span class="c_typ typ3"><span class="txt">AC3상</span></span>
+                                                                        <span class="c_typ typ4"><span class="txt">완속</span></span>
+                                                                    </td>
+                                                                    <td class="" style="text-align: center;">2019-05-17 11:34</td>
+                                                                </tr>
+                                                                <tr class="ant-table-row ant-table-row-level-0" data-row-key="0">
+                                                                    <td class="" style="text-align: center;">A001</td>
+                                                                    <td class="text_over" style="text-align: center;">스마트남서울</td>
+                                                                    <td class="text_over" style="text-align: left;">서울시 동대문구</td>
+                                                                    <td class="text_over" style="text-align: left;">ChargerA</td>
+                                                                    <td class="" style="text-align: left;"><span class="charge_status typ1 is_parking"><span title="충전대기충전대기충전대기" class="txt">충전대기</span><span class="ico_comment_wrap"><span class="ico_parking"></span><span class="ico_warning is_active"></span><span class="ico_break"></span></span></span><!--typ1~6 충전대기, 충전중, 충전완료, 고장/점검, 통신장애, 상태미확인 is_error 장애아이콘, 점유 is_parking --></td>
+                                                                    <td class="" style="text-align: left;">
+                                                                        <span class="c_typ typ1"><span class="txt">DC콤보</span></span>
+                                                                        <span class="c_typ typ2"><span class="txt">DC차데모</span></span>
+                                                                        <span class="c_typ typ3"><span class="txt">AC3상</span></span>
+                                                                        <span class="c_typ typ4"><span class="txt">완속</span></span>
+                                                                    </td>
+                                                                    <td class="" style="text-align: center;">2019-05-17 11:34</td>
+                                                                </tr>
+                                                                <tr class="ant-table-row ant-table-row-level-0" data-row-key="0">
+                                                                    <td class="" style="text-align: center;">A001</td>
+                                                                    <td class="text_over" style="text-align: center;">스마트남서울</td>
+                                                                    <td class="text_over" style="text-align: left;">서울시 동대문구</td>
+                                                                    <td class="text_over" style="text-align: left;">ChargerA</td>
+                                                                    <td class="" style="text-align: left;"><span class="charge_status typ1 is_parking"><span title="충전대기충전대기충전대기" class="txt">충전대기</span><span class="ico_comment_wrap"><span class="ico_parking"></span><span class="ico_warning is_active"></span><span class="ico_break"></span></span></span><!--typ1~6 충전대기, 충전중, 충전완료, 고장/점검, 통신장애, 상태미확인 is_error 장애아이콘, 점유 is_parking --></td>
+                                                                    <td class="" style="text-align: left;">
+                                                                        <span class="c_typ typ1"><span class="txt">DC콤보</span></span>
+                                                                        <span class="c_typ typ2"><span class="txt">DC차데모</span></span>
+                                                                        <span class="c_typ typ3"><span class="txt">AC3상</span></span>
+                                                                        <span class="c_typ typ4"><span class="txt">완속</span></span>
+                                                                    </td>
+                                                                    <td class="" style="text-align: center;">2019-05-17 11:34</td>
+                                                                </tr>
+                                                                <tr class="ant-table-row ant-table-row-level-0" data-row-key="0">
+                                                                    <td class="" style="text-align: center;">A001</td>
+                                                                    <td class="text_over" style="text-align: center;">스마트남서울</td>
+                                                                    <td class="text_over" style="text-align: left;">서울시 동대문구</td>
+                                                                    <td class="text_over" style="text-align: left;">ChargerA</td>
+                                                                    <td class="" style="text-align: left;"><span class="charge_status typ1 is_parking"><span title="충전대기충전대기충전대기" class="txt">충전대기</span><span class="ico_comment_wrap"><span class="ico_parking"></span><span class="ico_warning is_active"></span><span class="ico_break"></span></span></span><!--typ1~6 충전대기, 충전중, 충전완료, 고장/점검, 통신장애, 상태미확인 is_error 장애아이콘, 점유 is_parking --></td>
+                                                                    <td class="" style="text-align: left;">
+                                                                        <span class="c_typ typ1"><span class="txt">DC콤보</span></span>
+                                                                        <span class="c_typ typ2"><span class="txt">DC차데모</span></span>
+                                                                        <span class="c_typ typ3"><span class="txt">AC3상</span></span>
+                                                                        <span class="c_typ typ4"><span class="txt">완속</span></span>
+                                                                    </td>
+                                                                    <td class="" style="text-align: center;">2019-05-17 11:34</td>
+                                                                </tr>
+                                                                </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// 20191213 수정 -->
+                    </div>
+                    <!--// 충전이력 -->
+                    <!-- 전국 충전현황 -->
+                    <div class="round_view_area dashboard_view7">
+                        <h2 class="h2_tit">전국 충전현황</h2>
+                        <button class="direct_go map"><span class="hide">전국 충전현황 바로가기</span></button>
+                        <!-- map_wrap -->
+                        <div class="map_wrap">
+                            <div class="map_size_wrap">
+                                <button type="button" class="btn_size_plus"><span class="hide">확대</span></button>
+                                <button type="button" class="btn_size_minus"><span class="hide">축소</span></button>
+                            </div>
+                            <!-- map_area -->
+                            <div class="map_area">
+                                <div id="kakao-map2" style="border: 1px solid black; width: 350px; height: 230px; position: relative; overflow: hidden; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_tile.png&quot;);"><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url(&quot;https://i1.daumcdn.net/dmaps/apis/cursor/openhand.cur.ico&quot;) 7 5, url(&quot;https://i1.daumcdn.net/dmaps/apis/cursor/openhand.cur.ico&quot;), default;"><div style="position: absolute; left: -71px; top: -118px;"><div style="position: absolute; z-index: 1; left: 0px; top: 0px;"><img src="https://map3.daumcdn.net/map_2d/1912uow/L11/7/3.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 65px; top: 129px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://map0.daumcdn.net/map_2d/1912uow/L11/7/4.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 321px; top: 129px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://map3.daumcdn.net/map_2d/1912uow/L11/8/3.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 65px; top: -127px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://map0.daumcdn.net/map_2d/1912uow/L11/8/4.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 321px; top: -127px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://map1.daumcdn.net/map_2d/1912uow/L11/7/5.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 577px; top: 129px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://map1.daumcdn.net/map_2d/1912uow/L11/8/5.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 577px; top: -127px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"></div><div style="position: absolute; z-index: 0; left: 0px; top: 0px;"></div><div style="position: absolute; z-index: 1;"></div><div style="width: 348px; height: 228px; position: absolute; z-index: 1;"></div><div style="position: absolute; z-index: 1;"><svg version="1.1" style="stroke: none; stroke-dashoffset: 0.5; stroke-linejoin: round; fill: none; transform: translateZ(0px); position: absolute; left: -625px; top: -338px; width: 1740px; height: 1140px;" viewBox="0 0 1740 1140"><defs></defs></svg></div><div style="position: absolute; z-index: 1; width: 100%; height: 0px; transform: translateZ(0px);"><div style="position: absolute; z-index: 0; white-space: nowrap; margin: 0px; left: 207px; top: 224px;"> <div class="wrap is_selected is_default c3" id="LGE001" style="max-height: 43px; position: relative;"><svg width="43" height="43" style="overflow: hidden;"><defs><clipPath id="c3-1581922624836-clip"><rect width="43" height="39"></rect></clipPath><clipPath id="c3-1581922624836-clip-xaxis"><rect x="-31" y="-20" width="105" height="20"></rect></clipPath><clipPath id="c3-1581922624836-clip-yaxis"><rect x="-29" y="-4" width="20" height="63"></rect></clipPath><clipPath id="c3-1581922624836-clip-grid"><rect width="43" height="39"></rect></clipPath><clipPath id="c3-1581922624836-clip-subchart"><rect width="43" height="0"></rect></clipPath></defs><g transform="translate(0.5,4.5)"><text class="c3-text c3-empty" text-anchor="middle" dominant-baseline="middle" x="21.5" y="19.5" style="opacity: 0;"></text><g clip-path="url(https://evci.duckdns.org/#c3-1581922624836-clip)" class="c3-regions" style="visibility: hidden;"></g><g clip-path="url(https://evci.duckdns.org/#c3-1581922624836-clip-grid)" class="c3-grid" style="visibility: hidden;"><g class="c3-xgrid-focus"><line class="c3-xgrid-focus" x1="-10" x2="-10" y1="0" y2="39" style="visibility: hidden;"></line></g></g><g clip-path="url(https://evci.duckdns.org/#c3-1581922624836-clip)" class="c3-chart"><g class="c3-stanford-elements"><g class="c3-stanford-lines" style="shape-rendering: geometricprecision;"></g><g class="c3-stanford-texts"></g><g class="c3-stanford-regions"></g></g><g class="c3-event-rects" style="fill-opacity: 0;"><rect class="c3-event-rect" x="0" y="0" width="43" height="39"></rect></g><g class="c3-chart-bars"><g class="c3-chart-bar c3-target c3-target-Offline|서울|4|8" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-Offline|서울|4|8 c3-bars c3-bars-Offline|서울|4|8" style="cursor: pointer;"></g></g></g><g class="c3-chart-lines"><g class="c3-chart-line c3-target c3-target-Offline|서울|4|8" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-Offline|서울|4|8 c3-lines c3-lines-Offline|서울|4|8"></g><g class=" c3-shapes c3-shapes-Offline|서울|4|8 c3-areas c3-areas-Offline|서울|4|8"></g><g class=" c3-selected-circles c3-selected-circles-Offline|서울|4|8"></g><g class=" c3-shapes c3-shapes-Offline|서울|4|8 c3-circles c3-circles-Offline|서울|4|8" style="cursor: pointer;"></g></g></g><g class="c3-chart-arcs" transform="translate(21.5,14.5)"><text class="c3-chart-arcs-title" dy=".3em" style="text-anchor: middle; opacity: 1;">8</text><g class="c3-chart-arc c3-target c3-target-Offline|서울|4|8"><g class=" c3-shapes c3-shapes-Offline|서울|4|8 c3-arcs c3-arcs-Offline|서울|4|8"><path class=" c3-shape c3-shape c3-arc c3-arc-Offline|서울|4|8" transform="" style="fill: rgb(31, 119, 180); cursor: pointer;" d="M8.434754829127394e-16,-13.774999999999999A13.774999999999999,13.774999999999999,0,1,1,-8.434754829127394e-16,13.774999999999999A13.774999999999999,13.774999999999999,0,1,1,8.434754829127394e-16,-13.774999999999999M-1.5182558692429309e-15,-8.264999999999999A8.264999999999999,8.264999999999999,0,1,0,1.5182558692429309e-15,8.264999999999999A8.264999999999999,8.264999999999999,0,1,0,-1.5182558692429309e-15,-8.264999999999999Z"></path></g><text dy=".35em" class="" transform="translate(-1.2132805460427668e-15,-19.814375000000002)" style="opacity: 1; text-anchor: middle; pointer-events: none;"></text></g></g><g class="c3-chart-texts"><g class="c3-chart-text c3-target c3-target-Offline|서울|4|8  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-Offline|서울|4|8"></g></g></g></g><g clip-path="url(https://evci.duckdns.org/#c3-1581922624836-clip-grid)" class="c3-grid c3-grid-lines"><g class="c3-xgrid-lines"></g><g class="c3-ygrid-lines"></g></g><g class="c3-axis c3-axis-x" clip-path="url(https://evci.duckdns.org/#c3-1581922624836-clip-xaxis)" transform="translate(0,39)" style="visibility: visible; opacity: 0;"><text class="c3-axis-x-label" transform="" style="text-anchor: end;" x="43" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(22, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">0</tspan></text></g><path class="domain" d="M0,6V0H43V6"></path></g><g class="c3-axis c3-axis-y" clip-path="url(https://evci.duckdns.org/#c3-1581922624836-clip-yaxis)" transform="translate(0,0)" style="visibility: visible; opacity: 0;"><text class="c3-axis-y-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="1.2em"></text><g class="tick" transform="translate(0,36)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,32)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">1</tspan></text></g><g class="tick" transform="translate(0,28)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">2</tspan></text></g><g class="tick" transform="translate(0,24)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">3</tspan></text></g><g class="tick" transform="translate(0,21)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">4</tspan></text></g><g class="tick" transform="translate(0,17)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">5</tspan></text></g><g class="tick" transform="translate(0,13)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">6</tspan></text></g><g class="tick" transform="translate(0,9)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">7</tspan></text></g><g class="tick" transform="translate(0,5)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">8</tspan></text></g><path class="domain" d="M-6,1H0V39H-6"></path></g><g class="c3-axis c3-axis-y2" transform="translate(43,0)" style="visibility: hidden; opacity: 0;"><text class="c3-axis-y2-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(0,39)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,36)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.1</tspan></text></g><g class="tick" transform="translate(0,32)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.2</tspan></text></g><g class="tick" transform="translate(0,28)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.3</tspan></text></g><g class="tick" transform="translate(0,24)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.4</tspan></text></g><g class="tick" transform="translate(0,20)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.5</tspan></text></g><g class="tick" transform="translate(0,17)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.6</tspan></text></g><g class="tick" transform="translate(0,13)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.7</tspan></text></g><g class="tick" transform="translate(0,9)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.8</tspan></text></g><g class="tick" transform="translate(0,5)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.9</tspan></text></g><g class="tick" transform="translate(0,1)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">1</tspan></text></g><path class="domain" d="M6,1H0V39H6"></path></g></g><g transform="translate(0,43)" style="visibility: hidden;"></g><text class="c3-title" x="21.5" y="0"></text></svg><div class="c3-tooltip-container" style="position: absolute; pointer-events: none; display: none;"></div></div>       <div id="LGE001_bottom_popup" class="chatrge_tooltip_wrap  ">          <div class="tooltip_head">               <div class="tooltip_tit">                   <span class="tit">스마트 남서울주유소</span>                   <span class="tit_code">(AA0001)</span>                    <span class="tit_info">급속 2대</span>                 </div>                <button type="button" class="btn_close"><span class="hide">닫기</span></button>            </div>           <div class="tooltip_body">                 <dl>                     <dt>ChargerA</dt>                    <dd>                       <span class="info_area">                           <span class="charge_status_area">                               <span class="charge_status typ1">350kW</span>                                <span class="charge_statusing">초급속</span>                           </span>                           <span class="charge_typ_area">                              <span class="charge_typ">DC콤보</span>                               <span class="charge_typ is_error">DC차데모</span>                              <span class="charge_typ">AC3상</span>                          </span>                       </span>                       <span class="info_area">                           <span class="charge_status_area">                               <span class="charge_status typ2">190kW</span>                                                         </span>                           <span class="charge_typ_area">                               <span class="charge_typ">DC콤보</span>                           </span>                       </span>                   </dd>               </dl>               <dl>                   <dt>ChargerB</dt>                   <dd>                       <span class="info_area">                           <span class="charge_status_area">                              <span class="charge_status typ1">100kW</span>                            </span>                           <span class="charge_typ_area">                               <span class="charge_typ">DC콤보</span>                               <span class="charge_typ">DC차데모</span>                               <span class="charge_typ">AC3상</span>                           </span>                       </span>                   </dd>                </dl>            </div>       </div> <div></div></div><div style="position: absolute; z-index: 0; white-space: nowrap; margin: 0px; left: 123px; top: 233px;"> <div class="wrap is_selected is_default c3" id="GS000036" style="max-height: 43px; position: relative;"><svg width="43" height="43" style="overflow: hidden;"><defs><clipPath id="c3-1581922624859-clip"><rect width="43" height="39"></rect></clipPath><clipPath id="c3-1581922624859-clip-xaxis"><rect x="-31" y="-20" width="105" height="20"></rect></clipPath><clipPath id="c3-1581922624859-clip-yaxis"><rect x="-29" y="-4" width="20" height="63"></rect></clipPath><clipPath id="c3-1581922624859-clip-grid"><rect width="43" height="39"></rect></clipPath><clipPath id="c3-1581922624859-clip-subchart"><rect width="43" height="0"></rect></clipPath></defs><g transform="translate(0.5,4.5)"><text class="c3-text c3-empty" text-anchor="middle" dominant-baseline="middle" x="21.5" y="19.5" style="opacity: 0;"></text><g clip-path="url(https://evci.duckdns.org/#c3-1581922624859-clip)" class="c3-regions" style="visibility: hidden;"></g><g clip-path="url(https://evci.duckdns.org/#c3-1581922624859-clip-grid)" class="c3-grid" style="visibility: hidden;"><g class="c3-xgrid-focus"><line class="c3-xgrid-focus" x1="-10" x2="-10" y1="0" y2="39" style="visibility: hidden;"></line></g></g><g clip-path="url(https://evci.duckdns.org/#c3-1581922624859-clip)" class="c3-chart"><g class="c3-stanford-elements"><g class="c3-stanford-lines" style="shape-rendering: geometricprecision;"></g><g class="c3-stanford-texts"></g><g class="c3-stanford-regions"></g></g><g class="c3-event-rects" style="fill-opacity: 0;"><rect class="c3-event-rect" x="0" y="0" width="43" height="39"></rect></g><g class="c3-chart-bars"><g class="c3-chart-bar c3-target c3-target-Offline|경기|1|2" style="pointer-events: none;"><g class=" c3-shapes c3-shapes-Offline|경기|1|2 c3-bars c3-bars-Offline|경기|1|2" style="cursor: pointer;"></g></g></g><g class="c3-chart-lines"><g class="c3-chart-line c3-target c3-target-Offline|경기|1|2" style="opacity: 1; pointer-events: none;"><g class=" c3-shapes c3-shapes-Offline|경기|1|2 c3-lines c3-lines-Offline|경기|1|2"></g><g class=" c3-shapes c3-shapes-Offline|경기|1|2 c3-areas c3-areas-Offline|경기|1|2"></g><g class=" c3-selected-circles c3-selected-circles-Offline|경기|1|2"></g><g class=" c3-shapes c3-shapes-Offline|경기|1|2 c3-circles c3-circles-Offline|경기|1|2" style="cursor: pointer;"></g></g></g><g class="c3-chart-arcs" transform="translate(21.5,14.5)"><text class="c3-chart-arcs-title" dy=".3em" style="text-anchor: middle; opacity: 1;">2</text><g class="c3-chart-arc c3-target c3-target-Offline|경기|1|2"><g class=" c3-shapes c3-shapes-Offline|경기|1|2 c3-arcs c3-arcs-Offline|경기|1|2"><path class=" c3-shape c3-shape c3-arc c3-arc-Offline|경기|1|2" transform="" style="fill: rgb(31, 119, 180); cursor: pointer;" d="M8.434754829127394e-16,-13.774999999999999A13.774999999999999,13.774999999999999,0,1,1,-8.434754829127394e-16,13.774999999999999A13.774999999999999,13.774999999999999,0,1,1,8.434754829127394e-16,-13.774999999999999M-1.5182558692429309e-15,-8.264999999999999A8.264999999999999,8.264999999999999,0,1,0,1.5182558692429309e-15,8.264999999999999A8.264999999999999,8.264999999999999,0,1,0,-1.5182558692429309e-15,-8.264999999999999Z"></path></g><text dy=".35em" class="" transform="translate(-1.2132805460427668e-15,-19.814375000000002)" style="opacity: 1; text-anchor: middle; pointer-events: none;"></text></g></g><g class="c3-chart-texts"><g class="c3-chart-text c3-target c3-target-Offline|경기|1|2  " style="opacity: 1; pointer-events: none;"><g class=" c3-texts c3-texts-Offline|경기|1|2"></g></g></g></g><g clip-path="url(https://evci.duckdns.org/#c3-1581922624859-clip-grid)" class="c3-grid c3-grid-lines"><g class="c3-xgrid-lines"></g><g class="c3-ygrid-lines"></g></g><g class="c3-axis c3-axis-x" clip-path="url(https://evci.duckdns.org/#c3-1581922624859-clip-xaxis)" transform="translate(0,39)" style="visibility: visible; opacity: 0;"><text class="c3-axis-x-label" transform="" style="text-anchor: end;" x="43" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(22, 0)" style="opacity: 1;"><line x1="0" x2="0" y2="6"></line><text x="0" y="9" transform="" style="text-anchor: middle; display: block;"><tspan x="0" dy=".71em" dx="0">0</tspan></text></g><path class="domain" d="M0,6V0H43V6"></path></g><g class="c3-axis c3-axis-y" clip-path="url(https://evci.duckdns.org/#c3-1581922624859-clip-yaxis)" transform="translate(0,0)" style="visibility: visible; opacity: 0;"><text class="c3-axis-y-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="1.2em"></text><g class="tick" transform="translate(0,39)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">-0.2</tspan></text></g><g class="tick" transform="translate(0,36)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,33)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.2</tspan></text></g><g class="tick" transform="translate(0,30)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.4</tspan></text></g><g class="tick" transform="translate(0,27)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.6</tspan></text></g><g class="tick" transform="translate(0,24)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">0.8</tspan></text></g><g class="tick" transform="translate(0,21)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">1</tspan></text></g><g class="tick" transform="translate(0,17)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">1.2</tspan></text></g><g class="tick" transform="translate(0,14)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">1.4</tspan></text></g><g class="tick" transform="translate(0,11)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">1.6</tspan></text></g><g class="tick" transform="translate(0,8)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">1.8</tspan></text></g><g class="tick" transform="translate(0,5)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">2</tspan></text></g><g class="tick" transform="translate(0,1)" style="opacity: 1;"><line x2="-6"></line><text x="-9" y="0" style="text-anchor: end;"><tspan x="-9" dy="3">2.2</tspan></text></g><path class="domain" d="M-6,1H0V39H-6"></path></g><g class="c3-axis c3-axis-y2" transform="translate(43,0)" style="visibility: hidden; opacity: 0;"><text class="c3-axis-y2-label" transform="rotate(-90)" style="text-anchor: end;" x="0" dx="-0.5em" dy="-0.5em"></text><g class="tick" transform="translate(0,39)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0</tspan></text></g><g class="tick" transform="translate(0,36)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.1</tspan></text></g><g class="tick" transform="translate(0,32)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.2</tspan></text></g><g class="tick" transform="translate(0,28)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.3</tspan></text></g><g class="tick" transform="translate(0,24)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.4</tspan></text></g><g class="tick" transform="translate(0,20)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.5</tspan></text></g><g class="tick" transform="translate(0,17)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.6</tspan></text></g><g class="tick" transform="translate(0,13)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.7</tspan></text></g><g class="tick" transform="translate(0,9)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.8</tspan></text></g><g class="tick" transform="translate(0,5)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">0.9</tspan></text></g><g class="tick" transform="translate(0,1)" style="opacity: 1;"><line x2="6"></line><text x="9" y="0" style="text-anchor: start;"><tspan x="9" dy="3">1</tspan></text></g><path class="domain" d="M6,1H0V39H6"></path></g></g><g transform="translate(0,43)" style="visibility: hidden;"></g><text class="c3-title" x="21.5" y="0"></text></svg><div class="c3-tooltip-container" style="position: absolute; pointer-events: none; display: none;"></div></div>       <div id="GS000036_bottom_popup" class="chatrge_tooltip_wrap  ">          <div class="tooltip_head">               <div class="tooltip_tit">                   <span class="tit">스마트 남서울주유소</span>                   <span class="tit_code">(AA0001)</span>                    <span class="tit_info">급속 2대</span>                 </div>                <button type="button" class="btn_close"><span class="hide">닫기</span></button>            </div>           <div class="tooltip_body">                 <dl>                     <dt>ChargerA</dt>                    <dd>                       <span class="info_area">                           <span class="charge_status_area">                               <span class="charge_status typ1">350kW</span>                                <span class="charge_statusing">초급속</span>                           </span>                           <span class="charge_typ_area">                              <span class="charge_typ">DC콤보</span>                               <span class="charge_typ is_error">DC차데모</span>                              <span class="charge_typ">AC3상</span>                          </span>                       </span>                       <span class="info_area">                           <span class="charge_status_area">                               <span class="charge_status typ2">190kW</span>                                                         </span>                           <span class="charge_typ_area">                               <span class="charge_typ">DC콤보</span>                           </span>                       </span>                   </dd>               </dl>               <dl>                   <dt>ChargerB</dt>                   <dd>                       <span class="info_area">                           <span class="charge_status_area">                              <span class="charge_status typ1">100kW</span>                            </span>                           <span class="charge_typ_area">                               <span class="charge_typ">DC콤보</span>                               <span class="charge_typ">DC차데모</span>                               <span class="charge_typ">AC3상</span>                           </span>                       </span>                   </dd>                </dl>            </div>       </div> <div></div></div></div></div></div><div style="position: absolute; cursor: default; z-index: 1; margin: 0px 6px; height: 19px; line-height: 14px; left: 0px; bottom: 0px; color: rgb(0, 0, 0);"><div style="color: rgb(0, 0, 0); text-align: center; font-size: 10px; float: left;"><div style="float: left; margin: 2px 3px 0px 4px; height: 6px; transition: width 0.1s ease 0s; border-top: none rgb(0, 0, 0); border-right: 2px solid rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0); border-left: 2px solid rgb(0, 0, 0); border-image: initial; width: 58px;"></div><div style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, 돋움, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">16km</div></div><div style="margin: 0px 4px; float: left;"><a target="_blank" href="http://map.kakao.com/" title="Kakao 지도로 보시려면 클릭하세요." style="float: left; width: 32px; height: 10px;"><img src="https://t1.daumcdn.net/mapjsapi/images/m_bi_b.png" alt="Kakao 지도로 이동" style="float: left; width: 32px; height: 10px; border: none;"></a><div style="font: 11px / 11px Arial, Tahoma, Dotum, sans-serif; float: left;"></div></div></div><div style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;"><div style="width: 32px; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px; position: absolute; left: 313px; top: 19px;"><a draggable="false" style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px 0px / 116px 264px no-repeat rgb(255, 255, 255); border-bottom: 1px solid rgb(226, 226, 226); border-radius: 3px 3px 0px 0px;"></a><div style="float: left; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_zoom_control.png&quot;) repeat; padding: 7px 0px; transition: height 0s ease 0s, margin 0.1s ease 0s;"><div style="cursor: pointer; position: relative; background-size: 116px 264px; transition: height 0.1s ease 0s; margin: 2px 0px; display: block; width: 32px; height: 104px;"><div style="position: absolute; width: 4px; height: 100%; background-color: rgb(51, 150, 255); left: 50%; margin: 0px 0px 0px -2px;"><div style="width: 4px; height: 2px; margin-bottom: -2px; bottom: 0px; position: absolute; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -50px -127px / 116px 264px;"></div><div style="width: 4px; height: 2px; margin-top: -2px; top: 0px; position: absolute; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px -100px / 116px 264px;"></div></div><div style="position: absolute; background-color: rgb(204, 204, 204); transition: height 0.1s ease 0s; left: 50%; margin: 0px 0px 0px -2px; width: 4px; height: 80px;"></div><div style="cursor: row-resize; position: absolute; width: 20px; height: 10px; margin: -4px 0px 0px -10px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px -80px / 116px 264px; left: 50%; transition: top 0.1s ease 0s; top: 80px;"></div></div></div><a draggable="false" style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px -32px / 116px 264px no-repeat rgb(255, 255, 255); border-top: 1px solid rgb(226, 226, 226); border-radius: 0px 0px 3px 3px; margin: 0px;"></a><div style="display: none; position: absolute; margin: 41px 0px 0px -30px; background-size: 116px 264px; width: 30px; height: 104px;"><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -80px / 116px 264px; left: 0px; top: 8px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -100px / 116px 264px; left: 0px; top: 32px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -120px / 116px 264px; left: 0px; top: 64px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -140px / 116px 264px; left: 0px; top: 80px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -160px / 116px 264px; left: 0px; top: 96px;"></div></div></div></div></div>
+                            </div>
+                            <!--// map_area -->    
+                            <!-- 툴팁 -->
+                            <div style="position:absolute;left:0;top:0;">
+                                <!-- 실제 툴팁 -->
+                                <div class="map_tooltip_wrap">
+                                    <div class="map_tit">스마트 남서울주유소</div>
+                                    <ul>
+                                        <li><span class="tit">충전기</span><span class="txt"><span>2</span>대</span></li>
+                                        <li><span class="tit">커넥터</span><span class="txt"><span>3</span>개</span></li>
+                                    </ul>
+                                    <!-- <div class="map_count">
+                                        <span class="typ1">2</span>
+                                        <span class="typ2">1</span>
+                                        <span class="typ3">0</span>
+                                        <span class="typ4">0</span>
+                                        <span class="typ5">0</span>
+                                    </div> -->
+                                </div>
+                                <!--// 실제 툴팁 -->
+                            </div>
+                            <!--// 툴팁 -->
+                            <!-- map_info -->
+                            <div class="map_info">
+                                <ul>
+                                    <li>
+                                        <span class="info_tit">충전소</span>
+                                        <span class="info_count"><span>14</span>개소</span>
+                                    </li>
+                                    <li>
+                                        <span class="info_tit">충전기</span>
+                                        <span class="info_count"><span>25</span>대</span>
+                                    </li>
+                                    <li>
+                                        <span class="info_tit">커넥터</span>
+                                        <span class="info_count"><span>25</span>개</span>
+                                    </li>
+                                    <li>
+                                        <span class="info_tit">유료</span>
+                                        <span class="info_count"><span>17</span>개</span>
+                                    </li>
+                                    <li>
+                                        <span class="info_tit">무료</span>
+                                        <span class="info_count"><span>5</span>개</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--// map_info -->
+                        </div>
+                        <!--// map_wrap -->
+                    </div>
+                    <!--// 전국 충전현황 -->
+                </div>
+            </div>
+            <!--// contents -->
+        </div>
+        <!--// container -->
+        <!-- footer -->
+        <footer id="footer">
+            <ul class="foot_info">
+                <li>계정 문의 : 02-1588-1588</li>
+                <li>충전 문의 : 02-1577-1577</li>
+                <li>제조사 문의 : 02-1566-1566</li>
+            </ul>
+        </footer>
+        <!--// footer -->
+    </div>
+    <!--// wrapper_body -->
+</div>
+<!--// wrapper -->
+
+<!-- 팝업영역 -->
+<!-- 공지사항팝업 -->
+<div class="popup_wrap notice_pop">
+    <div class="dim"></div>
+    <!-- <div class="popup_cont">
+        <div class="popup_head">
+            <h2 class="h2_popTit">충전소 찾기</h2>
+            <button class="close_popup"><span class="hide">닫기</span></button>
+        </div>
+        <div class="popup_body">
+                안녕하세요. GSC 급속충전기 운영 관리자 입니다.
+                BC그린카드의 전기차 충전할인 프로모션이 종료될 예정이오니 참고해주시기 바랍니다.
+                
+                ○ 변경 내용 : BC그린카드로 충전시 50% 청구금액 할인
+                ○ 종료 일자 : 2019.2.10.(일), 결제일 기준
+                * 타기관 충전기 사용 건은 기관별 정산 기간 소요로 인해 익월 15일 이후 결제가 되는 점 양해 부탁드립니다. 
+                
+                안녕하세요. GSC 급속충전기 운영 관리자 입니다.
+                BC그린카드의 전기차 충전할인 프로모션이 종료될 예정이오니 참고해주시기 바랍니다.
+                
+                ○ 변경 내용 : BC그린카드로 충전시 50% 청구금액 할인
+                ○ 종료 일자 : 2019.2.10.(일), 결제일 기준
+                * 타기관 충전기 사용 건은 기관별 정산 기간 소요로 인해 익월 15일 이후 결제가 되는 점 양해 부탁드립니다. 
+                
+                안녕하세요. GSC 급속충전기 운영 관리자 입니다.
+                BC그린카드의 전기차 충전할인 프로모션이 종료될 예정이오니 참고해주시기 바랍니다.
+                
+                ○ 변경 내용 : BC그린카드로 충전시 50% 청구금액 할인
+                ○ 종료 일자 : 2019.2.10.(일), 결제일 기준
+                * 타기관 충전기 사용 건은 기관별 정산 기간 소요로 인해 익월 15일 이후 결제가 되는 점 양해 부탁드립니다. 
+                
+                안녕하세요. GSC 급속충전기 운영 관리자 입니다.
+                BC그린카드의 전기차 충전할인 프로모션이 종료될 예정이오니 참고해주시기 바랍니다.
+                
+                ○ 변경 내용 : BC그린카드로 충전시 50% 청구금액 할인
+                ○ 종료 일자 : 2019.2.10.(일), 결제일 기준
+                * 타기관 충전기 사용 건은 기관별 정산 기간 소요로 인해 익월 15일 이후 결제가 되는 점 양해 부탁드립니다. 
+                
+                안녕하세요. GSC 급속충전기 운영 관리자 입니다.
+                BC그린카드의 전기차 충전할인 프로모션이 종료될 예정이오니 참고해주시기 바랍니다.
+                
+                ○ 변경 내용 : BC그린카드로 충전시 50% 청구금액 할인
+                ○ 종료 일자 : 2019.2.10.(일), 결제일 기준
+                * 타기관 충전기 사용 건은 기관별 정산 기간 소요로 인해 익월 15일 이후 결제가 되는 점 양해 부탁드립니다. 
+                
+                안녕하세요. GSC 급속충전기 운영 관리자 입니다.
+                BC그린카드의 전기차 충전할인 프로모션이 종료될 예정이오니 참고해주시기 바랍니다.
+                
+                ○ 변경 내용 : BC그린카드로 충전시 50% 청구금액 할인
+                ○ 종료 일자 : 2019.2.10.(일), 결제일 기준
+                * 타기관 충전기 사용 건은 기관별 정산 기간 소요로 인해 익월 15일 이후 결제가 되는 점 양해 부탁드립니다. 
+                
+                안녕하세요. GSC 급속충전기 운영 관리자 입니다.
+                BC그린카드의 전기차 충전할인 프로모션이 종료될 예정이오니 참고해주시기 바랍니다.
+                
+                ○ 변경 내용 : BC그린카드로 충전시 50% 청구금액 할인
+                ○ 종료 일자 : 2019.2.10.(일), 결제일 기준
+                * 타기관 충전기 사용 건은 기관별 정산 기간 소요로 인해 익월 15일 이후 결제가 되는 점 양해 부탁드립니다. 
+                
+                안녕하세요. GSC 급속충전기 운영 관리자 입니다.
+                BC그린카드의 전기차 충전할인 프로모션이 종료될 예정이오니 참고해주시기 바랍니다.
+                
+                ○ 변경 내용 : BC그린카드로 충전시 50% 청구금액 할인
+                ○ 종료 일자 : 2019.2.10.(일), 결제일 기준
+                * 타기관 충전기 사용 건은 기관별 정산 기간 소요로 인해 익월 15일 이후 결제가 되는 점 양해 부탁드립니다. 
+                
+                안녕하세요. GSC 급속충전기 운영 관리자 입니다.
+                BC그린카드의 전기차 충전할인 프로모션이 종료될 예정이오니 참고해주시기 바랍니다.
+                
+                ○ 변경 내용 : BC그린카드로 충전시 50% 청구금액 할인
+                ○ 종료 일자 : 2019.2.10.(일), 결제일 기준
+                * 타기관 충전기 사용 건은 기관별 정산 기간 소요로 인해 익월 15일 이후 결제가 되는 점 양해 부탁드립니다. 
+        </div>
+        <div class="notice_btn_wrap">
+            <button class="btn btn_notice_pop"><span>오늘 하루 보지 않기</span></button>
+            <button class="btn btn_notice_pop btn_c_gray"><span>닫기</span></button>
+        </div>
+    </div> -->
+    <div class="popup_cont"><div class="popup_head"><h2 class="h2_popTit">첨부파일 링크 테스트</h2><button type="button" class="close_popup"><span class="hide">닫기</span></button></div><div class="popup_body"><div><span><p>사진 테스트</p><p><br></p><p><a href="https://v.daum.net/v/20200318114551641" rel="noopener noreferrer" target="_blank"> <img src="https://img2.daumcdn.net/thumb/C308x188/?fname=https://t1.daumcdn.net/section/oc/e0540739a590413aad0553b2f79671b5" height="94" width="154"></a></p><p><br></p><p><br></p><p>정부가 조금 전 코로나19 대응을 위한 중앙재난안전대책본부 회의 결과를 설명했습니다.</p><p>직접 들어보겠습니다.</p><p>[윤태호 / 중앙사고수습본부 방역총괄반장]</p><p>3월 18일 수요일 정례브리핑을 시작하겠습니다.</p><p>금일 오전 0시 기준 코로나19로 치료받고 있는 확진자는 6,789명이고</p><p>1,540명이 완치되어 격리해제되었고 84명이 사망하셨습니다.</p></span><br><span><p>첨부파일 링크 테스트</p><p><br></p><p><a href="https://evci.duckdns.org/v1/operation_management/notice_mgr/download_file?filePath=2852/EVCIMSFE-670-2.png" rel="noopener noreferrer" target="_blank">첨부파일</a></p></span><br></div></div><div class="notice_btn_wrap"><button class="btn btn_notice_pop"><span>오늘 하루 보지 않기</span></button><button class="btn btn_notice_pop btn_c_gray"><span>닫기</span></button></div></div>
+    <div class="popup_cont"><div class="popup_head"><h2 class="h2_popTit">첨부파일 링크 테스트</h2><button type="button" class="close_popup"><span class="hide">닫기</span></button></div><div class="popup_body"><div><span><p>사진 테스트</p><p><br></p><p><a href="https://v.daum.net/v/20200318114551641" rel="noopener noreferrer" target="_blank"> <img src="https://img2.daumcdn.net/thumb/C308x188/?fname=https://t1.daumcdn.net/section/oc/e0540739a590413aad0553b2f79671b5" height="94" width="154"></a></p><p><br></p><p><br></p><p>정부가 조금 전 코로나19 대응을 위한 중앙재난안전대책본부 회의 결과를 설명했습니다.</p><p>직접 들어보겠습니다.</p><p>[윤태호 / 중앙사고수습본부 방역총괄반장]</p><p>3월 18일 수요일 정례브리핑을 시작하겠습니다.</p><p>금일 오전 0시 기준 코로나19로 치료받고 있는 확진자는 6,789명이고</p><p>1,540명이 완치되어 격리해제되었고 84명이 사망하셨습니다.</p></span><br><span><p>첨부파일 링크 테스트</p><p><br></p><p><a href="https://evci.duckdns.org/v1/operation_management/notice_mgr/download_file?filePath=2852/EVCIMSFE-670-2.png" rel="noopener noreferrer" target="_blank">첨부파일</a></p></span><br></div></div><div class="notice_btn_wrap"><button class="btn btn_notice_pop"><span>오늘 하루 보지 않기</span></button><button class="btn btn_notice_pop btn_c_gray"><span>닫기</span></button></div></div>
+    <div class="popup_cont"><div class="popup_head"><h2 class="h2_popTit">첨부파일 링크 테스트</h2><button type="button" class="close_popup"><span class="hide">닫기</span></button></div><div class="popup_body"><div><span><p>사진 테스트</p><p><br></p><p><a href="https://v.daum.net/v/20200318114551641" rel="noopener noreferrer" target="_blank"> <img src="https://img2.daumcdn.net/thumb/C308x188/?fname=https://t1.daumcdn.net/section/oc/e0540739a590413aad0553b2f79671b5" height="94" width="154"></a></p><p><br></p><p><br></p><p>정부가 조금 전 코로나19 대응을 위한 중앙재난안전대책본부 회의 결과를 설명했습니다.</p><p>직접 들어보겠습니다.</p><p>[윤태호 / 중앙사고수습본부 방역총괄반장]</p><p>3월 18일 수요일 정례브리핑을 시작하겠습니다.</p><p>금일 오전 0시 기준 코로나19로 치료받고 있는 확진자는 6,789명이고</p><p>1,540명이 완치되어 격리해제되었고 84명이 사망하셨습니다.</p></span><br><span><p>첨부파일 링크 테스트</p><p><br></p><p><a href="https://evci.duckdns.org/v1/operation_management/notice_mgr/download_file?filePath=2852/EVCIMSFE-670-2.png" rel="noopener noreferrer" target="_blank">첨부파일</a></p></span><br></div></div><div class="notice_btn_wrap"><button class="btn btn_notice_pop"><span>오늘 하루 보지 않기</span></button><button class="btn btn_notice_pop btn_c_gray"><span>닫기</span></button></div></div>
+    <div class="popup_cont"><div class="popup_head"><h2 class="h2_popTit">첨부파일 링크 테스트</h2><button type="button" class="close_popup"><span class="hide">닫기</span></button></div><div class="popup_body"><div><span><p>사진 테스트</p><p><br></p><p><a href="https://v.daum.net/v/20200318114551641" rel="noopener noreferrer" target="_blank"> <img src="https://img2.daumcdn.net/thumb/C308x188/?fname=https://t1.daumcdn.net/section/oc/e0540739a590413aad0553b2f79671b5" height="94" width="154"></a></p><p><br></p><p><br></p><p>정부가 조금 전 코로나19 대응을 위한 중앙재난안전대책본부 회의 결과를 설명했습니다.</p><p>직접 들어보겠습니다.</p><p>[윤태호 / 중앙사고수습본부 방역총괄반장]</p><p>3월 18일 수요일 정례브리핑을 시작하겠습니다.</p><p>금일 오전 0시 기준 코로나19로 치료받고 있는 확진자는 6,789명이고</p><p>1,540명이 완치되어 격리해제되었고 84명이 사망하셨습니다.</p></span><br><span><p>첨부파일 링크 테스트</p><p><br></p><p><a href="https://evci.duckdns.org/v1/operation_management/notice_mgr/download_file?filePath=2852/EVCIMSFE-670-2.png" rel="noopener noreferrer" target="_blank">첨부파일</a></p></span><br></div></div><div class="notice_btn_wrap"><button class="btn btn_notice_pop"><span>오늘 하루 보지 않기</span></button><button class="btn btn_notice_pop btn_c_gray"><span>닫기</span></button></div></div>
+</div>
+<!--// 공지사항팝업 -->
+<!--// 팝업영역 -->
+
+
+<script src="../com/js/common.js"></script>
+</body>
+</html>

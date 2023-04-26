@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GS 칼텍스 - 결제이력</title>
+    <link rel="stylesheet" href="../com/css/reset.css" />
+    <link rel="stylesheet" href="../com/css/layout.css" />
+    <link rel="stylesheet" href="../com/css/contents.css" />
+    <script src="../com/js/perfect-scrollbar.js"></script>
+</head>
+<body>
+<!-- wrapper -->
+<div id="wrapper" class="sub">
+    <!-- wrapper_body -->
+    <div id="wrapper_body">
+        <!-- header -->
+        <header id="header">
+            <!-- head_left -->
+            <div class="head_left">
+                <button class="top_logo"><span class="hide">GS칼텍스</span></button>
+                <nav class="gnb">
+                    <ul class="gnb_depth1">
+                        <li><button>대시보드</button></li><!-- 1뎁스 해당메뉴 페이지 일경우 li에 addClass : is_active -->
+                        <li><button>충전현황</button>
+                            <ul class="gnb_depth2">
+                                <li><button>리스트뷰</button></li>
+                                <li><button>지도뷰</button></li>
+                            </ul>
+                        </li>
+                        <li><button>이력</button>
+                            <ul class="gnb_depth2">
+                                <li><button>충전이력</button></li>
+                                <li><button>결제이력</button></li>
+                                <li><button>장애이력</button></li>
+                                <li><button>원격제어이력</button></li>
+                                <li><button>고장점검이력</button></li>
+                            </ul>
+                        </li>
+                        <li><button>리포트</button>
+                            <ul class="gnb_depth2">
+                                <li><button>요약리포트</button></li>
+                                <li><button>충전소통계</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>충전리포트</button></li>
+                                        <li><button>장애리포트</button></li>
+                                        <li><button>매출리포트</button></li>
+                                    </ul>
+                                </li>
+                                <li><button>비교통계</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>충전리포트</button></li>
+                                        <li><button>장애리포트</button></li>
+                                        <li><button>매출리포트</button></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- 20191210 수정 -->
+                        <li class="is_active"><button>충전인프라</button>
+                            <ul class="gnb_depth2">
+                                <li><button>충전가격관리</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>공통단가관리</button></li>
+                                        <li><button>충전소별단가관리</button></li>
+                                        <li><button>한전매입가관리</button></li>
+                                        <li><button>선택요금관리</button></li>
+                                        <li><button>카드수수료관리</button></li>
+                                        <li><button>고정비용관리</button></li>
+                                    </ul>
+                                </li>
+                                <li><button>인프라관리</button>
+                                    <ul class="gnb_depth3">
+                                        <li><button>충전기관리</button></li>
+                                        <li><button>충전소관리</button></li>
+                                        <li><button>제조사관리</button></li>
+                                        <li><button>모델관리</button></li>
+                                        <li><button>장애코드관리</button></li>
+                                        <li><button>고장/점검항목관리</button></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><button>운영관리</button>
+                            <ul class="gnb_depth2">
+                                <li><button>부대시설관리</button></li>
+                                <li><button>공지사항</button></li>
+                            </ul>
+                        </li>
+                        <!--// 20191210 수정 -->
+                        <li><button>설정</button>
+                            <ul class="gnb_depth2">
+                                <li><button>운영자계정설정</button></li>
+                                <li><button>메뉴권한설정</button></li>
+                                <li><button>시스템설정</button></li>
+                                <li><button>나의계정관리</button></li>
+                                <li><button>도움말</button></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!--// head_left -->
+            <!-- head_right -->
+            <div class="head_right">
+                <div class="login_typ_wrap">
+                    <button class="btn_user_info"><span>Admin</span></button>
+                    <!-- user_info_wrap admin 영역-->
+                    <div class="user_info_wrap"><!-- 활성화 시 addClass : is_active -->
+                        <div class="info_board">
+                            <div class="info_head">
+                                <h2 class="h2_tit">admin<span class="sub_tit">IT관리자</span></h2>
+                                <div class="head_btn_set">
+                                    <button class="btn"><span>개인정보 수정</span></button>
+                                    <button class="btn btn_c_gray"><span>로그아웃</span></button>
+                                </div>
+                            </div>
+                            <div class="info_body">
+                                <ul class="info_list">
+                                    <li>홍길동 admin01@email.com</li>
+                                    <li>GS 칼텍스 IT정보부</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// user_info_wrap -->
+                </div>
+                <div class="top_sel"><!-- 활성화 시 addClass : is_active -->
+                    <button class="btn_top_sel"><span>충전소 전체</span></button>
+                    <div class="top_sel_wrap">
+                        <ul>
+                            <li><button title="충전소전체">충전소전체</button></li>
+                            <li><button title="(주)한미석유구로그린주유소(123456)">(주)한미석유구로그린주유소(123456)</button></li>
+                            <li><button title="(주)영원에너지 풍기주유소(123456)">(주)영원에너지 풍기주유소(123456)</button></li>
+                            <li><button title="대성산업(주) 청량리주유소(123456)">대성산업(주) 청량리주유소(123456)</button></li>
+                            <li><button title="경일석유직영삼방주유소(123456)">경일석유직영삼방주유소(123456)</button></li>
+                            <li><button title="논현신도시제이주유소(123456)">논현신도시제이주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                            <li><button title="스마트위례주유소(123456)">스마트위례주유소(123456)</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="alert_view has_alert"><!-- 알림이 있을경우 has_alert 추가 -->
+                    <button class="btn_alert icon"><span class="hide">알림</span></button>
+                    <!-- alert_popup_all_wrap 알림팝업 전체 영역-->
+                    <div class="alert_popup_all_wrap"><!-- 활성화 시 addClass : is_active -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_1"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">고장 - 등록</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">고장 - 커넥터<br/>커넥터 파손, 교체 필요</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_2"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">고장 - 완료</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">고장/점검 (고장 - 커넥터) 완료 처리됨</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_3"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">가용성변경</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">가용성변경(Inoperative))으로 상태 변경됨</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ1_4"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">가용성변경</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                    <div class="body_txt">가용성변경(Operative)으로 상태 변경됨</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ2"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">장애 (Warning)</span><span class="pop_time">어제 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">장애코드37 (Service Discovery error)<br/>콤보 차량에서 충전 정지요청 : 서비스 디스커버리 단계 이상(콤보)</div>
+                                    <div class="body_result">콤보 시퀀스 이상으로 커플러 제거 후 충전을 재시작하세요. 계속 장애 발생 시 제조사에 문의해주세요</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ3_1"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">점유</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">점유시간경과 00:22:56</div>
+                                    <div class="body_result">출차를 안내해주세요</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ3_2"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">점유해제</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">점유 해제 (총 점유시간 08:22:56)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ4"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">통신장애</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">장애코드1 (s-box connection error)<br/>통신 모뎀 연결 오류</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ5"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">상태미확인</span><span class="pop_time">2019-06-30 13:00</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_tit">스마트 남서울주유소, Charger D</div>
+                                    <div class="body_txt">충전기 상태가 확인되지 않음<br/>(충전기 상태 갱신 후 30분 초과)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                        
+                        
+                        <!-- alert_popup_wrap 팝업 개별영역 -->
+                        <div class="alert_popup_wrap alert_typ6"><!-- alert_typ1_1(고장/점검-등록), alert_typ1_2(고장/점검-완료), alert_typ1_3(고장/점검-가용성변경inoperative), alert_typ1_4(고장/점검-가용성변경operative), alert_typ2(장애Warning), alert_typ3_1(점유_red), alert_typ3_2(점유_해제), alert_typ4(통신장애), alert_typ5(상태미확인), alert_typ6(미확인알람) -->
+                            <div class="alert_popup">
+                                <div class="pop_head">
+                                    <span class="pop_title">
+                                        <span class="pop_tit">미확인 알림이 6개 있습니다.</span>
+                                    </span>
+                                    <button class="close_alert_popup"><span class="hide">팝업 닫기</span></button>
+                                </div>
+                                <div class="pop_body">
+                                    <div class="body_txt">장애(Critical) 1개, 장애(Warning) 2개, 점유 3개</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// alert_popup_wrap -->
+                    </div>
+                    <!--// alert_popup_all_wrap -->
+                    <!-- alert_board_wrap 알림창 영역-->
+                    <div class="alert_board_wrap"><!-- 활성화 시 addClass : is_active -->
+                        <div class="alert_board">
+                            <div class="board_head">
+                                <h2 class="h2_tit">알림</h2>
+                                <button class="go_set"><span class="hide">알림설정하기</span></button>
+                            </div>
+                            <div class="board_body">
+                                <ul class="alert_history_list">
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>오늘</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ1_1"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">2분전</div>
+                                                <div class="alert_typ">고장 - 등록</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 - 커넥터<br>커넥터 파손, 교체 필요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">5분전</div>
+                                                <div class="alert_typ">고장 - 완료</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 (고장 - 커넥터) 완료 처리됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_3"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Inoperative))으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_4"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Operative)으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>어제</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">장애 - Warning</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">장애코드37 (Service Discovery error)<br />콤보 차량에서 충전 정지요청 : 서비스 디스커버리 단계 이상(콤보)</div>
+                                                <div class="alert_result">콤보 시퀀스 이상으로 커플러 제거 후 충전을 재시작하세요. 계속 장애 발생 시 제조사에 문의해주세요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ3_1"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">점유</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">점유시간경과 00:22:56</div>
+                                                <div class="alert_result">출차를 안내해주세요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ3_2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">점유해제</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">점유 해제 ( 총점유시간 08:22:56)</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>2019-05-10</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ4"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">통신장애</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">장애코드1 (s-box connection error) <br />통신 모뎀 연결 오류</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ5">
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">상태미확인</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger D</div>
+                                                <div class="alert_txt">충전기 상태가 확인되지 않음<br>(충전기 상태 갱신 후 30분 초과)</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                    <!-- 일별 -->
+                                    <li>
+                                        <div class="history_date"><span>2019-05-09</span></div>
+                                        <div class="alert_list">
+                                            <!-- 건별 -->
+                                            <button class="typ1_1"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">2분전</div>
+                                                <div class="alert_typ">고장 - 등록</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 - 커넥터<br>커넥터 파손, 교체 필요</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_2"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">5분전</div>
+                                                <div class="alert_typ">고장 - 완료</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">고장 (고장 - 커넥터) 완료 처리됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_3"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Inoperative)으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                            <!-- 건별 -->
+                                            <button class="typ1_4"><!-- typ1_1(고장/점검-등록), typ1_2(고장/점검-완료), typ1_3(고장/점검-가용성변경inoperative), typ1_4(고장/점검-가용성변경operative), typ2(장애Warning), typ3_1(점유_red), typ3_2(점유_해제), typ4(통신장애), typ5(상태미확인) -->
+                                                <div class="alert_time">08:35</div>
+                                                <div class="alert_typ">고장 - 가용성변경</div>
+                                                <div class="alert_tit">스마트 남서울주유소, Charger B, DC콤보(1)</div>
+                                                <div class="alert_txt">가용성변경(Operative)으로 상태 변경됨</div>
+                                            </button>
+                                            <!--// 건별 -->
+                                        </div>
+                                    </li>
+                                    <!--// 일별 -->
+                                </ul>
+                            </div>
+                            <!-- alert_set_wrap 알림창 설정 -->
+                            <div class="alert_set_wrap"><!-- 활성화 시 addClass : is_active -->
+                                <div class="alert_set">
+                                    <div class="alert_set_head">
+                                        <button class="go_back"><span class="hide">알림 타임라인 페이지로 복귀</span></button>
+                                        <h2 class="h2_tit">알림설정</h2>
+                                        <button class="close_alert_set"><span class="hide">설정창 닫기</span></button>
+                                    </div>
+                                    <div class="alert_set_body">
+                                        <div class="switch_box">
+                                            <div class="switch_set">
+                                                <div class="switch_tit">알림</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch1" checked><label for="switch1"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="switch_box">
+                                            <div class="switch_set">
+                                                <div class="switch_tit">알림팝업</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch2" checked><label for="switch2"></label>
+                                                </div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">알림음</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch3" checked><label for="switch3"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="h3_tit">알림 카테고리</h3>
+                                        <div class="switch_box">
+                                            <div class="switch_set">
+                                                <div class="switch_tit">고장</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch4" checked><label for="switch4"></label>
+                                                </div>
+                                                <div class="switch_comment">고장이 등록되거나 완료된 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">가용성변경</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch5" checked><label for="switch5"></label>
+                                                </div>
+                                                <div class="switch_comment">가용성변경으로 충전기 상태가 변경되는 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">장애</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch6" checked><label for="switch6"></label>
+                                                </div>
+                                                <div class="switch_comment">Warning / Critical Level의 장애코드 발생 시<br >장애 원인과 조치 내용을 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">통신장애</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch7" checked><label for="switch7"></label>
+                                                </div>
+                                                <div class="switch_comment">충전기와 서버 간 통신이 끊어져<br >충전기 사용이 제한된 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">상태미확인</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch8" checked><label for="switch8"></label>
+                                                </div>
+                                                <div class="switch_comment">충전기 상태 갱신은 1분 이상 수분 이내에 갱신됩니다.<br >갱신 이후 30분이 지난 경우 알려드립니다.</div>
+                                            </div>
+                                            <div class="switch_set">
+                                                <div class="switch_tit">점유(주차)</div>
+                                                <div class="switch_check">
+                                                    <input type="checkbox" name="" id="switch9" checked><label for="switch9"></label>
+                                                </div>
+                                                <div class="switch_comment">미충전 상태가 10분 이상 경과하여 충전기를 점유한 경우와 점유가 해제된 경우 알려드립니다.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// alert_set_wrap -->
+                        </div>
+                    </div>
+                    <!--// alert_board_wrap -->
+                </div>
+                <div class="time_info">5월 17일 월요일 13:34:32</div>
+            </div>
+            <!--// head_right -->
+        </header>
+        <!--// header -->
+        <!-- container -->
+        <div id="container">
+            <!-- charge_state_area -->
+            <div class="charge_state_area">
+                <h1 class="h1_tit"><!-- 각 메뉴에 맞는곳에 is_active 활성화 -->
+                    <button class="h1_tab">충전이력</button>
+                    <button class="h1_tab is_active">결제이력</button>
+                    <button class="h1_tab">장애이력</button>
+                    <button class="h1_tab">원격제어이력</button>
+                    <button class="h1_tab">고장/점검이력</button>
+                </h1>
+                <!-- charge_area -->
+                <div class="charge_area">
+                    <div class="charge_info">
+                        <!-- 20191227 수정 -->
+                        <span class="sum_area">
+                            <div class="tooltip_wrap poRelative mr5 typ2">
+                                <button type="button" class="ico_tooltip"></button>
+                                <div class="tooltip_cont poB size1">
+                                    <p class="tooltip_txt">커넥터 수는 한 번에 충전 가능한 커넥터 개수를 기준으로 계산됩니다.</p>
+                                    <ul class="tooltip_list">
+                                        <li>동시 충전이 가능한 충전기의 경우, '해당 커넉터 개수' 모두 반영</li>
+                                        <li>동시 충전이 불가능한 충전기의 경우, '1개'로 반영</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <span class="tit">전체 커넥터수</span><span class="count">50</span>
+                        </span>
+                        <!--// 20191227 수정 -->
+                        <ul>
+                            <li class="charge_typ1"><span class="tit">충전대기</span><span class="count">16</span></li>
+                            <li class="charge_typ2"><span class="tit">충전예약</span><span class="count">2</span></li>
+                            <li class="charge_typ3"><span class="tit">충전중</span><span class="count">22</span></li>
+                            <li class="charge_typ4"><span class="tit">충전완료</span><span class="count">2</span></li>
+                            <li class="charge_typ5"><span class="tit">점검중</span><span class="count">7</span></li>
+                            <li class="charge_typ6"><span class="tit">통신장애</span><span class="count">3</span></li>
+                        </ul>
+                    </div>
+                    <!-- 20191210 수정 -->
+                    <div class="sync_area">
+                        <button type="button" class="btn_sync"><span class="hide">00:27 후에 동기화</span></button>
+                        <div class="sync_time">
+                            <span class="time_txt">27:50</span>
+                            <button type="button" class="btn_time"><span>연장</span></button>
+                        </div>
+                    </div>
+                    <!--// 20191210 수정 -->
+                </div>
+                <!--// charge_area -->
+            </div>
+            <!--// charge_state_area -->
+            <!-- contents -->
+            <div class="contents">
+                <!-- cont_left -->
+                <div class="round_view_area cont_left">
+                    <!-- search_filter_area -->
+                    <div class="search_filter_area">
+                        <!-- search_area -->
+                        <div class="search_area">
+                            <div class="search_input_wrap">
+                                <input type="text" name="" id="" placeholder="Site Code, 충전소명 또는 충전소 ID 검색" class="search_input">
+                            </div>
+                            <div class="rd_tab_wrap">
+                                <label for="filter_rd_tab1_1" class="tab_rd_g">
+                                    <input type="radio" name="filter_rd_tab1" id="filter_rd_tab1_1" value="1일" checked>
+                                    <span class="tab_txt_value">1일</span>
+                                </label>
+                                <label for="filter_rd_tab1_2" class="tab_rd_g">
+                                    <input type="radio" name="filter_rd_tab1" id="filter_rd_tab1_2" value="7일">
+                                    <span class="tab_txt_value">7일</span>
+                                </label>
+                                <label for="filter_rd_tab1_3" class="tab_rd_g">
+                                    <input type="radio" name="filter_rd_tab1" id="filter_rd_tab1_3" value="30일">
+                                    <span class="tab_txt_value">30일</span>
+                                </label>
+                                <label for="filter_rd_tab1_4" class="tab_rd_g">
+                                    <input type="radio" name="filter_rd_tab1" id="filter_rd_tab1_4" value="직접입력">
+                                    <span class="tab_txt_value">직접입력</span>
+                                </label>
+                            </div>
+                            <span class="ant-calendar-picker">
+                                <span class="ant-calendar-picker-input ant-input">
+                                    <input readonly="" placeholder="Start date" class="ant-calendar-range-picker-input" tabindex="-1" value="">
+                                    <span class="ant-calendar-range-picker-separator"> ~ </span>
+                                    <input readonly="" placeholder="End date" class="ant-calendar-range-picker-input" tabindex="-1" value="">
+                                    <i aria-label="icon: calendar" class="anticon anticon-calendar ant-calendar-picker-icon">
+                                        <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="calendar" width="20px" height="20px" fill="#94a3cc" aria-hidden="true"><path d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"></path></svg>
+                                    </i>
+                                </span>
+                            </span>
+                            <button type="button" class="btn_filter_toggle"><span>필터</span></button>
+                            <button type="button" class="btn btn_size_85 btn_search"><span>조회</span></button>
+                        </div>
+                        <!--// search_area -->
+                        <!-- filter_area -->
+                        <div class="filter_area">
+                            <!-- filter_area_row -->
+                            <div class="filter_area_row">
+                                <dl class="form_unit">
+                                    <dt>커넥터타입</dt>
+                                    <dd>
+                                        <div class="ant-checkbox-group-all"><!-- 안트디자인 기본값에서 class추가됨 -->
+                                            <label class="ant-checkbox-wrapper">
+                                                <span class="ant-checkbox">
+                                                    <input type="checkbox" class="ant-checkbox-input" value="">
+                                                    <span class="ant-checkbox-inner"></span>
+                                                </span>
+                                                <span>전체선택</span>
+                                            </label>
+                                        </div>
+                                        <div class="ant-checkbox-group">
+                                            <label class="ant-checkbox-group-item ant-checkbox-wrapper">
+                                                <span class="ant-checkbox">
+                                                    <input type="checkbox" class="ant-checkbox-input" value="DC콤보" checked="">
+                                                    <span class="ant-checkbox-inner"></span>
+                                                </span>
+                                                <span>DC콤보</span>
+                                            </label>
+                                            <label class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked">
+                                                <span class="ant-checkbox ant-checkbox-checked">
+                                                    <input type="checkbox" class="ant-checkbox-input" value="DC차데모" checked="true">
+                                                    <span class="ant-checkbox-inner"></span>
+                                                </span>
+                                                <span>DC차데모</span>
+                                            </label>
+                                            <label class="ant-checkbox-group-item ant-checkbox-wrapper">
+                                                <span class="ant-checkbox">
+                                                    <input type="checkbox" class="ant-checkbox-input" value="AC3상" checked="">
+                                                    <span class="ant-checkbox-inner"></span>
+                                                </span>
+                                                <span>AC3상</span>
+                                            </label>
+                                            <label class="ant-checkbox-group-item ant-checkbox-wrapper">
+                                                <span class="ant-checkbox">
+                                                    <input type="checkbox" class="ant-checkbox-input" value="완속" checked="">
+                                                    <span class="ant-checkbox-inner"></span>
+                                                </span>
+                                                <span>완속</span>
+                                            </label>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="form_unit">
+                                    <dt>충전속도</dt>
+                                    <dd>
+                                        <div class="ant-checkbox-group-all"><!-- 안트디자인 기본값에서 class추가됨 -->
+                                            <label class="ant-checkbox-wrapper">
+                                                <span class="ant-checkbox">
+                                                    <input type="checkbox" class="ant-checkbox-input" value="">
+                                                    <span class="ant-checkbox-inner"></span>
+                                                </span>
+                                                <span>전체선택</span>
+                                            </label>
+                                        </div>
+                                        <div class="ant-checkbox-group">
+                                            <label class="ant-checkbox-group-item ant-checkbox-wrapper">
+                                                <span class="ant-checkbox">
+                                                    <input type="checkbox" class="ant-checkbox-input" value="초급속" checked="">
+                                                    <span class="ant-checkbox-inner"></span>
+                                                </span>
+                                                <span>초급속</span>
+                                            </label>
+                                            <label class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked">
+                                                <span class="ant-checkbox ant-checkbox-checked">
+                                                    <input type="checkbox" class="ant-checkbox-input" value="급속" checked="true">
+                                                    <span class="ant-checkbox-inner"></span>
+                                                </span>
+                                                <span>급속</span>
+                                            </label>
+                                            <label class="ant-checkbox-group-item ant-checkbox-wrapper">
+                                                <span class="ant-checkbox">
+                                                    <input type="checkbox" class="ant-checkbox-input" value="완속" checked="">
+                                                    <span class="ant-checkbox-inner"></span>
+                                                </span>
+                                                <span>완속</span>
+                                            </label>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!--// filter_area_row -->
+                            <!-- filter_area_row -->
+                            <div class="filter_area_row">                                
+                                <dl class="form_unit">
+                                    <dt>충전기</dt>
+                                    <dd>
+                                        <input placeholder="충전기명 또는 충전기ID" type="text" class="ant-input" value="">
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!--// filter_area_row -->
+                            <!-- filter_area_row -->
+                            <div class="filter_area_row">
+                                <dl class="form_unit">
+                                    <dt>거래유형</dt>
+                                    <dd>
+                                        <div class="ant-select ant-select-enabled">
+                                            <div class="ant-select-selection
+                                            ant-select-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-controls="3d89b0fd-af4b-44bb-e187-bae236934c9b" aria-expanded="false" tabindex="0">
+                                                <div class="ant-select-selection__rendered">
+                                                    <div class="ant-select-selection-selected-value" title="거래유형 전체" style="display: block; opacity: 1;">거래유형 전체</div>
+                                                </div>
+                                                <span class="ant-select-arrow" unselectable="on" style="user-select: none;">
+                                                    <i aria-label="icon: down" class="anticon anticon-down ant-select-arrow-icon">
+                                                        <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg>
+                                                    </i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="form_unit">
+                                    <dt>결제유형</dt>
+                                    <dd>
+                                        <div class="ant-select ant-select-enabled">
+                                            <div class="ant-select-selection
+                                            ant-select-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-controls="3d89b0fd-af4b-44bb-e187-bae236934c9b" aria-expanded="false" tabindex="0">
+                                                <div class="ant-select-selection__rendered">
+                                                    <div class="ant-select-selection-selected-value" title="결제유형 전체" style="display: block; opacity: 1;">결제유형 전체</div>
+                                                </div>
+                                                <span class="ant-select-arrow" unselectable="on" style="user-select: none;">
+                                                    <i aria-label="icon: down" class="anticon anticon-down ant-select-arrow-icon">
+                                                        <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg>
+                                                    </i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!--// filter_area_row -->
+                            <!-- filter_area_row -->
+                            <div class="filter_area_row">
+                                <dl class="form_unit">
+                                    <dt>카드사</dt>
+                                    <dd>
+                                        <div class="ant-select ant-select-enabled">
+                                            <div class="ant-select-selection
+                                            ant-select-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-controls="3d89b0fd-af4b-44bb-e187-bae236934c9b" aria-expanded="false" tabindex="0">
+                                                <div class="ant-select-selection__rendered">
+                                                    <div class="ant-select-selection-selected-value" title="카드사 전체" style="display: block; opacity: 1;">카드사 전체</div>
+                                                </div>
+                                                <span class="ant-select-arrow" unselectable="on" style="user-select: none;">
+                                                    <i aria-label="icon: down" class="anticon anticon-down ant-select-arrow-icon">
+                                                        <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg>
+                                                    </i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="form_unit">
+                                    <dt>카드번호</dt>
+                                    <dd>
+                                        <input placeholder="카드번호 또는 포인트카드번호" type="text" class="ant-input" value="">
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!--// filter_area_row -->
+                            <!-- filter_area_row -->
+                            <div class="filter_area_row">
+                                <dl class="form_unit">
+                                    <dt>금액</dt>
+                                    <dd>
+                                        <div class="ant-select ant-select-enabled">
+                                            <div class="ant-select-selection
+                                            ant-select-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-controls="3d89b0fd-af4b-44bb-e187-bae236934c9b" aria-expanded="false" tabindex="0">
+                                                <div class="ant-select-selection__rendered">
+                                                    <div class="ant-select-selection-selected-value" title="승인금액" style="display: block; opacity: 1;">승인금액</div>
+                                                </div>
+                                                <span class="ant-select-arrow" unselectable="on" style="user-select: none;">
+                                                    <i aria-label="icon: down" class="anticon anticon-down ant-select-arrow-icon">
+                                                        <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg>
+                                                    </i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="form_unit">
+                                    <dt>승인번호</dt>
+                                    <dd>
+                                        <input placeholder="사전승인번호 또는 최종승인번호" type="text" class="ant-input" value="">
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!--// filter_area_row -->
+                            <div class="filter_btn_wrap">
+                                <button type="button" class="btn btn_c_white btn_round btn_size_85"><span>초기화</span></button>
+                                <button type="button" id="close_filter" class="btn btn_c_gray btn_round btn_size_85"><span>닫기</span></button>
+                            </div>
+                        </div>
+                        <!--// filter_area -->
+                    </div>
+                    <!--// search_filter_area -->
+                    <!-- search_view_area -->
+                    <div class="search_view_area">
+                        <!-- search_view_top -->
+                        <div class="search_view_top">
+                            <!-- search_view_info -->
+                            <div class="search_view_info">
+                                <ul>
+                                    <li>
+                                        <span class="tit">조회기간</span>
+                                        <span class="txt">2019-03-28 ~ 2019-04-04</span>
+                                    </li>
+                                    <li>
+                                        <span class="tit">충전 건수</span>
+                                        <span class="txt"><span>242</span>건</span>
+                                    </li>
+                                    <li>
+                                        <span class="tit">충전시간</span>
+                                        <span class="txt"><span>5146</span>시간 <span>45</span>분</span>
+                                    </li>
+                                    <li>
+                                        <span class="tit">충전량</span>
+                                        <span class="txt"><span>4561</span>kWh</span>
+                                    </li>
+                                    <li>
+                                        <span class="tit">충전요금</span>
+                                        <span class="txt"><span>455,210</span>원</span>
+                                    </li>
+                                    <li>
+                                        <span class="tit">최종승인금액</span>
+                                        <span class="txt"><span>455,210</span>원</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--// search_view_info -->
+                            <span class="all_count">총 <span>214</span>건</span>
+                            <div class="ant-select-sm ant-select ant-select-enabled">
+                                <div class="ant-select-selection
+                                ant-select-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-controls="17097b0d-d71c-44ee-db20-340388a69b46" aria-expanded="false" tabindex="0">
+                                    <div class="ant-select-selection__rendered">
+                                        <div class="ant-select-selection-selected-value" title="a1" style="display: block; opacity: 1;">50개씩 보기</div>
+                                    </div>
+                                    <span class="ant-select-arrow" unselectable="on" style="user-select: none;">
+                                        <i aria-label="icon: down" class="anticon anticon-down ant-select-arrow-icon">
+                                            <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg>
+                                        </i>
+                                    </span>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn_down btn_excel"><span class="hide">엑셀 저장</span></button>
+                            <!-- <button type="button" class="btn btn_size btn_big"><span class="hide">확대</span></button>--><!--btn_big, btn_small -->
+                        </div>
+                        <!--// search_view_top -->
+                        
+                        <!-- tbl_wrap -->
+                        <div class="tbl_wrap typ2 tbl_wide">
+                            <div class="ant-table-wrapper">
+                                <div class="ant-spin-nested-loading">
+                                    <div class="ant-spin-container">
+                                        <div class="ant-table ant-table-default ant-table-scroll-position-left">
+                                            <div class="ant-table-content">
+                                                <div class="ant-table-body">
+                                                    <table class="">
+                                                        <colgroup>
+                                                            <col style="width:3.4%;"><!-- Site Code -->
+                                                            <col style="width:6%;"><!-- 충전소명 -->
+                                                            <col style="width:auto;"><!-- 충전기명 -->
+                                                            <col style="width:6%;"><!-- 커넥터 -->
+                                                            <col style="width:6%;"><!-- ID -->
+                                                            <col style="width:6%;"><!-- 거래유형 -->
+                                                            <col style="width:6%;"><!-- 결제유형 -->
+                                                            <col style="width:6%;"><!-- 전표번호 -->
+                                                            <col style="width:6%;"><!-- 카드사 -->
+                                                            <col style="width:6%;"><!-- 카드번호 -->
+                                                            <col style="width:4%;"><!-- 사전승인번호 -->
+                                                            <col style="width:6%;"><!-- 사전승인일시 -->
+                                                            <col style="width:6%;"><!-- 사전승인금액(원) -->
+                                                            <col style="width:6%;"><!-- 부분매입승인일시 -->
+                                                            <col style="width:6%;"><!-- 부분매입승인금액(원) -->
+                                                            <col style="width:6%;"><!-- 최종승인번호 -->
+                                                            <col style="width:6%;"><!-- 최종승인일시 -->
+                                                            <col style="width:6%;"><!-- 최종승인금액(원) -->
+                                                        </colgroup>
+                                                        <thead class="ant-table-thead">
+                                                            <tr>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">Site Code</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">충전소명</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">충전기명</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">커넥터</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">ID</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">거래유형</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">결제유형</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">전표번호</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">카드사</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">카드번호</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">사전승인번호</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">사전승인일시</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">사전승인금액(원)</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">부분매입승인일시</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">부분매입승인금액(원)</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">최종승인번호</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">최종승인일시</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                                <th>
+                                                                    <span class="ant-table-header-column">
+                                                                        <div><span class="ant-table-column-title">최종승인금액(원)</span><span class="ant-table-column-sorter"></span></div>
+                                                                    </span>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="ant-table-tbody">
+                                                            <tr class="ant-table-row ant-table-row-level-0" data-row-key="1">
+                                                                <td>S420</td>
+                                                                <td>초동주유소</td><!-- 말줄임이 필요할땐 text_over 클래스를 추가해주면 됨 -->
+                                                                <td>C1</td>
+                                                                <td>DC콤보(1)</td>
+                                                                <td>0200227</td>
+                                                                <td>현장결제</td>
+                                                                <td >신용(신용)</td>
+                                                                <td>1234567</td>
+                                                                <td>신한</td>
+                                                                <td>0000003400000000</td>
+                                                                <td>0038009</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>10,000</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td><span class="error_approval_check">546,500</span></td>
+                                                                <td>278293817</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>1,944</td>
+                                                            </tr>
+                                                            <tr class="ant-table-row ant-table-row-level-0" data-row-key="1">
+                                                                <td>S420</td>
+                                                                <td>초동주유소</td><!-- 말줄임이 필요할땐 text_over 클래스를 추가해주면 됨 -->
+                                                                <td>C1</td>
+                                                                <td>DC콤보(1)</td>
+                                                                <td>0200227</td>
+                                                                <td>현장결제</td>
+                                                                <td >신용(신용)</td>
+                                                                <td>1234567</td>
+                                                                <td>신한</td>
+                                                                <td>0000003400000000</td>
+                                                                <td>0038009</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>10,000</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>546,500</td>
+                                                                <td>278293817</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>1,944</td>
+                                                            </tr>
+                                                            <tr class="ant-table-row ant-table-row-level-0" data-row-key="1">
+                                                                <td>S420</td>
+                                                                <td>초동주유소</td><!-- 말줄임이 필요할땐 text_over 클래스를 추가해주면 됨 -->
+                                                                <td>C1</td>
+                                                                <td>DC콤보(1)</td>
+                                                                <td>0200227</td>
+                                                                <td>현장결제</td>
+                                                                <td >신용(신용)</td>
+                                                                <td>1234567</td>
+                                                                <td>신한</td>
+                                                                <td>0000003400000000</td>
+                                                                <td>0038009</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>10,000</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>546,500</td>
+                                                                <td>278293817</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>1,944</td>
+                                                            </tr>
+                                                            <tr class="ant-table-row ant-table-row-level-0" data-row-key="1">
+                                                                <td>S420</td>
+                                                                <td>초동주유소</td><!-- 말줄임이 필요할땐 text_over 클래스를 추가해주면 됨 -->
+                                                                <td>C1</td>
+                                                                <td>DC콤보(1)</td>
+                                                                <td>0200227</td>
+                                                                <td>현장결제</td>
+                                                                <td >신용(신용)</td>
+                                                                <td>1234567</td>
+                                                                <td>신한</td>
+                                                                <td>0000003400000000</td>
+                                                                <td>0038009</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>10,000</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>546,500</td>
+                                                                <td>278293817</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>1,944</td>
+                                                            </tr>
+                                                            <tr class="ant-table-row ant-table-row-level-0" data-row-key="1">
+                                                                <td>S420</td>
+                                                                <td>초동주유소</td><!-- 말줄임이 필요할땐 text_over 클래스를 추가해주면 됨 -->
+                                                                <td>C1</td>
+                                                                <td>DC콤보(1)</td>
+                                                                <td>0200227</td>
+                                                                <td>현장결제</td>
+                                                                <td >신용(신용)</td>
+                                                                <td>1234567</td>
+                                                                <td>신한</td>
+                                                                <td>0000003400000000</td>
+                                                                <td>0038009</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>10,000</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>546,500</td>
+                                                                <td>278293817</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>1,944</td>
+                                                            </tr>
+                                                            <tr class="ant-table-row ant-table-row-level-0" data-row-key="1">
+                                                                <td>S420</td>
+                                                                <td>초동주유소</td><!-- 말줄임이 필요할땐 text_over 클래스를 추가해주면 됨 -->
+                                                                <td>C1</td>
+                                                                <td>DC콤보(1)</td>
+                                                                <td>0200227</td>
+                                                                <td>현장결제</td>
+                                                                <td >신용(신용)</td>
+                                                                <td>1234567</td>
+                                                                <td>신한</td>
+                                                                <td>0000003400000000</td>
+                                                                <td>0038009</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>10,000</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>546,500</td>
+                                                                <td>278293817</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>1,944</td>
+                                                            </tr>
+                                                            <tr class="ant-table-row ant-table-row-level-0" data-row-key="1">
+                                                                <td>S420</td>
+                                                                <td>초동주유소</td><!-- 말줄임이 필요할땐 text_over 클래스를 추가해주면 됨 -->
+                                                                <td>C1</td>
+                                                                <td>DC콤보(1)</td>
+                                                                <td>0200227</td>
+                                                                <td>현장결제</td>
+                                                                <td >신용(신용)</td>
+                                                                <td>1234567</td>
+                                                                <td>신한</td>
+                                                                <td>0000003400000000</td>
+                                                                <td>0038009</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>10,000</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>546,500</td>
+                                                                <td>278293817</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>1,944</td>
+                                                            </tr>
+                                                            <tr class="ant-table-row ant-table-row-level-0" data-row-key="1">
+                                                                <td>S420</td>
+                                                                <td>초동주유소</td><!-- 말줄임이 필요할땐 text_over 클래스를 추가해주면 됨 -->
+                                                                <td>C1</td>
+                                                                <td>DC콤보(1)</td>
+                                                                <td>0200227</td>
+                                                                <td>현장결제</td>
+                                                                <td >신용(신용)</td>
+                                                                <td>1234567</td>
+                                                                <td>신한</td>
+                                                                <td>0000003400000000</td>
+                                                                <td>0038009</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>10,000</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>546,500</td>
+                                                                <td>278293817</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>1,944</td>
+                                                            </tr>
+                                                            <tr class="ant-table-row ant-table-row-level-0" data-row-key="1">
+                                                                <td>S420</td>
+                                                                <td>초동주유소</td><!-- 말줄임이 필요할땐 text_over 클래스를 추가해주면 됨 -->
+                                                                <td>C1</td>
+                                                                <td>DC콤보(1)</td>
+                                                                <td>0200227</td>
+                                                                <td>현장결제</td>
+                                                                <td >신용(신용)</td>
+                                                                <td>1234567</td>
+                                                                <td>신한</td>
+                                                                <td>0000003400000000</td>
+                                                                <td>0038009</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>10,000</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>546,500</td>
+                                                                <td>278293817</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>1,944</td>
+                                                            </tr>
+                                                            <tr class="ant-table-row ant-table-row-level-0" data-row-key="1">
+                                                                <td>S420</td>
+                                                                <td>초동주유소</td><!-- 말줄임이 필요할땐 text_over 클래스를 추가해주면 됨 -->
+                                                                <td>C1</td>
+                                                                <td>DC콤보(1)</td>
+                                                                <td>0200227</td>
+                                                                <td>현장결제</td>
+                                                                <td >신용(신용)</td>
+                                                                <td>1234567</td>
+                                                                <td>신한</td>
+                                                                <td>0000003400000000</td>
+                                                                <td>0038009</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>10,000</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>546,500</td>
+                                                                <td>278293817</td>
+                                                                <td>2019-05-11 11:11:00</td>
+                                                                <td>1,944</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="ant-pagination ant-table-pagination" unselectable="unselectable">
+                                            <li title="Previous Page" class="ant-pagination-disabled ant-pagination-prev" aria-disabled="true"><a class="ant-pagination-item-link"><i aria-label="icon: left" class="anticon anticon-left"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="left" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                            <path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"></path>
+                                                        </svg></i></a></li>
+                                            <li title="1" class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active" tabindex="0"><a>1</a></li>
+                                            <li title="Next Page" class="ant-pagination-disabled ant-pagination-next" aria-disabled="true"><a class="ant-pagination-item-link"><i aria-label="icon: right" class="anticon anticon-right"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                                            <path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path>
+                                                        </svg></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--// tbl_wrap -->
+                    </div>
+                    <!--// search_view_area -->
+                </div>
+                <!--// cont_left -->
+                <div class="wide_wrap"><button type="button" class="btn_wide"><span class="hide">레이아웃 조정</span></button></div>
+                <!-- cont_right -->
+                <div class="round_view_area cont_right">
+                    <!-- side_view_head -->
+                    <div class="side_view_head">
+                        <h2 class="h2_tit">결제이력상세</h2>
+                        <!-- <span class="chargeStatus_name">스마트 남서울주유소</span> -->
+                        <span class="poR">
+                            <button type="button" class="btn btn_size_free"><span>영수증</span></button>
+                            <button type="button" class="btn btn_size_free ml5"><span>메세지내역</span></button>
+                        </span>
+                    </div>
+                    <!--// side_view_head -->
+                    <!-- side_view_cont -->
+                    <div class="side_view_cont typ2">
+                        <ul class="chargeStatus_info">
+                            <li><span class="tit">Site Code</span><span class="txt">S420</span></li>
+                            <li><span class="tit">SAP Code</span><span class="txt">123456</span></li>
+                            <li><span class="tit">충전소명</span><span class="txt">초동주유소</span></li>
+                            <li><span class="tit">충전소ID</span><span class="txt">GS000004</span></li>
+                            <li><span class="tit">충전기명</span><span class="txt">C1</span></li>
+                            <li><span class="tit">충전기ID</span><span class="txt">GS000000</span></li>
+                            <li><span class="tit">커넥터</span><span class="txt">DC콤보(1)</span></li>
+                            <li><span class="tit">ID</span><span class="txt">1510</span></li>
+                            <li><span class="tit">거래유형</span><span class="txt">현장결제</span></li>
+                            <li><span class="tit">결제유형</span><span class="txt">신용카드(신용)</span></li>
+                            <li><span class="tit">전표번호</span><span class="txt">1234567</span></li>
+                            <li><span class="tit">카드사</span><span class="txt">신한</span></li>
+                            <li><span class="tit">카드번호</span><span class="txt">000000017******</span></li>
+                        </ul>
+                        <ul class="chargeStatus_info">
+                            <li><span class="tit">사전승인번호</span><span class="txt">00380971</span></li>
+                            <li><span class="tit">사전승인일시</span><span class="txt">2019-05-16 12:11:30</span></li>
+                            <li><span class="tit">사전승인금액(원)</span><span class="txt">10,000</span></li>
+                        </ul>
+                        <ul class="chargeStatus_info bt0">
+                            <li><span class="tit">부분매입승인일시</span><span class="txt">2019-05-16 11:45:22</span></li>
+                            <li><span class="tit">부분매입승인금액(원)</span><span class="txt">23,146</span></li>
+                        </ul>
+                        <ul class="chargeStatus_info bt0">
+                            <li><span class="tit">최종승인번호</span><span class="txt">178293818</span></li>
+                            <li><span class="tit">최종승인일시</span><span class="txt">2019-05-16 12:11:30</span></li>
+                            <li><span class="tit">최종승인금액(원)</span><span class="txt">23,146</span></li>
+                        </ul>
+                        <ul class="chargeStatus_info">
+                            <li><span class="tit">포인트카드번호</span><span class="txt">178293818</span></li>
+                            <li><span class="tit">적립사용구분코드</span><span class="txt">1</span></li>
+                        </ul>
+                    </div>
+                    <!--// side_view_cont -->
+                </div>
+                <!--// cont_right -->
+            </div>
+            <!--// contents -->
+        </div>
+        <!--// container -->
+        <!-- footer -->
+        <footer id="footer">
+            <ul class="foot_info">
+                <li>계정 문의 : 02-1588-1588</li>
+                <li>충전 문의 : 02-1577-1577</li>
+                <li>제조사 문의 : 02-1566-1566</li>
+            </ul>
+        </footer>
+        <!--// footer -->
+    </div>
+    <!--// wrapper_body -->
+</div>
+<!--// wrapper -->
+
+
+<!-- 팝업 영역 -->
+<!-- 영수증팝업 -->
+<div class="popup_wrap size770 size_s"><!-- is_active -->
+    <div class="dim"></div>
+    <div class="popup_cont">
+        <div class="popup_head">
+            <h2 class="h2_popTit">충전요금 결제 영수증</h2>
+            <button type="button" class="close_popup"><span class="hide">닫기</span></button>
+        </div>
+        <div class="popup_body">
+            <div class="tbl_wrap inner mt0">
+                <table class="tbl_row_typ3 mt0">
+                    <colgroup>
+                        <col width="160px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">회사명</th>
+                            <td>GS칼텍스</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">사업자번호</th>
+                            <td>1234123412</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">주소</th>
+                            <td>서울시 강남구 논현로 508 GS타워</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">전기자동차 헬프데스크</th>
+                            <td>1544-5151</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="tbl_row_typ3">
+                    <colgroup>
+                        <col width="160px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">카드번호</th>
+                            <td>000003******2926</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">카드종류</th>
+                            <td>신용</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">승인번호</th>
+                            <td>17829381</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="tbl_row_typ3">
+                    <colgroup>
+                        <col width="160px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">충전소명</th>
+                            <td>초동주유소</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">충전시작일시</th>
+                            <td>2019-05-16 11:00:01</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">충전종료일시</th>
+                            <td>2019-05-16 11:59:06</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">결제방식</th>
+                            <td>IC 카드결제</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">결제일시</th>
+                            <td>2019-05-16 12:03:06</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">충전량(kWh)</th>
+                            <td>12.87</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">충전금액(원)</th>
+                            <td>2,738</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">최초결제금액(원)</th>
+                            <td>10,000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">취소결제금액(원)</th>
+                            <td>7,262</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="tbl_row_typ3">
+                    <colgroup>
+                        <col width="160px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="b">최종결제금액(원)</th>
+                            <td class="b">2,738</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p class="txt_comment t_line mr15 mt25">결제금액과 충전금액이 다른 경우 차액만큼 결제취소 됩니다.(카드사 영업일 기준 1~7일 소요)</p>
+            
+            <div class="btn_wrap">
+                <button type="button" class="btn btn_c_gray btn_round btn_size_85"><span>확인</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--// 영수증팝업 -->
+<!-- 메시지내역팝업 -->
+<div class="popup_wrap size500 size_s"><!-- is_active -->
+    <div class="dim"></div>
+    <div class="popup_cont">
+        <div class="popup_head">
+            <h2 class="h2_popTit">메시지내역</h2>
+            <button type="button" class="close_popup"><span class="hide">닫기</span></button>
+        </div>
+        <div class="popup_body">
+            <div class="tbl_wrap inner mt0">
+                <table class="tbl_row_typ3 mt0">
+                    <colgroup>
+                        <col width="160px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">템플릿구분</th>
+                            <td>충전종료</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">템플릿ID</th>
+                            <td>10009</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">템플릿명</th>
+                            <td>충전 내역 안내</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="tbl_row_typ3">
+                    <colgroup>
+                        <col width="160px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">발송시간</th>
+                            <td>2019-05-16 11:59:37</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">전화번호</th>
+                            <td>3909</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">메시지종류</th>
+                            <td>알림톡</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">메시지내용</th>
+                            <td>[GS칼텍스]<br>3909 고객님, 초동주유소에서 충전이 완료되었습니다. <br>충전요금은 2,738원 입니다. 감사합니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="tbl_row_typ3">
+                    <colgroup>
+                        <col width="160px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="has_bBorder pb10">요청상태</th>
+                            <td class="has_bBorder pb10">성공</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>                   
+            <div class="btn_wrap">
+                <button type="button" class="btn btn_c_gray btn_round btn_size_85"><span>확인</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--// 메시지내역팝업 -->
+<!--// 팝업 영역 -->
+
+<script src="../com/js/common.js"></script>
+</body>
+</html>

@@ -5,7 +5,7 @@
     <!-- wrapper_body -->
     <div id="wrapper_body">
         <!-- header -->
- 
+ <Header></Header>
         <!--// header -->
         <!-- container -->
         <div id="container">
@@ -681,7 +681,7 @@
             <!--// contents -->
         </div>
         <!--// container -->
-  
+  <Footer></Footer>
     </div>
     <!--// wrapper_body -->
 </div>

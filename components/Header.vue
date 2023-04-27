@@ -4,7 +4,9 @@
   <header id="header">
     <!-- head_left -->
     <div class="head_left">
-      <button class="top_logo"><span class="hide">GS칼텍스</span></button>
+      <button class="top_logo" v-on:click="clickLogo">
+        <span class="hide">GS칼텍스</span>
+      </button>
       <nav class="gnb">
         <ul class="gnb_depth1">
           <li><button>대시보드</button></li>
@@ -49,7 +51,7 @@
             </ul>
           </li>
           <!-- 20191210 수정 -->
-          <li class="is_active">
+          <li>
             <button>충전인프라</button>
             <ul class="gnb_depth2">
               <li>
@@ -100,8 +102,16 @@
     <!--// head_left -->
     <!-- head_right -->
     <div class="head_right">
-      <div class="login_typ_wrap">
-        <button class="btn_user_info"><span>Admin</span></button>
+      <div
+        class=""
+        v-bind:class="{
+          login_typ_wrap: className.admin_div_login_typ_wrap,
+          is_active: className.admin_div_login_typ_wrap_is_active,
+        }"
+      >
+        <button class="btn_user_info" v-on:click="clickAdmin">
+          <span>Admin</span>
+        </button>
         <!-- user_info_wrap admin 영역-->
         <div class="user_info_wrap">
           <!-- 활성화 시 addClass : is_active -->
@@ -123,9 +133,17 @@
         </div>
         <!--// user_info_wrap -->
       </div>
-      <div class="top_sel">
+      <div
+        class=""
+        v-bind:class="{
+          top_sel: className.charge_house_div_top_sel,
+          is_active: className.charge_house_div_top_sel_is_active,
+        }"
+      >
         <!-- 활성화 시 addClass : is_active -->
-        <button class="btn_top_sel"><span>충전소 전체</span></button>
+        <button class="btn_top_sel" v-on:click="clickChargeHouse">
+          <span>충전소 전체</span>
+        </button>
         <div class="top_sel_wrap">
           <ul>
             <li><button title="충전소전체">충전소전체</button></li>
@@ -212,11 +230,19 @@
           </ul>
         </div>
       </div>
-      <div class="alert_view has_alert">
+      <div class="alert_view">
         <!-- 알림이 있을경우 has_alert 추가 -->
-        <button class="btn_alert icon"><span class="hide">알림</span></button>
+        <button class="btn_alert icon" v-on:click="clickAlert">
+          <span class="hide">알림</span>
+        </button>
         <!-- alert_popup_all_wrap 알림팝업 전체 영역-->
-        <div class="alert_popup_all_wrap">
+        <div
+          class=""
+          v-bind:class="{
+            alert_popup_all_wrap: className.alert_alert_popup_all_wrap,
+            is_active: className.alert_alert_popup_all_wrap_is_active,
+          }"
+        >
           <!-- 활성화 시 addClass : is_active -->
           <!-- alert_popup_wrap 팝업 개별영역 -->
           <div class="alert_popup_wrap alert_typ1_1">
@@ -824,7 +850,78 @@
 </template>
 
 <script>
+// @ is an alias to /src
+
 export default {
-  name: "NuxtTutorial",
+  // 1. name
+  name: "Header",
+  // 2. data
+  data() {
+    return {
+      className: {
+        admin_div_login_typ_wrap: true, // login_typ_wrap is_active
+        admin_div_login_typ_wrap_is_active: false, // login_typ_wrap is_active
+        charge_house_div_top_sel: true, // top_sel is_active
+        charge_house_div_top_sel_is_active: false, // top_sel is_active
+        alert_alert_popup_all_wrap: true, // alert_popup_all_wrap is_active
+        alert_alert_popup_all_wrap_is_active: false, // alert_popup_all_wrap is_active
+      },
+      is: {
+        isAdminWindow: false,
+        isChargeHouseWindow: false,
+        isAlertWindow: false,
+      },
+    };
+  },
+  // 3. components
+  components: {},
+  // 4. Lifecycle
+  beforeCreate() {},
+  created() {},
+  beforeMount() {},
+  mounted() {},
+  beforeUpdate() {},
+  updated() {},
+  beforeDestroy() {},
+  destroyed() {},
+  // 5. watch
+  watch: {},
+  // 6. computed
+  computed: {},
+  // 7. methods
+  methods: {
+    //
+    clickLogo: function () {
+      this.$router.push("/");
+    },
+    //
+    clickAlert: function () {
+      // 알림 창
+      this.className.alert_alert_popup_all_wrap = true; // alert_popup_all_wrap is_active
+      this.className.alert_alert_popup_all_wrap_is_active =
+        !this.is.isAlertWindow; // alert_popup_all_wrap is_active
+      //
+      this.is.isAlertWindow = !this.is.isAlertWindow;
+    },
+    //
+    clickChargeHouse: function () {
+      // 충전소 전체 창
+      this.className.charge_house_div_top_sel = true; // login_typ_wrap is_active
+      this.className.charge_house_div_top_sel_is_active =
+        !this.is.isChargeHouseWindow; // login_typ_wrap is_active
+      //
+      this.is.isChargeHouseWindow = !this.is.isChargeHouseWindow;
+    },
+    //
+    clickAdmin: function () {
+      // Admin 창
+      this.className.admin_div_login_typ_wrap = true; // login_typ_wrap is_active
+      this.className.admin_div_login_typ_wrap_is_active =
+        !this.is.isAdminWindow; // login_typ_wrap is_active
+      //
+      this.is.isAdminWindow = !this.is.isAdminWindow;
+    },
+  },
 };
 </script>
+<style scoped></style>
